@@ -9,7 +9,7 @@ public class UserController {
 		userIndex = 0;
 	}
 	
-	public void addUser(User userIn)		//Confirm permissions!
+	public void addUser(User userIn)		//Limit permissions!
 	{
 		users[userIndex] = userIn;
 		userIndex++;
