@@ -7,9 +7,8 @@ public class IOController {
 		XStream xstream = new XStream();
 		String XMLOut = xstream.toXML(obj);
 		
-		Writer writer = null;
 		File file = new File("write.txt"); //obj + ".XML");
-		writer = new BufferedWriter(new FileWriter(file));
+		Writer writer = new BufferedWriter(new FileWriter(file));
 		writer.write(XMLOut);
 	}
 	
