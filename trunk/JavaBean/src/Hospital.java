@@ -12,3 +12,5 @@ public class Hospital {
 		IOController.writeToXML(uc);
 	}
 }
+
+//trial
