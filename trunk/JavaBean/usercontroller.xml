@@ -1,10 +1,18 @@
 <UserController>
   <users>
     <Patient>
+      <name>Jonathan Smith</name>
+      <password>password2</password>
+      <permissions>1</permissions>
+      <userID>1</userID>
+      <ssn>987-65-4321</ssn>
+      <birthday>1970-01-07 05:19:15.555 EST</birthday>
+    </Patient>
+    <Patient>
       <name>Nathan Bailey</name>
       <password>password</password>
       <permissions>1</permissions>
-      <userID>1</userID>
+      <userID>0</userID>
       <ssn>123-45-6789</ssn>
       <birthday>1970-01-07 22:17:16.800 EST</birthday>
     </Patient>

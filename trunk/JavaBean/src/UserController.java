@@ -1,21 +1,28 @@
 import java.util.ArrayList;
 
 public class UserController {
-	ArrayList users;
+	private ArrayList users;
 
 	public UserController()
 	{
 		users = new ArrayList();
 	}
 	
-	public User getUser(int userID)
+	public int getUserIndex(int userID)		//Limit permissions!
 	{
-		return (User)users.get(userID);		//Assumes userID corresponds to index
+		for(int i=0; i<users.size(); i++)
+		{
+			User user = (User)users.get(i);
+			if(user.getUserID() == userID)
+				return i;
+		}
+		return -1;
 	}
 	
-	public int getUserPermissions(int userID)
+	public int getUserPermissions(int userID)	//Limit permissions!
 	{
-		return getUser(userID).permissions;
+		User user = (User)users.get(getUserIndex(userID));
+		return user.getPermissions();
 	}
 	
 	public void addUser(User userIn)		//Limit permissions!
@@ -23,9 +30,9 @@ public class UserController {
 		users.add(userIn);
 	}
 	
-	public void deleteUser(int userID)
+	public void deleteUser(int userID)		//Limit permissions!
 	{
-		users.remove(userID);			//Assumes userID corresponds to index
+		users.remove(getUserIndex(userID));
 	}
 
 	public String toString()
