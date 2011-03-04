@@ -1,0 +1,52 @@
+<project name="JavaBean" basedir="." default="all">
+	<target name="init">
+		<property name="src.dir"	value="src"/>
+		<property name="build.dir"	value="build"/>
+		<property name="apidoc.dir"	value="apidoc"/>
+		<property name="lib.dir"	value="lib"/>
+		<property name="main-class"	value="Hospital"/>
+	</target>
+
+	<path id="classpath">
+		<fileset dir="lib" includes="**/*.jar"/>
+	</path>
+
+	<target name="prepare" depends="init">
+		<mkdir dir="${build.dir}"/>
+		<mkdir dir="${apidoc.dir}"/>
+	</target>
+
+	<target name="compile" depends="prepare">
+		<javac srcdir="${src.dir}" destdir="${build.dir}" classpathref="classpath"/>
+	</target>
+<!--
+	<target name="javadoc" depends="compile">
+		<javadoc sourcepath="${src.dir}" destdir="${apidoc.dir}"/>
+	</target>
+-->
+	<target name="jar" depends="compile">
+		<jar destfile="${ant.project.name}.jar" basedir="${build.dir}">
+			<manifest>
+				<attribute name="main-class" value="${main-class}"/>
+			</manifest>
+		</jar>
+	</target>
+	
+	<target name="run" depends="jar">
+		<java fork="true" classname="${main-class}">
+			<classpath>
+				<path refid="classpath"/>
+				<path location="${ant.project.name}.jar"/>
+			</classpath>
+		</java>
+	</target>
+
+	<target name="all" depends="clean"/>
+
+	<target name="clean" depends="run">
+		<delete dir="${build.dir}"/>
+		<delete dir="${apidoc.dir}"/>
+		<delete file="${ant.project.name}.jar"/>
+	</target>
+
+</project>
