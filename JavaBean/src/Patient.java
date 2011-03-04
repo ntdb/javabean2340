@@ -24,15 +24,15 @@ public class Patient extends User {
 		this.ssn = ssn;
 	}
 
-	public String getSsn() {					//Limit permissions!
+	public String getSsn() {				//Limit permissions!
 		return ssn;
 	}
 
-	public void setBirthday(Date birthday) {	//Limit permissions!
+	public void setBirthday(Date birthday) {		//Limit permissions!
 		this.birthday = birthday;
 	}
 
-	public Date getBirthday() {					//Limit permissions!
+	public Date getBirthday() {				//Limit permissions!
 		return birthday;
 	}
 }

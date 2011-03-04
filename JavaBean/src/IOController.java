@@ -8,14 +8,13 @@ public class IOController {
 		String XMLOut = xstream.toXML(obj);
 		Writer writer = null;
 		File file = new File(obj + ".XML");
+		
 		writer = new BufferedWriter(new FileWriter(file));
-//		FileWriter writer = new FileWriter(file);
 		writer.write(XMLOut);
 		writer.close();
-		System.out.println(XMLOut);
 	}
 	
-	public static Object getFromXML(Object obj) throws IOException
+	public static Object getFromXML(Object obj) throws IOException	//Problem if XML exists but is blank
 	{
 		XStream xstream = new XStream();
 

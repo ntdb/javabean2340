@@ -20,4 +20,14 @@ public abstract class User {
 		permissions = permissionsIn;
 		userID = userIDIn;
 	}
+
+	public int getUserID()
+	{
+		return userID;
+	}
+
+	public int getPermissions()
+	{
+		return permissions;
+	}
 }
