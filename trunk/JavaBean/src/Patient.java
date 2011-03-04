@@ -1,5 +1,4 @@
 import java.util.Date;
-import com.thoughtworks.xstream.*;
 
 public class Patient extends User {
 	private String ssn;

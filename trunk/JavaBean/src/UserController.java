@@ -1,27 +1,16 @@
+import java.util.ArrayList;
 
 public class UserController {
-	User[] users;
-	int userIndex;
-	
+	ArrayList users;
+
 	public UserController()
 	{
-		users = new User[10];
-		userIndex = 0;
+		users = new ArrayList();
 	}
 	
 	public User getUser(int userID)
 	{
-		return users[userID];				//Assumes ID corresponds to array
-		//OR
-		/*
-		for(int i = 0; i<users.length; i++)
-		{
-			if(users[i].userID == userID)
-				return users[i];
-			else
-				return null;
-		}
-		*/
+		return (User)users.get(userID);		//Assumes userID corresponds to index
 	}
 	
 	public int getUserPermissions(int userID)
@@ -31,14 +20,16 @@ public class UserController {
 	
 	public void addUser(User userIn)		//Limit permissions!
 	{
-		users[userIndex] = userIn;
-		userIndex++;
+		users.add(userIn);
 	}
 	
 	public void deleteUser(int userID)
 	{
-		for(int i=userID; i<users.length-1; i++)	//Assumes ID corresponds to array
-			users[i] = users[i+1];
-		users[users.length-1] = null;
+		users.remove(userID);			//Assumes userID corresponds to index
+	}
+
+	public String toString()
+	{
+		return "UserController";
 	}
 }
