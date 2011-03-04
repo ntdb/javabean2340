@@ -14,7 +14,7 @@ public class IOController {
 		writer.close();
 	}
 	
-	public static Object getFromXML(Object obj) throws IOException	//Problem if XML exists but is blank
+	public static Object getFromXML(Object obj) throws IOException	//!!Problem if XML exists but is blank
 	{
 		XStream xstream = new XStream();
 
@@ -28,11 +28,18 @@ public class IOController {
 				UserController fromXML = (UserController)xstream.fromXML(new String(buffer));
 				return fromXML;
 			}
+			else if(obj instanceof Schedule)
+			{
+				Schedule fromXML = (Schedule)xstream.fromXML(new String(buffer));
+				return fromXML;
+			}
 		}
 		else							//Returns new object if necessary
 		{
 			if(obj instanceof UserController)
 				return new UserController();
+			else if(obj instanceof Schedule)
+				return new Schedule();
 		}
 		return null;
 	}
