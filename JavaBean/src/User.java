@@ -30,4 +30,19 @@ public abstract class User {
 	{
 		return permissions;
 	}
+	
+	/**
+	 * Will check the xml file for a record of the User's name and corresponding password.
+	 * If the password does not match the expected password, a counter for max log attempts will
+	 * increment, and the user will have to try to login again. If the counter reaches three, the 
+	 * user will not be able to login and will require an administrator to reset the counter.
+	 * @param userName user name that allows the user to login.
+	 * @param password Password required for the user to login.
+	 */
+	public void login(String userName, String password)
+	{
+		//retrieve information from the UserController class
+		
+		
+	}
 }
