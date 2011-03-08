@@ -13,17 +13,17 @@
 
 	<target name="prepare" depends="init">
 		<mkdir dir="${build.dir}"/>
-<!--		<mkdir dir="${apidoc.dir}"/>		-->
+		<mkdir dir="${apidoc.dir}"/>
 	</target>
 
 	<target name="compile" depends="prepare">
 		<javac srcdir="${src.dir}" destdir="${build.dir}" classpathref="classpath"/>
 	</target>
-<!--
+
 	<target name="javadoc" depends="compile">
 		<javadoc sourcepath="${src.dir}" destdir="${apidoc.dir}"/>
 	</target>
--->
+	
 	<target name="jar" depends="compile">
 		<jar destfile="${ant.project.name}.jar" basedir="${build.dir}">
 			<manifest>
