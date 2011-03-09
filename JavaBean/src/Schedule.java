@@ -21,14 +21,21 @@ public class Schedule
 	}
 
 
-	public void addUser(Appointment appointmentIn)				//Limit permissions!
+	public void addAppointment(Appointment appointmentIn)				//Limit permissions!
 	{
 		appointments.add(appointmentIn);
 	}
 	
 	public void deleteAppointment(int appointmentID)			//Limit permissions!
 	{
-		appointments.remove(getAppointmentIndex(appointmentID));
+		int index = getAppointmentIndex(appointmentID);
+		if(index == -1)
+		{
+		}
+		else
+		{
+		appointments.remove(index);
+		}
 	}
 
 	public String toString()
