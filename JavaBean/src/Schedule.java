@@ -3,11 +3,11 @@ import java.util.Date;
 
 public class Schedule 
 {
-	private ArrayList appointments;
+	private ArrayList<Appointment> appointments;
 
 	public Schedule()
 	{
-		appointments = new ArrayList();
+		appointments = new ArrayList<Appointment>();
 	}
 
 	private int getAppointmentIndex(int appointmentID)		//Limit permissions!
@@ -41,7 +41,7 @@ public class Schedule
 
 	public void displayOneDaySchedule(Date appTime)
 	{
-		ArrayList oneDaySchedule = new ArrayList();
+		ArrayList<Appointment> oneDaySchedule = new ArrayList<Appointment>();
 		
 		for(int i=0; i<appointments.size(); i++)
 		{
