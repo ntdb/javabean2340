@@ -1,5 +1,3 @@
-package JavaBean.src;
-
 public class LoginClass 
 {
 	private int maxattempts;
