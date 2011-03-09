@@ -1,3 +1,4 @@
+import java.util.Date;
 
 public class Nurse extends User{
 
@@ -26,8 +27,9 @@ public class Nurse extends User{
 		
 	}//end viewPatient
 	
-	public void viewAppointments(Schedule schedule){
-		
+	public void viewAppointments(Schedule schedule, Date appTime)
+	{
+		schedule.displayOneDaySchedule(appTime);
 	}//end viewAppointments
 	
 }//end class Nurse
