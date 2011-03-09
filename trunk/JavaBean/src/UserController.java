@@ -1,11 +1,11 @@
 import java.util.ArrayList;
 
 public class UserController {
-	private ArrayList users;
+	private ArrayList<User> users;
 
 	public UserController()
 	{
-		users = new ArrayList();
+		users = new ArrayList<User>();
 	}
 	
 	public int getUserIndex(int userID)		//Limit permissions!
