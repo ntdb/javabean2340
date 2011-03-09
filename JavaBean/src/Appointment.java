@@ -27,7 +27,7 @@ public class Appointment
 
 	public String toString()
 	{
-		String fullInfo = appointmentID + "\n" + appTime + "\n" + patientName + "\n" + doctorName + "\n";
+		String fullInfo = appointmentID + "\n" + appTime.toString() + "\n" + patientName + "\n" + doctorName + "\n";
 		return fullInfo;
 	}
 }
