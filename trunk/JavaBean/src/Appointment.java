@@ -19,6 +19,11 @@ public class Appointment
 	{
 		return appointmentID;
 	}
+	
+	public Date getAppTime()
+	{
+		return appTime;
+	}
 
 	public String toString()
 	{
