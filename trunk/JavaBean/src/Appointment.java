@@ -22,6 +22,7 @@ public class Appointment
 
 	public String toString()
 	{
-		return null;		//Fill this out!
+		String fullInfo = appointmentID + "\n" + appTime + "\n" + patientName + "\n" + doctorName + "\n";
+		return fullInfo;
 	}
 }
