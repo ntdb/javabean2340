@@ -40,6 +40,7 @@ public class Patient extends User {
 	{
 		//int myNewAppointmentID = medicalHistory.appointment.lastID+1
 		//Appointment myNewAppointment = new Appointment(myTime, myNewAppointmentID, name, ssn, myDoctor);
+		return null;
 	}
 
 	public String toString()
