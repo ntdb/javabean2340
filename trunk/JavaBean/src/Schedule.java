@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Schedule 
 {
@@ -38,6 +39,31 @@ public class Schedule
 		}
 	}
 
+	public void displayOneDaySchedule(Date appTime)
+	{
+		ArrayList oneDaySchedule = new ArrayList();
+		
+		for(int i=0; i<appointments.size(); i++)
+		{
+			Appointment appointment = (Appointment)appointments.get(i);
+			if(appointment.getAppTime() == appTime)
+				oneDaySchedule.add(appointment);
+		}
+		
+		if(oneDaySchedule.size() == 0)
+		{
+			System.out.println("No appointment at" + appTime.toString() + "\n");
+		}
+		else
+		{
+			for(int j=0; j<oneDaySchedule.size();j++)
+			{
+				Appointment newEntry = (Appointment)oneDaySchedule.get(j);
+				System.out.println( newEntry.toString() );
+			}
+		}
+	}
+	
 	public String toString()
 	{
 		return "Schedule";
