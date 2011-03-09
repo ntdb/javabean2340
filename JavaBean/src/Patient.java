@@ -35,6 +35,11 @@ public class Patient extends User {
 	public Date getBirthday() {				//Limit permissions!
 		return birthday;
 	}
+	
+	public Appointment requestAppointment(Date myTime, String myDoctor)
+	{
+		
+	}
 
 	public String toString()
 	{
