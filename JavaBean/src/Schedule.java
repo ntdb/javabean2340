@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.Date;
 
+//import JavaBean.src.Appointment;
+
 public class Schedule 
 {
 	private ArrayList<Appointment> appointments;
@@ -67,5 +69,20 @@ public class Schedule
 	public String toString()
 	{
 		return "Schedule";
+	}
+	
+	/**
+	 * Prints invoice which contains the patient name, date of visit, and doctor.
+	 * Also returns a bill for the service provided.
+	 * @param appointmentID Appointment to generate invoice for.
+	 * @return invoice information
+	 */
+	public String generateInvoice(int appointmentID){
+		Appointment app = appointments.get(appointmentID);
+		String report = "Patient name: " + app.getpatientName();
+		report = report + "\tDate of Visit: " + app.getAppTime();
+		report = report + "\tDoctor: " + app.getdoctorName();
+		report = report + "\nAmount due: $XXX.XX";		//Placeholder for bill
+		return report;
 	}
 }
