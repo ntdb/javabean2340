@@ -60,6 +60,24 @@ public class Nurse extends User{
 	}//end editPatient
 	
 	/**
+	 * Looks up a patient by the Patient's name
+	 * 
+	 * @param users The array of Users in the Hospital system
+	 * @param name The name of the Patient to lookup
+	 * @return The UserID of the patient
+	 */
+	public int PatientLookupByName(User[] users, String name){
+		int userID = 0;
+		for(int i = 0;i < users.length; i++){
+			if(users[i].getName().equalsIgnoreCase(name)){
+				userID = users[i].getUserID();
+				i = users.length;
+			}//end if statement
+		}//end for loop
+		return userID;
+	}//end PatientLookupByName
+	
+	/**
 	 * Allows Nurse to view Patient information
 	 * 
 	 * @param patient The Patient to look at
