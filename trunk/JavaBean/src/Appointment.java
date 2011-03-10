@@ -15,14 +15,28 @@ public class Appointment
 		this.doctorName = doctorName;
 	}
 
-	public int getAppointmentID()
-	{
+	public int getAppointmentID(){
 		return appointmentID;
 	}
 	
-	public Date getAppTime()
-	{
+	public Date getAppTime(){
 		return appTime;
+	}
+	
+	/**
+	 * Returns the Name of the patient involved in the appointment.
+	 * @return Name of the Patient.
+	 */
+	public String getpatientName(){
+		return patientName;
+	}
+	
+	/**
+	 * Returns the Name of the doctor involved in the appointment
+	 * @return Name of the Doctor.
+	 */
+	public String getdoctorName(){
+		return doctorName;
 	}
 
 	public String toString()
