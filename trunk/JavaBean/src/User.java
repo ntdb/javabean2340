@@ -45,4 +45,62 @@ public abstract class User {
 		
 		
 	}
+
+	
+	
+	/**
+	 * Returns the name of the User
+	 * 
+	 * @return The name of the User
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * Sets the User's name
+	 * 
+	 * @param name The name of the User
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	/**
+	 * Returns the User's password
+	 * 
+	 * @return The User's password
+	 */
+	public String getPassword() {
+		return password;
+	}
+
+	/**
+	 * Sets the User's password
+	 * 
+	 * @param password The user's password
+	 */
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	/**
+	 * Sets the permissions of the User
+	 * 
+	 * @param permissions The User's permissions
+	 */
+	public void setPermissions(int permissions) {
+		this.permissions = permissions;
+	}
+
+	/**
+	 * Sets the user ID of the User
+	 * 
+	 * @param userID The User's ID
+	 */
+	public void setUserID(int userID) {
+		this.userID = userID;
+	}
+	
+	
 }
