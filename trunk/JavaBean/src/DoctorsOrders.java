@@ -15,8 +15,10 @@ public class DoctorsOrders
 	
 	public String toString()
 	{
-		String fullInfo = "Prescription: " + prescription +"\nLab Work: " + 
-							labWork +"\nFollow Up: " + followUp + "\nOther: " + other + "\n";
+		String fullInfo = "\nPrescription: " + prescription +
+						  "\nLab Work: " + labWork +
+						  "\nFollow Up: " + followUp + 
+						  "\nOther: " + other + "\n";
 		return fullInfo;
 	}
 }
