@@ -43,6 +43,19 @@
 
 	<target name="all" depends="clean"/>
 
+<!--	<target name="test" depends="run">
+		<junit printsummary="yes" haltonfailure="yes" showoutput="yes" >
+			<classpath>
+				<path refid="classpath"/>
+				<path location="${ant.project.name}.jar"/>
+			</classpath>
+			<formatter type="xml"/>
+			<batchtest fork="yes">
+				<fileset dir="${src.dir}" includes="*Test.java"/>
+			</batchtest>
+		</junit>
+	</target>
+-->
 	<target name="clean" depends="run">
 		<delete dir="${build.dir}"/>
 		<delete dir="${apidoc.dir}"/>

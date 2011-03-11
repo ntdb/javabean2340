@@ -8,7 +8,7 @@ public class Patient extends User {
 	private String ssn;
 	private Date birthday;
 //	private MedicalHistory medicalHistory;
-
+	
 	/**
 	 * Default constructor sets all attributes to null
 	 * 
@@ -52,7 +52,7 @@ public class Patient extends User {
 		setSsn(ssnIn);
 		setBirthday(birthdayIn);
 	}
-
+	
 */
 	
 	/**
@@ -107,6 +107,6 @@ public class Patient extends User {
 
 	public String toString()
 	{
-		return null;			//Fill this out!
+		return "Patient: " + name;			//Expand this
 	}
 }
