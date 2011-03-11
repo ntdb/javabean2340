@@ -56,7 +56,7 @@ public class Nurse extends User{
 		patient.setName(name);
 		patient.setSsn(ssn);
 		patient.setBirthday(birthday);
-
+		
 	}//end editPatient
 	
 	/**

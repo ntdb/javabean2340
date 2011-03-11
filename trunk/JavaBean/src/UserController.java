@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class UserController {
 	private ArrayList<User> users;
-
+	
 	public UserController()
 	{
 		users = new ArrayList<User>();
@@ -33,6 +33,11 @@ public class UserController {
 	public void deleteUser(int userID)		//Limit permissions!
 	{
 		users.remove(getUserIndex(userID));
+	}
+
+	public int getNumberOfUsers()
+	{
+		return users.size();
 	}
 
 	public String toString()
