@@ -29,6 +29,11 @@ public class Schedule
 		appointments.add(appointmentIn);
 	}
 	
+	public Appointment findAppointment(int appointmentIndex)
+	{
+		return appointments.get(appointmentIndex);
+	}
+	
 	public void deleteAppointment(int appointmentID)			//Limit permissions!
 	{
 		int index = getAppointmentIndex(appointmentID);
