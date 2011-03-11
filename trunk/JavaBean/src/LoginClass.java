@@ -45,10 +45,15 @@ public class LoginClass {
 	}
 	
 	public void validate(String password){
-		//get the instance of the User Object
+		//first verify that User is in the user controller object
+		if (uc.getUserIndex(userId) == -1)
+			return;
+		
+		logger = uc.getUser(userId);
+		//retrieve user information and verify password matches usercontroller's
 		do
 		{
-			if(User.getPassword() == password)
+			if(logger.getPassword() == password)
 				validpass = true;
 			else
 				maxattempts++;
