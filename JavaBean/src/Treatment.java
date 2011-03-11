@@ -27,6 +27,10 @@ public class Treatment
 	
 	public String toString()
 	{
-		return null;
+		String fullInfo = "\nPatient ID: " + patientID +
+						  "\nDoctor ID: " + doctorID +
+						  "\nAppointment ID: " + appointmentID +
+						  "\nDetails:\n" + details +"\n";
+		return fullInfo;
 	}
 }
