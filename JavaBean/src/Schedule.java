@@ -29,8 +29,9 @@ public class Schedule
 		appointments.add(appointmentIn);
 	}
 	
-	public Appointment findAppointment(int appointmentIndex)
+	public Appointment findAppointment(int appointmentID)
 	{
+		int appointmentIndex = getAppointmentIndex(appointmentID);
 		return appointments.get(appointmentIndex);
 	}
 	
