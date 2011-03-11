@@ -8,6 +8,17 @@ public class UserController {
 		users = new ArrayList<User>();
 	}
 	
+	public User getUser(int userID)		//Limit permissions!
+	{
+		for(int i=0; i<users.size(); i++)
+		{
+			User user = (User)users.get(i);
+			if(user.getUserID() == userID)
+				return user;
+		}
+		return null;
+	}
+	
 	public int getUserIndex(int userID)		//Limit permissions!
 	{
 		for(int i=0; i<users.size(); i++)
