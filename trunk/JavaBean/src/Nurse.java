@@ -5,7 +5,16 @@ import java.util.Date;
  * of User that provides the basic functions necessary in a Hospital setting
  *
  */
-public class Nurse extends User{
+public class Nurse extends User {
+
+	private UserController uc;
+	private Schedule sc;
+
+	public Nurse(UserController ucIn, Schedule scIn) {
+		super();
+		uc = ucIn;
+		sc = scIn;
+	}
 
 	/**
 	 * Default constructor sets all attributes to null
@@ -35,11 +44,11 @@ public class Nurse extends User{
 	 */
 	public void createPatient(int UserID, int permissions){
 		Patient newPatient = new Patient(UserID, permissions);
+		uc.addUser(newPatient);
 	}//end createPatient
 	
-	public User deletePatient(int UserID){
-		
-		return null;
+	public void deletePatient(int UserID){
+		uc.deleteUser(UserID);		
 	}//end deletePatient
 	
 	/**
@@ -96,5 +105,13 @@ public class Nurse extends User{
 	{
 		schedule.displayOneDaySchedule(appTime);
 	}//end viewAppointments
+
+	public int getUserCount() {
+		return uc.getUserCount();
+	}
+
+	public Patient getPatient(int userID) {
+		return (Patient)uc.getUser(userID);
+	}
 	
 }//end class Nurse

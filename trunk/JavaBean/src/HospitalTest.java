@@ -10,19 +10,20 @@ public class HospitalTest extends TestCase {
 	}
 
 	public void testUserCRUD() {
-		Patient bob = new Patient();
-		hospital.uc.addUser(bob);
-		assertTrue(hospital.uc.getNumberOfUsers() == 1);		//Create
+		Nurse nurse = Hospital.newNurse();
+		int numUsers = nurse.getUserCount();
+		nurse.createPatient(4001,4);
+		assertTrue(nurse.getUserCount() > numUsers);			//Create
 
-		bob.setName("Bob");
-		bob.setPassword("bobspassword");
-		bob.setSsn("123456789");
-		assertTrue(bob.toString() == "Patient: Bob");			//Read+Update
+		nurse.getPatient(4001).setName("Bob");
+		nurse.getPatient(4001).setPassword("bobspassword");
+		nurse.getPatient(4001).setSsn("123456789");
+		assertTrue(nurse.getPatient(4001).toString() == "Patient: Bob");	//Read+Update
 
-		hospital.uc.deleteUser(bob.getUserID());			
-		assertTrue(hospital.uc.getNumberOfUsers() == 0);		//Delete
+		nurse.deletePatient(4001);			
+		assertTrue(nurse.getUserCount() == numUsers);			//Delete
 	}
-
+/*
 	public void testSave() throws IOException {
 		Patient bob = new Patient();
 		hospital.uc.addUser(bob);
@@ -31,4 +32,5 @@ public class HospitalTest extends TestCase {
 		Hospital hospital2 = new Hospital();				
 		assertEquals(hospital,hospital2);				//Read
 	}
+*/
 }
