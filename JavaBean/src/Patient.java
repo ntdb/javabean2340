@@ -20,7 +20,6 @@ public class Patient extends User {
 		birthday = null;
 	}
 	
-	
 	/**
 	 * Overloaded constructor sets the UserID and permissions of the Patient
 	 * 

@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
 public class UserController {
+
 	private ArrayList<User> users;
 	
 	public UserController()
@@ -46,7 +47,7 @@ public class UserController {
 		users.remove(getUserIndex(userID));
 	}
 
-	public int getNumberOfUsers()
+	public int getUserCount()
 	{
 		return users.size();
 	}
