@@ -2,15 +2,16 @@ import java.util.ArrayList;
 
 public class UserController {
 
-	private ArrayList<User> users;
+	private static ArrayList<User> users = new ArrayList<User>();
 	
 	public UserController()
 	{
 		users = new ArrayList<User>();
 	}
 	
-	public User getUser(int userID)		//Limit permissions!
+	public static User getUser(int userID)		//Limit permissions!
 	{
+		
 		for(int i=0; i<users.size(); i++)
 		{
 			User user = (User)users.get(i);
@@ -20,7 +21,7 @@ public class UserController {
 		return null;
 	}
 	
-	public int getUserIndex(int userID)		//Limit permissions!
+	public static int getUserIndex(int userID)		//Limit permissions!
 	{
 		for(int i=0; i<users.size(); i++)
 		{
@@ -30,30 +31,32 @@ public class UserController {
 		}
 		return -1;
 	}
-	
+/*	***** Using User ID to determine permissions *****
 	public int getUserPermissions(int userID)	//Limit permissions!
 	{
 		User user = (User)users.get(getUserIndex(userID));
 		return user.getPermissions();
 	}
-	
-	public void addUser(User userIn)		//Limit permissions!
+*/	
+	public static void addUser(User userIn)		//Limit permissions!
 	{
 		users.add(userIn);
 	}
 	
-	public void deleteUser(int userID)		//Limit permissions!
+	public static void deleteUser(int userID)		//Limit permissions!
 	{
 		users.remove(getUserIndex(userID));
 	}
 
-	public int getUserCount()
+	public static int getUserCount()
 	{
 		return users.size();
 	}
-
+/*
 	public String toString()
 	{
 		return "UserController";
 	}
+*/	
+	
 }

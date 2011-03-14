@@ -1,24 +1,33 @@
+import java.util.Random;
+
 
 public abstract class User {
 	protected String name;
 	protected String password;
-	protected int permissions;
 	protected int userID;
 	
 	protected User()
 	{
 		name = null;
 		password = null;
-		permissions = 0;
 		userID = 0;
 	}
 	
-	protected User(String nameIn, String passwordIn, int permissionsIn, int userIDIn)
+	protected User(String nameIn, String passwordIn)
 	{
 		name = nameIn;
 		password = passwordIn;
-		permissions = permissionsIn;
-		userID = userIDIn;
+	}
+	
+	public static int generateUserID(int permissions){
+		Random genID = new Random();
+		int id = permissions*1000 + genID.nextInt(1000);
+		
+		//check to see if User ID already exists and generates one until it is unique
+		while(UserController.getUser(id) != null){
+			id = permissions*1000 + genID.nextInt(1000);
+		}//end while
+		return id;
 	}
 
 	public int getUserID()
@@ -26,10 +35,6 @@ public abstract class User {
 		return userID;
 	}
 
-	public int getPermissions()
-	{
-		return permissions;
-	}
 	
 	/**
 	 * Will check the xml file for a record of the User's name and corresponding password.
@@ -82,15 +87,6 @@ public abstract class User {
 	 */
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	/**
-	 * Sets the permissions of the User
-	 * 
-	 * @param permissions The User's permissions
-	 */
-	public void setPermissions(int permissions) {
-		this.permissions = permissions;
 	}
 
 	/**
