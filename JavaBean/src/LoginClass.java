@@ -17,11 +17,11 @@ public class LoginClass {
 	 * Initialize counting values to 0, boolean values to false
 	 * @param userIDs user id of the user trying to login
 	 */
-	public LoginClass(int userIDs){
+	public LoginClass(int userID){
 		maxattempts = 0;
-		userId = userIDs;
+		this.userId = userID;
 		validpass = false;
-		uc.getUserIndex(userIDs);
+		uc.getUserIndex(userID);
 	}
 	
 /*	public int getUsercount(){

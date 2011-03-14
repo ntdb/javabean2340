@@ -10,18 +10,16 @@ public class Nurse extends User {
 	private UserController uc;
 	private Schedule sc;
 
-	public Nurse(UserController ucIn, Schedule scIn) {
-		super();
-		uc = ucIn;
-		sc = scIn;
-	}
-
 	/**
-	 * Default constructor sets all attributes to null
-	 * 
+	 * Default constructor
+	 *
+	 * @param uc The UserController the nurse is able to modify
+	 * @param sc The Schedule the nurse is able to modify
 	 */
-	public Nurse(){
+	public Nurse(UserController uc, Schedule sc) {
 		super();
+		this.uc = uc;
+		this.sc = sc;
 	}//end default Nurse constructor
 	
 	/**
@@ -31,9 +29,15 @@ public class Nurse extends User {
 	 * @param password The Nurse's password
 	 * @param permissions The Nurse's permissions
 	 * @param userID The Nurse's user ID
+	 * @param uc The UserController the nurse is able to modify
+	 * @param sc The Schedule the nurse is able to modify
 	 */
-	public Nurse(String name, String password, int permissions, int userID){
+	public Nurse(String name, String password, int permissions, int userID, 
+			UserController uc, Schedule sc){
+
 		super(name, password, permissions, userID);
+		this.uc = uc;
+		this.sc = sc;
 	}//end Nurse constructor
 	
 	/**
@@ -47,6 +51,11 @@ public class Nurse extends User {
 		uc.addUser(newPatient);
 	}//end createPatient
 	
+	/**
+	 * Deletes a patient from the Hospital system
+	 *
+	 * @param UserID The user ID of the patient to be deleted
+	 */
 	public void deletePatient(int UserID){
 		uc.deleteUser(UserID);		
 	}//end deletePatient
@@ -106,12 +115,23 @@ public class Nurse extends User {
 		schedule.displayOneDaySchedule(appTime);
 	}//end viewAppointments
 
+	/**
+	 * Allows Nurse to view number of users in the system
+	 *
+	 * @return The number of users in the system
+	 */
 	public int getUserCount() {
 		return uc.getUserCount();
-	}
+	}//end getUserCount
 
+	/**
+	 * Allows Nurse to fetch a particular User
+	 *
+	 * @param userID The userID of the patient
+	 * @return The patient object
+	 */
 	public Patient getPatient(int userID) {
 		return (Patient)uc.getUser(userID);
-	}
+	}//end getPatient
 	
 }//end class Nurse

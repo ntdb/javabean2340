@@ -1,18 +1,29 @@
-import java.io.*;
-import java.util.*;
+import java.io.*;		//Slim down later
+import java.util.*;		//Slim down later
+import java.util.logging.*;	//Slim down later
 
 public class Hospital {
+	private final static Logger LOGGER = Logger.getLogger(Hospital.class.getName());
+	private static FileHandler fileTxt;
+	private static SimpleFormatter formatterTxt;
+
 	private static UserController uc;		//Make private later?
 	private static Schedule sc;			//Make private later?
 	
 	public void Hospital() throws IOException
 	{
+		fileTxt = new FileHandler("log.txt");
+		formatterTxt = new SimpleFormatter();
+		fileTxt.setFormatter(formatterTxt);
+		LOGGER.addHandler(fileTxt);
+
 		readRecords();
 	}
 
 	public static void main(String[] args) throws IOException
 	{
 		readRecords();
+		LOGGER.info("Records read successfully");
 		
 //		Nurse jenny = new Nurse(uc);
 //		jenny.createPatient(5,1);
@@ -23,7 +34,8 @@ public class Hospital {
 //		uc.addUser(new Patient("Jonathan Smith", "password2", 1, 1, "987-65-4321", new Date(555555555)));
 //		uc.deleteUser(1);
 
-		writeRecords();		
+		writeRecords();
+		LOGGER.info("Records written successfully");	
 	}
 
 	public static Nurse newNurse()
