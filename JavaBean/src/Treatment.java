@@ -27,7 +27,7 @@ public class Treatment
 	
 	/**
 	 * This method is used to fill in the details. 
-	 * If the detail is not empty, it will strat a new line and attach the new details.
+	 * If the detail is not empty, it will start a new line and attach the new details.
 	 * @param newDetails The detailed instructions.
 	 */
 	public void createDetails(String newDetails)
@@ -45,7 +45,7 @@ public class Treatment
 	/**
 	 * This method will export the treatment as a string.
 	 * It will start a new line and end with a new line.
-	 * @return A string contains all the infomation of the treatment.
+	 * @return A string contains all the information of the treatment.
 	 */
 	public String toString()
 	{
