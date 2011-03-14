@@ -106,6 +106,6 @@ public class Patient extends User {
 
 	public String toString()
 	{
-		return "Patient: " + name;			//Expand this
+		return new String("Patient: " + name);			//Expand this
 	}
 }
