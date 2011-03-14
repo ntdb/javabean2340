@@ -15,7 +15,7 @@ public class DoctorsOrders
 	 * @param prescription The prescription of the patient
 	 * @param labWork The lab work involved in the service
 	 * @param followUp The things need to be done after the service
-	 * @param other Additional infomation
+	 * @param other Additional information
 	 */
 	public DoctorsOrders(String prescription, String labWork, String followUp, String other)
 	{
@@ -28,7 +28,7 @@ public class DoctorsOrders
 	/**
 	 * This method will export the doctors' orders as a string.
 	 * It will start a new line and end with a new line.
-	 * @return A string contains all the infomation of the doctors' order.
+	 * @return A string contains all the information of the doctors' order.
 	 */
 	public String toString()
 	{
