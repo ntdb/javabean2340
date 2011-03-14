@@ -18,6 +18,7 @@ public class Patient extends User {
 		super();
 		ssn = null;
 		birthday = null;
+		userID = generateUserID(4);
 	}
 	
 	/**
@@ -26,11 +27,13 @@ public class Patient extends User {
 	 * @param UserID The UserID of the Patient
 	 * @param permissions The permissions of the Patient
 	 */
+	
+/*	
 	public Patient(int UserID, int permissions){
 		this.userID = UserID;
 		this.permissions = permissions;
 	}
-	
+*/	
 	
 /*   *****Opted to only use a partial constructor to create a Patient Object*****
 	

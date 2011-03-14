@@ -7,19 +7,13 @@ import java.util.Date;
  */
 public class Nurse extends User {
 
-	private UserController uc;
-	private Schedule sc;
 
 	/**
-	 * Default constructor
-	 *
-	 * @param uc The UserController the nurse is able to modify
-	 * @param sc The Schedule the nurse is able to modify
+	 * Default constructor sets all attributes to null
+	 * 
 	 */
-	public Nurse(UserController uc, Schedule sc) {
+	public Nurse(){
 		super();
-		this.uc = uc;
-		this.sc = sc;
 	}//end default Nurse constructor
 	
 	/**
@@ -29,15 +23,10 @@ public class Nurse extends User {
 	 * @param password The Nurse's password
 	 * @param permissions The Nurse's permissions
 	 * @param userID The Nurse's user ID
-	 * @param uc The UserController the nurse is able to modify
-	 * @param sc The Schedule the nurse is able to modify
 	 */
-	public Nurse(String name, String password, int permissions, int userID, 
-			UserController uc, Schedule sc){
-
-		super(name, password, permissions, userID);
-		this.uc = uc;
-		this.sc = sc;
+	public Nurse(String name, String password){
+		super(name, password);
+		userID = generateUserID(3);
 	}//end Nurse constructor
 	
 	/**
@@ -46,18 +35,13 @@ public class Nurse extends User {
 	 * @param UserID The user ID of the patient
 	 * @param permissions The permissions of the patient
 	 */
-	public void createPatient(int UserID, int permissions){
-		Patient newPatient = new Patient(UserID, permissions);
-		uc.addUser(newPatient);
+	public void createPatient(){
+		Patient newPatient = new Patient();
+		UserController.addUser(newPatient);
 	}//end createPatient
 	
-	/**
-	 * Deletes a patient from the Hospital system
-	 *
-	 * @param UserID The user ID of the patient to be deleted
-	 */
 	public void deletePatient(int UserID){
-		uc.deleteUser(UserID);		
+		UserController.deleteUser(UserID);		
 	}//end deletePatient
 	
 	/**
@@ -115,23 +99,12 @@ public class Nurse extends User {
 		schedule.displayOneDaySchedule(appTime);
 	}//end viewAppointments
 
-	/**
-	 * Allows Nurse to view number of users in the system
-	 *
-	 * @return The number of users in the system
-	 */
 	public int getUserCount() {
-		return uc.getUserCount();
-	}//end getUserCount
+		return UserController.getUserCount();
+	}
 
-	/**
-	 * Allows Nurse to fetch a particular User
-	 *
-	 * @param userID The userID of the patient
-	 * @return The patient object
-	 */
 	public Patient getPatient(int userID) {
-		return (Patient)uc.getUser(userID);
-	}//end getPatient
+		return (Patient)UserController.getUser(userID);
+	}
 	
 }//end class Nurse
