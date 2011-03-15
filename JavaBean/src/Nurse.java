@@ -29,12 +29,12 @@ public class Nurse extends User {
 	/**
 	 * Creates a new patient in the Hospital system
 	 * 
-	 * @param UserID The user ID of the patient
-	 * @param permissions The permissions of the patient
+	 * @return The new patient's userID
 	 */
-	public void createPatient(){
+	public int createPatient(){
 		Patient newPatient = new Patient();
 		UserController.addUser(newPatient);
+		return newPatient.getUserID();
 	}//end createPatient
 	
 	public void deletePatient(int UserID){

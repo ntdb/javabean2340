@@ -1,30 +1,25 @@
 import junit.framework.TestCase;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class HospitalTest extends TestCase {
 
-	private Hospital hospital;
 
-	protected void setUp() throws IOException {
-		hospital = new Hospital();
-//		hospital.readRecords();
-	}
-/*
 	public void testLogin() {
 	}
 
 	public void testUserCRUD() {
-		Nurse nurse = hospital.newNurse();
+		Nurse nurse = new Nurse();
 		int numUsers = nurse.getUserCount();
-//		nurse.createPatient(4001,4);
+		int userID = nurse.createPatient();
 		assertTrue(nurse.getUserCount() > numUsers);				//Create
 
-		nurse.getPatient(4001).setName("Bob");
-		nurse.getPatient(4001).setPassword("bobspassword");
-		nurse.getPatient(4001).setSsn("123456789");
-		assertTrue(nurse.getPatient(4001).toString().equals("Patient: Bob"));	//Read+Update
+		nurse.getPatient(userID).setName("Bob");
+		nurse.getPatient(userID).setPassword("bobspassword");
+		nurse.getPatient(userID).setSsn("123456789");
+		assertTrue(nurse.getPatient(userID).toString().equals("Patient: Bob"));	//Read+Update
 
-		nurse.deletePatient(4001);			
+		nurse.deletePatient(userID);			
 		assertTrue(nurse.getUserCount() == numUsers);				//Delete
 	}
 
@@ -41,15 +36,15 @@ public class HospitalTest extends TestCase {
 	}
 
 	public void testLoadSave() throws IOException {
-		Hospital hospital2 = new Hospital();				//Make equal
-		hospital2 = hospital;
+		Nurse nurse = new Nurse();
+		int userID = nurse.createPatient();
+		nurse.getPatient(userID).setName("Bob");
+		UserController.save();						//Save
+		
+		nurse.deletePatient(userID);					//Modify, don't save
 
-		Nurse nurse = hospital.newNurse();
-		nurse.createPatient(4002,4);
-		hospital.writeRecords();						//Save (Sufficient?)
-
-		hospital2.readRecords();		
-		assertEquals(hospital,hospital2);					//Load
+		UserController.load();						//Load
+		assertNotNull(nurse.getPatient(userID));				//Test that user still exists
 	}
 
 	public void testInvoiceCreation() {
@@ -57,5 +52,4 @@ public class HospitalTest extends TestCase {
 
 	public void testLogging() {
 	}
-	*/
 }
