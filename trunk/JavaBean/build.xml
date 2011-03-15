@@ -22,14 +22,15 @@
 
 	<!--Compile-->
 	<target name="compile" depends="prepare">
-		<javac srcdir="${src.dir}" destdir="${build.dir}" classpathref="classpath"/>
+		<javac srcdir="${src.dir}" destdir="${build.dir}" classpathref="classpath" includeantruntime="false"/>
 	</target>
 
 	<!--Create the javadocs-->
 	<target name="javadoc" depends="compile">
 		<javadoc sourcepath="${src.dir}" 
 			 access="public"
-			 destdir="${apidoc.dir}">
+			 destdir="${apidoc.dir}"
+			 classpathref="classpath">
  				 <fileset dir="${src.dir}">
 				 <include name="*.java"/>
 			 </fileset>
