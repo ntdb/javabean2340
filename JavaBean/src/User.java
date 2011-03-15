@@ -47,7 +47,7 @@ public abstract class User {
 	{
 		//retrieve information from the UserController class
 		LoginClass login = new LoginClass(userID);
-		login.validate(password);
+		login.validate();
 		
 	}
 
