@@ -22,6 +22,19 @@ public class UserController {
 		return null;
 	}
 	
+	public static User getUser(String name){
+		User user = null;
+		
+		for(int i = 0; i < users.size(); i++){
+			if(users.get(i).getName().equalsIgnoreCase(name)){
+				user = users.get(i);
+				i = users.size();
+			}//end if statement
+		}//end for loop
+		
+		return user;
+	}//end overloaded getUser method (look-up by name)
+	
 	public static int getUserIndex(int userID)		//Limit permissions!
 	{
 		for(int i=0; i<users.size(); i++)
@@ -32,6 +45,7 @@ public class UserController {
 		}
 		return -1;
 	}
+	
 /*	***** Using User ID to determine permissions *****
 	public int getUserPermissions(int userID)	//Limit permissions!
 	{
