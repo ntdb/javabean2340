@@ -67,12 +67,7 @@ public class UserController {
 	{
 		return users.size();
 	}
-/*
-	public String toString()
-	{
-		return "UserController";
-	}
-*/	
+
 	public static void save() throws IOException {
 		IOController.writeToXML(users);
 	}

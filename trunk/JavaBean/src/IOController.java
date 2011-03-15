@@ -22,7 +22,7 @@ public class IOController {
 			writer.close();
 		}
 		else
-			Hospital.LOGGER.severe("writeToXML called on empty ArrayList");
+			Hospital.LOGGER.warning("writeToXML called on empty ArrayList");
 	}
 	
 	public static ArrayList getFromXML(Object o) throws IOException {
