@@ -11,6 +11,9 @@ public class Appointment
 	private int appointmentID;
 	private String patientName, patientSSN, doctorName;
 
+	public Appointment() {
+	}
+
 	/**
 	 * This is the standard constructor of the appointment class
 	 * @param appTime The object to indicate the time of the appointment

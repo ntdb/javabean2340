@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.io.IOException;
 
 public class UserController {
 
@@ -58,5 +59,11 @@ public class UserController {
 		return "UserController";
 	}
 */	
-	
+	public static void save() throws IOException {
+		IOController.writeToXML(users);
+	}
+
+	public static void load() throws IOException {
+		users = IOController.getFromXML(new Patient());
+	}
 }
