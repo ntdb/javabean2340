@@ -7,9 +7,12 @@ public class HospitalTest extends TestCase {
 
 	protected void setUp() throws IOException {
 		hospital = new Hospital();
-		hospital.readRecords();
+//		hospital.readRecords();
 	}
 /*
+	public void testLogin() {
+	}
+
 	public void testUserCRUD() {
 		Nurse nurse = hospital.newNurse();
 		int numUsers = nurse.getUserCount();
