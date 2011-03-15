@@ -1,3 +1,4 @@
+import java.io.*;
 /**
  * LoginClass. Used to verify that the user logs in correctly
  * @author David
@@ -45,22 +46,35 @@ public class LoginClass {
 		return "LoginClass";
 	}
 	
-	public void validate(String password){
+	public void validate(){
 		//first verify that User is in the user controller object
 		if (uc.getUserIndex(userId) == -1){
 			return;
 		}
 		
+		//retrieve the user data stored
 		logger = uc.getUser(userId);
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		//retrieve user information and verify password matches usercontroller's
 		do{
-			if(logger.getPassword().equals(password)){
+			//Have the user input their password
+			System.out.print("Enter your password :");
+			//defaults to blank due to try catch code
+			String pw = "";
+			try {
+				pw = in.readLine();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			if(logger.getPassword().equals(pw)){
 				validpass = true;
 			}
 			else{
+				System.out.println("Incorrect Password.");
 				maxattempts++;
 			}
-		}while(maxattempts < 3 || validpass != false);
+		}while(maxattempts < 3 || validpass != true);
 		if (maxattempts == 3 && validpass == false){
 			System.out.print("Max Attempts reached. Contact an administrator to reset");
 		}
