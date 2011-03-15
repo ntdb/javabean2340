@@ -7,7 +7,6 @@ import java.util.Date;
  */
 public class Nurse extends User {
 
-
 	/**
 	 * Default constructor sets all attributes to null
 	 * 
@@ -21,8 +20,6 @@ public class Nurse extends User {
 	 * 
 	 * @param name The name of the Nurse
 	 * @param password The Nurse's password
-	 * @param permissions The Nurse's permissions
-	 * @param userID The Nurse's user ID
 	 */
 	public Nurse(String name, String password){
 		super(name, password);
@@ -64,19 +61,11 @@ public class Nurse extends User {
 	/**
 	 * Looks up a patient by the Patient's name
 	 * 
-	 * @param users The array of Users in the Hospital system
 	 * @param name The name of the Patient to lookup
-	 * @return The UserID of the patient
+	 * @return The User looked-up
 	 */
-	public int PatientLookupByName(User[] users, String name){
-		int userID = 0;
-		for(int i = 0;i < users.length; i++){
-			if(users[i].getName().equalsIgnoreCase(name)){
-				userID = users[i].getUserID();
-				i = users.length;
-			}//end if statement
-		}//end for loop
-		return userID;
+	public User PatientLookupByName(String name){
+		return UserController.getUser(name);
 	}//end PatientLookupByName
 	
 	/**
