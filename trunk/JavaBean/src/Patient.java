@@ -18,22 +18,18 @@ public class Patient extends User {
 		super();
 		ssn = null;
 		birthday = null;
-		userID = generateUserID(4);
-	}
+	}//end default Patient constructor
 	
 	/**
-	 * Overloaded constructor sets the UserID and permissions of the Patient
+	 * Overloaded constructor creates a patient with a name
 	 * 
-	 * @param UserID The UserID of the Patient
-	 * @param permissions The permissions of the Patient
+	 * @param name The name of the patient
 	 */
-	
-/*	
-	public Patient(int UserID, int permissions){
-		this.userID = UserID;
-		this.permissions = permissions;
-	}
-*/	
+	public Patient(String name){
+		this.name = name;
+		userID = generateUserID(4);
+	}//end Patient constructor
+		
 	
 /*   *****Opted to only use a partial constructor to create a Patient Object*****
 	

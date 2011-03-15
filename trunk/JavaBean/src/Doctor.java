@@ -22,8 +22,6 @@ public class Doctor extends Nurse{
 	 * 
 	 * @param name The name of the Doctor
 	 * @param password The Doctor's password
-	 * @param permissions The Doctor's permissions
-	 * @param userID The Doctor's user ID
 	 * @param appointmentIDs The Doctor's Appointment IDs
 	 */
 	public Doctor(String name, String password, int[] appointmentIDs){
@@ -49,8 +47,5 @@ public class Doctor extends Nurse{
 		//verifies Appointment
 		return false;
 	}//end verifyAppointment
-	
-	
-	
 	
 }//end class Doctor
