@@ -92,7 +92,7 @@ public class MedicalHistory
 		treatments.remove(index);
 	}
 
-	public void getTreatmentCount() {
+	public int getTreatmentCount() {
 		return treatments.size();
 	}
 	

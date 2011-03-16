@@ -137,11 +137,11 @@ public class Patient extends User {
 		return null;
 	}
 	
-	public void createTreatment(int patientID, int doctorID, int  appointmentID, String details)
-	{
+	public void createTreatment(int patientID, int doctorID, int  appointmentID, String details) {
 		Treatment newTreatment = new Treatment(patientID, doctorID, appointmentID, details);
 		medicalHistory.addTreatment(newTreatment);
 	}
+
 	public String viewTreatment(int appointmentID)
 	{
 		return medicalHistory.viewTreatment(appointmentID);
@@ -155,7 +155,7 @@ public class Patient extends User {
 		medicalHistory.deleteTreatment(appointmentID);
 	}
 
-	public int getTreatmentCount()
+	public int getTreatmentCount() {
 		return medicalHistory.getTreatmentCount();
 	}
 	
