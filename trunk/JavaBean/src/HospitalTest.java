@@ -54,9 +54,8 @@ public class HospitalTest extends TestCase {
 		assertTrue(nurse.getTreatmentCount(patientID) > 0);			//Create
 
 		nurse.updateTreatment(patientID, 1339, "Updated treatment for testing");
-		assertTrue(nurse.viewTreatment(patientID, 1339).equals("\nPatient ID: " + patientID + 
-				"\nDoctor ID: 1338\nAppointment ID: 1339\nDetails:\nTreatment for testing\nUpdated treatment for testing\n"));	//Read+Update
-
+		assertTrue(nurse.viewTreatment(patientID, 1339).equals("\nPatient ID: " + patientID + 	//Read + Update
+				"\nDoctor ID: 1338\nAppointment ID: 1339\nDetails:\nTreatment for testing\nUpdated treatment for testing\n"));
 		nurse.deleteTreatment(patientID, 1339);
 		assertTrue(nurse.getTreatmentCount(patientID) == 0);			//Delete
 	}
@@ -68,7 +67,6 @@ public class HospitalTest extends TestCase {
 		assertTrue(doctor.getDoctorsOrdersCount(patientID) > 0);		//Create
 
 		doctor.updateDoctorsOrders(patientID, "Exercise", "Cholesterol", "None", "Still a big chin");
-		System.out.println(doctor.viewDoctorsOrders(patientID));
 		assertTrue(doctor.viewDoctorsOrders(patientID).equals(			//Read+Update
 					"\nPrescription: Exercise\nLab Work: Cholesterol\nFollow Up: None\nOther: Still a big chin\n"));
 
@@ -89,8 +87,14 @@ public class HospitalTest extends TestCase {
 	}
 
 	public void testInvoiceCreation() {
+		Nurse nurse = new Nurse();
+		int userID = nurse.createPatient();
+		Date date = new Date();
+		nurse.createAppointment(date, 1337, "Bob", "123456789", "Dr. Waters");
+		assertTrue(nurse.generateInvoice(1337).equals("Patient name: Bob\tDate of Visit: " + date + "\tDoctor: Dr. Waters\nAmount due: $XXX.XX"));
 	}
 
 	public void testLogging() {
+
 	}
 }

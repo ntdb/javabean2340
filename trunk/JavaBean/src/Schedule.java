@@ -108,7 +108,7 @@ public class Schedule
 	 * @return invoice information
 	 */
 	public static String generateInvoice(int appointmentID) {
-		Appointment app = appointments.get(appointmentID);
+		Appointment app = appointments.get(getAppointmentIndex(appointmentID));
 		String report = "Patient name: " + app.getpatientName();
 		report = report + "\tDate of Visit: " + app.getAppTime();
 		report = report + "\tDoctor: " + app.getdoctorName();
