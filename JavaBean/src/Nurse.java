@@ -172,6 +172,23 @@ public class Nurse extends User {
 		theSchedule.deleteAppointment(appointmentID);
 	}
 	
+	public void createTreatment(Patient aPatient, int patientID, int doctorID, int  appointmentID, String details)
+	{
+		aPatient.createTreatment(patientID, doctorID, appointmentID, details);
+	}
+	public String viewTreatment(Patient aPatient,int appointmentID)
+	{
+		return aPatient.viewTreatment(appointmentID);
+	}
+	public void updateTreatment(Patient aPatient, int appointmentID, String newDetails)
+	{
+		aPatient.updateTreatment(appointmentID, newDetails);
+	}
+	public void deleteTreatment(Patient aPatient, int appointmentID)
+	{
+		aPatient.deleteTreatment(appointmentID);
+	}
+	
 	/**
 	 * Returns a String representation of Nurse
 	 *  
