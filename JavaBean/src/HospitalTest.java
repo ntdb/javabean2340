@@ -47,6 +47,12 @@ public class HospitalTest extends TestCase {
 	}
 
 	public void testTreatmentRecordCRUD() {
+		Nurse nurse = new Nurse();
+		int patientID = nurse.createPatient();
+		nurse.createTreatment(patientID, 1338, 1339, "Treatment for testing");
+		assertTrue(nurse.getTreatmentCount(patientID) > 0);			//Create
+
+
 	}
 
 	public void testDoctorsOrdersCRUD() {

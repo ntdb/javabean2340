@@ -154,6 +154,10 @@ public class Patient extends User {
 	{
 		medicalHistory.deleteTreatment(appointmentID);
 	}
+
+	public int getTreatmentCount()
+		return medicalHistory.getTreatmentCount();
+	}
 	
 	public void createDoctorsOrders(String prescription, String labWork, String followUp, String other)
 	{

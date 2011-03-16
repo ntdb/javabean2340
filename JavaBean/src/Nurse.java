@@ -202,19 +202,22 @@ public class Nurse extends User {
 		getPatient(patientID).createTreatment(patientID, doctorID, appointmentID, details);
 	}//end createTreatment
 
-	public String viewTreatment(int patientID, int appointmentID)
-	{
+	public String viewTreatment(int patientID, int appointmentID) {
 		return getPatient(patientID).viewTreatment(appointmentID);
 	}
-	public void updateTreatment(int patientID, int appointmentID, String newDetails)
-	{
+
+	public void updateTreatment(int patientID, int appointmentID, String newDetails) {
 		getPatient(patientID).updateTreatment(appointmentID, newDetails);
 	}
-	public void deleteTreatment(int patientID, int appointmentID)
-	{
+
+	public void deleteTreatment(int patientID, int appointmentID) {
 		getPatient(patientID).deleteTreatment(appointmentID);
 	}
-	
+
+	public int getTreatmentCount(int patientID) {
+		return getPatient(patientID).getTreatmentCount();
+	}
+
 	/**
 	 * Returns a String representation of Nurse
 	 *  

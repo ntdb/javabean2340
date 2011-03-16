@@ -91,6 +91,10 @@ public class MedicalHistory
 		int index = getTreatmentIndex(appointmentID);
 		treatments.remove(index);
 	}
+
+	public void getTreatmentCount() {
+		return treatments.size();
+	}
 	
 	/**
 	 * This method will add the new Doctors' Orders into the medical history of the patient
