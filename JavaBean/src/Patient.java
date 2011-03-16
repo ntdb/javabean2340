@@ -154,6 +154,25 @@ public class Patient extends User {
 	{
 		medicalHistory.deleteTreatment(appointmentID);
 	}
+	
+	public void createDoctorsOrders(String prescription, String labWork, String followUp, String other)
+	{
+		DoctorsOrders newDoctorsOrders = new DoctorsOrders( prescription, labWork, followUp, other);
+		medicalHistory.addDoctorsOrders(newDoctorsOrders);
+	}
+	public String viewDoctorsOrders()
+	{
+		return medicalHistory.viewDoctorsOrders();
+	}
+	public void updateDoctorsOrders(String prescription, String labWork, String followUp, String other)
+	{
+		medicalHistory.updateDoctorsOrders(prescription, labWork, followUp, other);
+	}
+	public void deleteDoctorsOrders()
+	{
+		medicalHistory.deleteDoctorsOrders();
+	}
+
 
 	/**
 	 * Returns a String representation of Patient
