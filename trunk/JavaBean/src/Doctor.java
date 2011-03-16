@@ -41,22 +41,40 @@ public class Doctor extends Nurse{
 		userID = generateUserID(PERMISSIONS);
 	}//end Doctor constructor
 	
-	/**
-	 * Adds the Doctor's orders to the given Patient's file
-	 * 
-	 * @param patient The patient receiving orders
-	 * @param prescription The prescription of the doctors orders to be added
-	 * @param labWork The lab work involved in the service
-	 * @param followUp The procedures needed to be done after the service
-	 * @param other Additional information
-	 */
-	public void addDoctorsOrders(Patient patient, String prescription, String labWork,
-			String followUp, String other){
-		final DoctorsOrders newDoctorsOrders = new DoctorsOrders(prescription, labWork,
-				followUp, other);
-		patient.getMedicalHistory().addDoctorsOrders(newDoctorsOrders); //bad OO?? 
-	}//end addDoctorsOrders
-	
+
+//	/**
+//	 * Adds the Doctor's orders to the given Patient's file
+//	 * 
+//	 * @param patient The patient receiving orders
+//	 * @param prescription The prescription of the doctors orders to be added
+//	 * @param labWork The lab work involved in the service
+//	 * @param followUp The procedures needed to be done after the service
+//	 * @param other Additional information
+//	 */
+//	public void addDoctorsOrders(Patient patient, String prescription, String labWork,
+//			String followUp, String other){
+//		final DoctorsOrders newDoctorsOrders = new DoctorsOrders(prescription, labWork,
+//				followUp, other);
+//		patient.getMedicalHistory().addDoctorsOrders(newDoctorsOrders); //bad OO?? 
+//	}//end addDoctorsOrders
+
+	public void createDoctorsOrders(Patient aPatient, String prescription, String labWork, String followUp, String other)
+	{
+		aPatient.createDoctorsOrders(prescription, labWork, followUp, other);
+	}
+	public String viewDoctorsOrders(Patient aPatient)
+	{
+		return aPatient.viewDoctorsOrders();
+	}
+	public void updateDoctorsOrders(Patient aPatient,String prescription, String labWork, String followUp, String other)
+	{
+		aPatient.updateDoctorsOrders(prescription, labWork, followUp, other);
+	}
+	public void deleteDoctorsOrders(Patient aPatient)
+	{
+		aPatient.deleteDoctorsOrders();
+	}
+
 	/**
 	 * Verifies that the patient-requested appointment is available
 	 * 
