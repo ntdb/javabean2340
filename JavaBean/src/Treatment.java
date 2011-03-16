@@ -30,7 +30,7 @@ public class Treatment
 	 * If the detail is not empty, it will start a new line and attach the new details.
 	 * @param newDetails The detailed instructions.
 	 */
-	public void createDetails(String newDetails)
+	public void updateDetails(String newDetails)
 	{
 		if(details==null)
 		{
@@ -40,6 +40,14 @@ public class Treatment
 		{
 			details = details + "\n" +newDetails;
 		}
+	}
+	/**
+	 * This method returns appointmentID for further operation
+	 * @return the appointment ID of this treatment
+	 */
+	public int getAppointmentID()
+	{
+		return appointmentID;
 	}
 	
 	/**
