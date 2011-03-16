@@ -31,7 +31,20 @@ public class HospitalTest extends TestCase {
 	}
 
 	public void testAppointmentCRUD() {
-	}
+/*		Nurse nurse = new Nurse();
+		int numAppointments = nurse.getAppointmentCount();
+		int appointmentID = nurse.createAppointment();
+		assertTrue(nurse.getAppointmentCount() > numAppointments);		//Create
+
+		nurse.getAppointment(appointmentID).setName("Bob");
+		nurse.getAppointment(appointmentID).setPassword("bobspassword");
+		nurse.getAppointment(appointmentID).setSsn("123456789");
+		assertTrue(nurse.getAppointment(appointmentID).toString().equals("Patient: Bob"));	//Read+Update
+
+		nurse.deleteAppointment(appointmentID);			
+		assertTrue(nurse.getAppointmentCount() == numAppointments);		//Delete
+
+*/	}
 
 	public void testTreatmentRecordCRUD() {
 	}
