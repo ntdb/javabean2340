@@ -34,12 +34,10 @@ public class Doctor extends Nurse{
 	 * 
 	 * @param name The name of the Doctor
 	 * @param password The Doctor's password
-	 * @param appointmentIDs The Doctor's Appointment IDs
 	 */
-	public Doctor(String name, String password, int[] appointmentIDs){
+	public Doctor(String name, String password){
 		super(name, password);
-		this.appointmentIDs = appointmentIDs;
-		//deep copy apointmentIDs
+		appointmentIDs = null; //removed appointmentID parameter
 		userID = generateUserID(PERMISSIONS);
 	}//end Doctor constructor
 	
