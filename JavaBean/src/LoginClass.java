@@ -90,7 +90,7 @@ public class LoginClass {
 	 * the user is using the correct password.
 	 * Allows the user to try and validate their id up to three times.
 	 */
-	public void validate(){
+	public void validate() {
 		//first verify that User is in the user controller object
 		if (UserController.getUserIndex(userId) == -1){
 			return;
@@ -100,34 +100,35 @@ public class LoginClass {
 		logger = UserController.getUser(userId);
 		//retrieve user information and verify password matches usercontroller's
 		do{
-			final BufferedReader in =
-				new BufferedReader(new InputStreamReader(System.in));
 			//Have the user input their password
-			System.out.print("Enter your password :");
+			System.out.print("Enter your password: ");
 			//defaults to blank due to try catch code
 			String pw = "";
+			final BufferedReader in =
+				new BufferedReader(new InputStreamReader(System.in));
 			try {
 				pw = in.readLine();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			finally {
+/*			finally {
 				try{
 					in.close();
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
 			}
-			if(logger.getPassword().equals(pw)){
+*/			if(logger.getPassword().equals(pw)){
 				validpass = true;
+				break;
 			}
 			else{
 				System.out.println("Incorrect Password.");
 				maxattempts++;
 			}
-		}while(maxattempts < max || validpass != passed);
-		if (maxattempts == max && validpass == failed){
+		}while(maxattempts < 3 && !validpass); //!= passed);
+		if (maxattempts == 3 && validpass == failed){
 			System.out.print("Max Attempts reached. Contact an administrator to reset");
 		}
 	}

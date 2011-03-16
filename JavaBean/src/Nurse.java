@@ -168,7 +168,7 @@ public class Nurse extends User {
 	 * @param newDoctorName The new doctor name of the appointment
 	 */
 	public void updateAppointment(int appointmentID, Date newTime, String newDoctorName) {
-		Schedule.updateAppointment(appointmentID, newTime, newDoctorName);
+		Schedule.updateAppointment(appointmentID, newTime,newDoctorName);
 	}
 	
 	/**
@@ -209,7 +209,7 @@ public class Nurse extends User {
 	 * @return A string containg all the information in the treatment
 	 */
 	public String viewTreatment(int patientID, int appointmentID) {
-		return getPatient(patientID).viewTreatment(appointmentID);
+		return getPatient(patientID).getMedicalHistory().viewTreatment(appointmentID);
 	}
 
 	/**
