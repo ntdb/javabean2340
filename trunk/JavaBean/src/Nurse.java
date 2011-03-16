@@ -41,8 +41,8 @@ public class Nurse extends User {
 	 * 
 	 * @return The new patient's userID
 	 */
-	public int createPatient(){
-		final Patient newPatient = new Patient();
+	public int createPatient() {
+		Patient newPatient = new Patient();
 		UserController.addUser(newPatient);
 		return newPatient.getUserID();
 	}//end createPatient
