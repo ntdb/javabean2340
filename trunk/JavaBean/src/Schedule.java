@@ -4,8 +4,7 @@ import java.io.IOException;
 
 //import JavaBean.src.Appointment;
 
-public class Schedule 
-{
+public class Schedule {
 	private static ArrayList<Appointment> appointments = new ArrayList<Appointment>();
 
 	/**
@@ -14,8 +13,7 @@ public class Schedule
 	 * @param appointmentID The ID of the appointment to be found
 	 */
 	private static int getAppointmentIndex(int appointmentID) {
-		for(int i=0; i<appointments.size(); i++)
-		{
+		for(int i=0; i<appointments.size(); i++) {
 			Appointment appointment = (Appointment)appointments.get(i);
 			if(appointment.getAppointmentID() == appointmentID)
 				return i;
@@ -62,12 +60,11 @@ public class Schedule
 	 */
 	public static void deleteAppointment(int appointmentID) {
 		int index = getAppointmentIndex(appointmentID);
-		if(index == -1)
-		{
+		if(index == -1) {
+			Hospital.LOGGER.warning("Deletion called for on non-existent appointment");
 		}
-		else
-		{
-		appointments.remove(index);
+		else {
+			appointments.remove(index);
 		}
 	}//end deleteAppointment
 
@@ -79,21 +76,17 @@ public class Schedule
 	public static void displayOneDaySchedule(Date appTime) {
 		ArrayList<Appointment> oneDaySchedule = new ArrayList<Appointment>();
 		
-		for(int i=0; i<appointments.size(); i++)
-		{
+		for(int i=0; i<appointments.size(); i++) {
 			Appointment appointment = (Appointment)appointments.get(i);
-			if(appointment.getAppTime() == appTime)
+			if(appointment.getAppTime().equals(appTime))
 				oneDaySchedule.add(appointment);
 		}
 		
-		if(oneDaySchedule.size() == 0)
-		{
+		if(oneDaySchedule.size() == 0) {
 			System.out.println("No appointment at" + appTime.toString() + "\n");
 		}
-		else
-		{
-			for(int j=0; j<oneDaySchedule.size();j++)
-			{
+		else {
+			for(int j=0; j<oneDaySchedule.size();j++) {
 				Appointment newEntry = (Appointment)oneDaySchedule.get(j);
 				System.out.println( newEntry.toString() );
 			}

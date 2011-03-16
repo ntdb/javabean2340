@@ -3,11 +3,13 @@
  * 
  */
 
-public class Treatment 
-{
+public class Treatment {
 	private int patientID;
+
 	private int doctorID;
+	
 	private int appointmentID;
+	
 	private String details;
 	
 	/**
@@ -17,8 +19,7 @@ public class Treatment
 	 * @param appointmentID The ID number of the related appointment. Best way to trace the treatment.
 	 * @param details The detailed instruction of the treatment.
 	 */
-	public Treatment(int patientID, int doctorID, int  appointmentID, String details)
-	{
+	public Treatment(int patientID, int doctorID, int  appointmentID, String details) {
 		this.patientID = patientID;
 		this.doctorID = doctorID;
 		this.appointmentID = appointmentID;
@@ -30,23 +31,20 @@ public class Treatment
 	 * If the detail is not empty, it will start a new line and attach the new details.
 	 * @param newDetails The detailed instructions.
 	 */
-	public void updateDetails(String newDetails)
-	{
-		if(details==null)
-		{
+	public void updateDetails(String newDetails) {
+		if(details==null) {
 			details = newDetails;
 		}
-		else
-		{
+		else {
 			details = details + "\n" +newDetails;
 		}
 	}
+	
 	/**
 	 * This method returns appointmentID for further operation
 	 * @return the appointment ID of this treatment
 	 */
-	public int getAppointmentID()
-	{
+	public int getAppointmentID() {
 		return appointmentID;
 	}
 	
@@ -55,8 +53,7 @@ public class Treatment
 	 * It will start a new line and end with a new line.
 	 * @return A string contains all the information of the treatment.
 	 */
-	public String toString()
-	{
+	public String toString() {
 		String fullInfo = "\nPatient ID: " + patientID +
 						  "\nDoctor ID: " + doctorID +
 						  "\nAppointment ID: " + appointmentID +

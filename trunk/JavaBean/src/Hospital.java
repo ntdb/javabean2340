@@ -1,14 +1,18 @@
-import java.io.*;
-import java.util.*;
-import java.util.logging.*;
+import java.io.IOException;
+
+import java.util.logging.SimpleFormatter;
+import java.util.logging.FileHandler;
+import java.util.logging.Logger;
 
 public class Hospital {
-	public final static Logger LOGGER = Logger.getLogger(Hospital.class.getName());
+	
+	public static final Logger LOGGER = Logger.getLogger(Hospital.class.getName());
+	
 	private static FileHandler fileTxt;
+	
 	private static SimpleFormatter formatterTxt;
 	
-	public static void main(String[] args) throws IOException
-	{
+	public static void main(String[] args) throws IOException {
 		fileTxt = new FileHandler("log.txt", true);
 		formatterTxt = new SimpleFormatter();
 		fileTxt.setFormatter(formatterTxt);
@@ -22,5 +26,9 @@ public class Hospital {
 
 		UserController.save();
 		Schedule.save();
+	}
+	
+	public String toString() {
+		return null;
 	}
 }

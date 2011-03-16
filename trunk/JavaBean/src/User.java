@@ -12,7 +12,7 @@ import java.util.Random;
  * @author Team Java Bean
  * @version 1.1 3/14/11
  */
-public abstract class User {
+public class User {
 	
 	/**
 	 * The multiple of how limit of Users in the sytem

@@ -1,12 +1,12 @@
 import junit.framework.TestCase;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Date;
 
 public class HospitalTest extends TestCase {
 
 
 	public void testLogin() {
+		assertTrue(true);
 	}
 
 	public void testUserCRUD() {
@@ -95,6 +95,6 @@ public class HospitalTest extends TestCase {
 	}
 
 	public void testLogging() {
-
+		assertTrue(true);
 	}
 }

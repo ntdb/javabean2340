@@ -41,7 +41,6 @@ public class Doctor extends Nurse{
 		userID = generateUserID(PERMISSIONS);
 	}//end Doctor constructor
 	
-
 //	/**
 //	 * Adds the Doctor's orders to the given Patient's file
 //	 * 
@@ -58,20 +57,19 @@ public class Doctor extends Nurse{
 //		patient.getMedicalHistory().addDoctorsOrders(newDoctorsOrders); //bad OO?? 
 //	}//end addDoctorsOrders
 
-	public void createDoctorsOrders(int patientID, String prescription, String labWork, String followUp, String other)
-	{
+	public void createDoctorsOrders(int patientID, String prescription, String labWork, String followUp, String other) {
 		getPatient(patientID).createDoctorsOrders(prescription, labWork, followUp, other);
 	}
-	public String viewDoctorsOrders(int patientID)
-	{
+	
+	public String viewDoctorsOrders(int patientID) {
 		return getPatient(patientID).viewDoctorsOrders();
 	}
-	public void updateDoctorsOrders(int patientID ,String prescription, String labWork, String followUp, String other)
-	{
+	
+	public void updateDoctorsOrders(int patientID ,String prescription, String labWork, String followUp, String other) {
 		getPatient(patientID).updateDoctorsOrders(prescription, labWork, followUp, other);
 	}
-	public void deleteDoctorsOrders(int patientID)
-	{
+	
+	public void deleteDoctorsOrders(int patientID) {
 		getPatient(patientID).deleteDoctorsOrders();
 	}
 

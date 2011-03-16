@@ -143,16 +143,15 @@ public class Patient extends User {
 		medicalHistory.addTreatment(new Treatment(patientID, doctorID, appointmentID, details));
 	}
 
-	public String viewTreatment(int appointmentID)
-	{
+	public String viewTreatment(int appointmentID) {
 		return medicalHistory.viewTreatment(appointmentID);
 	}
-	public void updateTreatment(int appointmentID, String newDetails)
-	{
+	
+	public void updateTreatment(int appointmentID, String newDetails) {
 		medicalHistory.updateTreatment(appointmentID, newDetails);
 	}
-	public void deleteTreatment(int appointmentID)
-	{
+	
+	public void deleteTreatment(int appointmentID) {
 		medicalHistory.deleteTreatment(appointmentID);
 	}
 
@@ -160,28 +159,26 @@ public class Patient extends User {
 		return medicalHistory.getTreatmentCount();
 	}
 	
-	public void createDoctorsOrders(String prescription, String labWork, String followUp, String other)
-	{
+	public void createDoctorsOrders(String prescription, String labWork, String followUp, String other) {
 		DoctorsOrders newDoctorsOrders = new DoctorsOrders( prescription, labWork, followUp, other);
 		medicalHistory.addDoctorsOrders(newDoctorsOrders);
 	}
-	public String viewDoctorsOrders()
-	{
+	
+	public String viewDoctorsOrders() {
 		return medicalHistory.viewDoctorsOrders();
 	}
-	public void updateDoctorsOrders(String prescription, String labWork, String followUp, String other)
-	{
+	
+	public void updateDoctorsOrders(String prescription, String labWork, String followUp, String other) {
 		medicalHistory.updateDoctorsOrders(prescription, labWork, followUp, other);
 	}
-	public void deleteDoctorsOrders()
-	{
+	
+	public void deleteDoctorsOrders() {
 		medicalHistory.deleteDoctorsOrders();
 	}
 
 	public int getDoctorsOrdersCount() {
 		return medicalHistory.getDoctorsOrdersCount();
 	}
-
 
 	/**
 	 * Returns a String representation of Patient
