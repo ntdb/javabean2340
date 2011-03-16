@@ -189,10 +189,19 @@ public class Nurse extends User {
 		Schedule.deleteAppointment(appointmentID);
 	}
 	
+	/**
+	 * Creates a treatment record for a given patient
+	 *
+	 * @param patientID The patient to assign a treatment record to
+	 * @param doctorID The doctor to be noted on the treatment record
+	 * @param appointmentID The appointment to be noted on the treatment record
+	 * @param details Details on the treatment, specified by doctor or nurse
+	 */
 	public void createTreatment(int patientID, int doctorID, int  appointmentID, String details)
 	{
 		getPatient(patientID).createTreatment(patientID, doctorID, appointmentID, details);
-	}
+	}//end createTreatment
+
 	public String viewTreatment(int patientID, int appointmentID)
 	{
 		return getPatient(patientID).viewTreatment(appointmentID);
