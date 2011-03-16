@@ -1,15 +1,25 @@
-import java.io.*;
+//imported files
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
+
 /**
- * LoginClass. Used to verify that the user logs in correctly
+ * LoginClass. Used to verify that the user logs in correctly.
  * @author David
  * @version 1.00
  */
 public class LoginClass {
-	private int maxattempts;
-	private int userId;
+	private int maxattempts; 
+	
+	private final int userId;
+	
 	private boolean validpass;
+	
 	private UserController uc;
+	
 	private User logger;
+	
+	public final int max = 3;
 	
 	/**
 	 * LoginClass constructor. 
@@ -46,6 +56,11 @@ public class LoginClass {
 		return "LoginClass";
 	}
 	
+	/**
+	 * Verifies that the user is in the user controller and that 
+	 * the user is using the correct password.
+	 * Allows the user to try and validate their id up to three times.
+	 */
 	public void validate(){
 		//first verify that User is in the user controller object
 		if (uc.getUserIndex(userId) == -1){
@@ -54,7 +69,7 @@ public class LoginClass {
 		
 		//retrieve the user data stored
 		logger = uc.getUser(userId);
-		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		final BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		//retrieve user information and verify password matches usercontroller's
 		do{
 			//Have the user input their password
@@ -74,9 +89,15 @@ public class LoginClass {
 				System.out.println("Incorrect Password.");
 				maxattempts++;
 			}
-		}while(maxattempts < 3 || validpass != true);
-		if (maxattempts == 3 && validpass == false){
+		}while(maxattempts < max || validpass != true);
+		if (maxattempts == max && validpass == false){
 			System.out.print("Max Attempts reached. Contact an administrator to reset");
+		}
+		try {
+			in.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 	
