@@ -131,10 +131,10 @@ public class Nurse extends User {
 	 * @param patientSSN The SSN number of the patient
 	 * @param doctorName The name of the doctor
 	 */
-	public void createAppointment(Schedule theSchedule, Date appTime, int appointmentID, String patientName, String patientSSN, String doctorName)
+	public void createAppointment(Date appTime, int appointmentID, String patientName, String patientSSN, String doctorName)
 	{
 		Appointment newAppointment = new Appointment(appTime, appointmentID, patientName, patientSSN, doctorName);
-		theSchedule.addAppointment(newAppointment);
+		Schedule.addAppointment(newAppointment);
 	}
 	
 	/**
@@ -144,9 +144,9 @@ public class Nurse extends User {
 	 * @param newTime The new time for the appointment
 	 * @param newDoctorName The new doctor name of the appointment
 	 */
-	public void updateAppointment(Schedule theSchedule, int appointmentID, Date newTime, String newDoctorName)
+	public void updateAppointment(int appointmentID, Date newTime, String newDoctorName)
 	{
-		theSchedule.updateAppointment(appointmentID, newTime,newDoctorName);
+		Schedule.updateAppointment(appointmentID, newTime,newDoctorName);
 	}
 	
 	/**
@@ -155,9 +155,9 @@ public class Nurse extends User {
 	 * @param appointmentID The ID number of the appointment
 	 * @return The String containing the information of the appointment
 	 */
-	public String viewAppointment(Schedule theSchedule, int appointmentID)
+	public String viewAppointment(int appointmentID)
 	{
-		Appointment theAppointment = theSchedule.findAppointment(appointmentID);
+		Appointment theAppointment = Schedule.findAppointment(appointmentID);
 		String fullinfo = theAppointment.toString();
 		return fullinfo;
 	}
@@ -167,26 +167,26 @@ public class Nurse extends User {
 	 * @param theSchedule The schedule containing all appointments
 	 * @param appointmentID The ID number of the appointment
 	 */
-	public void deleteAppointment(Schedule theSchedule, int appointmentID)
+	public void deleteAppointment(int appointmentID)
 	{
-		theSchedule.deleteAppointment(appointmentID);
+		Schedule.deleteAppointment(appointmentID);
 	}
 	
-	public void createTreatment(Patient aPatient, int patientID, int doctorID, int  appointmentID, String details)
+	public void createTreatment(int patientID, int doctorID, int  appointmentID, String details)
 	{
-		aPatient.createTreatment(patientID, doctorID, appointmentID, details);
+		UserController.getUser(patientID).createTreatment(patientID, doctorID, appointmentID, details);
 	}
-	public String viewTreatment(Patient aPatient,int appointmentID)
+	public String viewTreatment(int patientID, int appointmentID)
 	{
-		return aPatient.viewTreatment(appointmentID);
+		return UserController.getUser(patientID).viewTreatment(appointmentID);
 	}
-	public void updateTreatment(Patient aPatient, int appointmentID, String newDetails)
+	public void updateTreatment(int patientID, int appointmentID, String newDetails)
 	{
-		aPatient.updateTreatment(appointmentID, newDetails);
+		UserController.getUser(patientID).updateTreatment(appointmentID, newDetails);
 	}
-	public void deleteTreatment(Patient aPatient, int appointmentID)
+	public void deleteTreatment(int patientID, int appointmentID)
 	{
-		aPatient.deleteTreatment(appointmentID);
+		UserController.getUser(patientID).deleteTreatment(appointmentID);
 	}
 	
 	/**
