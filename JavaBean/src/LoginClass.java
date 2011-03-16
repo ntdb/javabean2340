@@ -63,12 +63,12 @@ public class LoginClass {
 	 */
 	public void validate(){
 		//first verify that User is in the user controller object
-		if (uc.getUserIndex(userId) == -1){
+		if (UserController.getUserIndex(userId) == -1){
 			return;
 		}
 		
 		//retrieve the user data stored
-		logger = uc.getUser(userId);
+		logger = UserController.getUser(userId);
 		final BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		//retrieve user information and verify password matches usercontroller's
 		do{
