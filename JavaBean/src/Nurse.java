@@ -1,4 +1,4 @@
-/* Nurse Class for Hospital System
+/* Nurse class for Hospital System
  * Team Java Bean
  */
 
@@ -83,16 +83,16 @@ public class Nurse extends User {
 		return UserController.getUser(name);
 	}//end PatientLookupByName
 	
+/*	
 	/**
 	 * Allows Nurse to view Patient information
 	 * 
 	 * @param patient The Patient to look at
 	 */
-	public void viewPatient(Patient patient){
+/*	public void viewPatient(Patient patient){
 		//Views Patient information, implement later
-		int id = patient.getUserID();
 	}//end viewPatient
-	
+*/	
 	/**
 	 * Allows Nurse to view the current schedule of Appointments
 	 * 
@@ -100,7 +100,7 @@ public class Nurse extends User {
 	 * @param appTime The Date of the Appointment
 	 */
 	public void viewAppointments(Schedule schedule, Date appTime){
-		schedule.displayOneDaySchedule(appTime);
+		Schedule.displayOneDaySchedule(appTime);
 	}//end viewAppointments
 
 	/**

@@ -1,21 +1,42 @@
+/* Nurse class for Hospital System
+ * Team Java Bean
+ */
+
 import java.util.Date;
 
 /**
  * This class represents a patient in the Hospital system that extends from User
  *
+ * @author Team Java Bean
+ * @version 1.1 3/14/11
  */
 public class Patient extends User {
+	
+	/**
+	 * The permission level of all Patients, used to generate user ID
+	 */
+	private static final int PERMISSIONS = 4;
+	
+	/**
+	 * The social security number of the Patient
+	 */
 	private String ssn;
+	
+	/**
+	 * The birthday of the Patient
+	 */
 	private Date birthday;
-//	private MedicalHistory medicalHistory;
+	
+	/**
+	 * The Patient's medical history
+	 */
+	private MedicalHistory medicalHistory;
 	
 	/**
 	 * Default constructor sets all attributes to null
 	 * 
 	 */
-	public Patient()
-	{
-		super();
+	public Patient(){
 		ssn = null;
 		birthday = null;
 	}//end default Patient constructor
@@ -27,12 +48,9 @@ public class Patient extends User {
 	 */
 	public Patient(String name){
 		this.name = name;
-		userID = generateUserID(4);
-	}//end Patient constructor
-		
-	
+		userID = generateUserID(PERMISSIONS);
+	}//end Patient constructor		
 /*   *****Opted to only use a partial constructor to create a Patient Object*****
-	
 	/**
 	 * Overloaded constructor sets all Patient attributes
 	 * 
@@ -50,7 +68,6 @@ public class Patient extends User {
 		setSsn(ssnIn);
 		setBirthday(birthdayIn);
 	}
-	
 */
 	
 	/**
@@ -90,21 +107,42 @@ public class Patient extends User {
 	}
 	
 	/**
+	 * Returns the patient's medical history
+	 * 
+	 * @return The patient's medical history
+	 */
+	public MedicalHistory getMedicalHistory() {
+		return medicalHistory;
+	}
+
+	/**
+	 * Sets the patient's medical history
+	 * 
+	 * @param medicalHistory The patient's medical history
+	 */
+	public void setMedicalHistory(MedicalHistory medicalHistory) {
+		this.medicalHistory = medicalHistory;
+	}
+	
+	/**
 	 * Requests an appointment made by the Patient
 	 * 
 	 * @param myTime The requested appointment time
 	 * @param myDoctor The Doctor requested for the appointment
 	 * @return The completed appointment
 	 */
-	public Appointment requestAppointment(Date myTime, String myDoctor)
-	{
+	public Appointment requestAppointment(Date myTime, String myDoctor){
 		//int myNewAppointmentID = medicalHistory.appointment.lastID+1
 		//Appointment myNewAppointment = new Appointment(myTime, myNewAppointmentID, name, ssn, myDoctor);
 		return null;
 	}
 
-	public String toString()
-	{
+	/**
+	 * Returns a String representation of Patient
+	 *  
+	 * @return A String representation of Patient
+	 */
+	public String toString(){
 		return new String("Patient: " + name);			//Expand this
 	}
 }
