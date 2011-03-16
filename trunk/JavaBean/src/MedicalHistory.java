@@ -45,6 +45,54 @@ public class MedicalHistory
 	}
 	
 	/**
+	 * This is method is used to find the treatment
+	 * @param appointmentID The ID number of the appointment related to the treatment
+	 * @return If found, return index, not found, return -1
+	 */
+	private int getTreatmentIndex(int appointmentID)
+	{
+		for(int i = 0;i<treatments.size();i++)
+		{
+			Treatment theTreatment = treatments.get(i);
+			if(theTreatment.getAppointmentID() == appointmentID)
+				return i;
+		}
+		return -1;
+	}
+	
+	/**
+	 * This method is used to read the treatment as a string
+	 * @param appointmentID The ID number of the appointment relating to the treatment
+	 * @return The String containing all the information of the treatment
+	 */
+	public String viewTreatment(int appointmentID)
+	{
+		int index = getTreatmentIndex(appointmentID);
+		return (treatments.get(index)).toString();
+	}
+	
+	/**
+	 * This method is used to update the details in the treatment
+	 * @param appointmentID The ID number of the appointment to find the treatment
+	 * @param newDetails The details needed to add to the treatment
+	 */
+	public void updateTreatment(int appointmentID, String newDetails)
+	{
+		int index = getTreatmentIndex(appointmentID);
+		(treatments.get(index)).updateDetails(newDetails);
+	}
+	
+	/**
+	 * This method is used to delete the treatment
+	 * @param appointmentID The ID number of the appointment to find the treatment
+	 */
+	public void deleteTreatment(int appointmentID)
+	{
+		int index = getTreatmentIndex(appointmentID);
+		treatments.remove(index);
+	}
+	
+	/**
 	 * This method will add the new Doctors' Orders into the medical history of the patient
 	 * @param newDoctorsOrders The Doctors' Orders needed to be added into the medical history
 	 */
