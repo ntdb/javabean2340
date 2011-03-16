@@ -30,6 +30,23 @@ public class Appointment
 		this.patientSSN = patientSSN;
 		this.doctorName = doctorName;
 	}
+	
+	/**
+	 * This method is used to update appointment with new time or new doctor
+	 * @param newTime The new time for the appointment
+	 * @param newDoctorName The name of the new doctor
+	 */
+	public void updateAppointment(Date newTime, String newDoctorName)
+	{
+		if(newTime != null)
+		{
+			appTime = newTime;
+		}
+		if(newDoctorName != null)
+		{
+			doctorName = newDoctorName;
+		}
+	}
 
 	/**
 	 * This method is used to get the ID number of the appointment
