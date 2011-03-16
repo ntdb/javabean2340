@@ -36,6 +36,12 @@ public class Schedule
 		return appointments.get(appointmentIndex);
 	}
 	
+	public void updateAppointment(int appointmentID, Date newTime, String newDoctorName)
+	{
+		Appointment theAppointment = findAppointment(appointmentID);
+		theAppointment.updateAppointment(newTime, newDoctorName);
+	}
+	
 	public static void deleteAppointment(int appointmentID)			//Limit permissions!
 	{
 		int index = getAppointmentIndex(appointmentID);
