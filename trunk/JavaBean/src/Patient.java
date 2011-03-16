@@ -136,6 +136,24 @@ public class Patient extends User {
 		//Appointment myNewAppointment = new Appointment(myTime, myNewAppointmentID, name, ssn, myDoctor);
 		return null;
 	}
+	
+	public void createTreatment(int patientID, int doctorID, int  appointmentID, String details)
+	{
+		Treatment newTreatment = new Treatment(patientID, doctorID, appointmentID, details);
+		medicalHistory.addTreatment(newTreatment);
+	}
+	public String viewTreatment(int appointmentID)
+	{
+		return medicalHistory.viewTreatment(appointmentID);
+	}
+	public void updateTreatment(int appointmentID, String newDetails)
+	{
+		medicalHistory.updateTreatment(appointmentID, newDetails);
+	}
+	public void deleteTreatment(int appointmentID)
+	{
+		medicalHistory.deleteTreatment(appointmentID);
+	}
 
 	/**
 	 * Returns a String representation of Patient
