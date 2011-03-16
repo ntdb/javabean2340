@@ -65,7 +65,7 @@ public class Doctor extends Nurse{
 		return getPatient(patientID).viewDoctorsOrders();
 	}
 	
-	public void updateDoctorsOrders(int patientID ,String prescription, String labWork, String followUp, String other) {
+	public void updateDoctorsOrders(int patientID, String prescription, String labWork, String followUp, String other) {
 		getPatient(patientID).updateDoctorsOrders(prescription, labWork, followUp, other);
 	}
 	
