@@ -33,13 +33,15 @@ public class HospitalTest extends TestCase {
 	public void testAppointmentCRUD() {
 		Nurse nurse = new Nurse();
 		int numAppointments = nurse.getAppointmentCount();
-		int appointmentID = nurse.createAppointment();
+		nurse.createAppointment(new Date(), 1337, "Bob", "123456789", "Dr. Waters");
 		assertTrue(nurse.getAppointmentCount() > numAppointments);		//Create
 
-		nurse.updateAppointment
-		assertTrue(nurse.getAppointment(appointmentID).toString().equals("Patient: Bob"));	//Read+Update
+		Date newerDate = new Date();
+		nurse.updateAppointment(1337, newerDate, "Dr. Rambo");
+		assertTrue(nurse.getAppointment(1337).toString().equals("Appointment ID: 1337\nAppointment Time: "
+				       	+ newerDate.toString() + "\nPatient Name: Bob\nDoctor's Name: Dr. Rambo\n"));	//Read+Update
 
-		nurse.deleteAppointment(appointmentID);			
+		nurse.deleteAppointment(1337);			
 		assertTrue(nurse.getAppointmentCount() == numAppointments);		//Delete
 
 	}
