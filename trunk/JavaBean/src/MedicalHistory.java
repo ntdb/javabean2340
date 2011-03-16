@@ -101,6 +101,22 @@ public class MedicalHistory
 		doctorsOrders.add(newDoctorsOrders);
 	}
 	
+	public String viewDoctorsOrders()
+	{
+		int latestOne = doctorsOrders.size()-1;
+		return (doctorsOrders.get(latestOne)).toString();
+	}
+	public void updateDoctorsOrders(String prescription, String labWork, String followUp, String other)
+	{
+		int latestOne = doctorsOrders.size()-1;
+		(doctorsOrders.get(latestOne)).updateContent(prescription, labWork, followUp, other);
+	}
+	public void deleteDoctorsOrders()
+	{
+		int latestOne = doctorsOrders.size()-1;
+		doctorsOrders.remove(latestOne);
+	}
+	
 	/**
 	 * This method will export the medical history as a string.
 	 * It will start a new line and end with a new line.
