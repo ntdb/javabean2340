@@ -128,7 +128,7 @@ public class MedicalHistory
 		String appointmentString = new String();
 		for(int i = 0; i<appointmentIDs.size();i++)
 		{
-			Appointment newApp = appSchedule.findAppointment(appointmentIDs.get(i));
+			Appointment newApp = appSchedule.getAppointment(appointmentIDs.get(i));
 			appointmentString = appointmentString + newApp.toString();
 		}
 		

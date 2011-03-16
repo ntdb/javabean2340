@@ -41,7 +41,7 @@ public class Schedule
 	public static Appointment getAppointment(int appointmentID) {
 		int appointmentIndex = getAppointmentIndex(appointmentID);
 		return appointments.get(appointmentIndex);
-	}//end findAppointment
+	}//end getAppointment
 	
 	/**
 	 * Updates an appointment in the system
@@ -51,7 +51,7 @@ public class Schedule
 	 * @param newDoctorName The updated name of the appointment's doctor
 	 */
 	public static void updateAppointment(int appointmentID, Date newTime, String newDoctorName) {
-		Appointment theAppointment = findAppointment(appointmentID);
+		Appointment theAppointment = getAppointment(appointmentID);
 		theAppointment.updateAppointment(newTime, newDoctorName);
 	}//end updateAppointment
 	
