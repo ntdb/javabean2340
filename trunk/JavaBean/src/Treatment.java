@@ -17,7 +17,7 @@ public class Treatment
 	 * @param appointmentID The ID number of the related appointment. Best way to trace the treatment.
 	 * @param details The detailed instruction of the treatment.
 	 */
-	private Treatment(int patientID, int doctorID, int  appointmentID, String details)
+	public Treatment(int patientID, int doctorID, int  appointmentID, String details)
 	{
 		this.patientID = patientID;
 		this.doctorID = doctorID;
