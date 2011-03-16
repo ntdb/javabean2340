@@ -1,58 +1,102 @@
+/* Nurse class for Hospital System
+ * Team Java Bean
+ */
+
 import java.util.Random;
 
 
+/**
+ * This class represents a User in the Hospital system and is the basic
+ * construct for the different users with essential information
+ *
+ * @author Team Java Bean
+ * @version 1.1 3/14/11
+ */
 public abstract class User {
+	
+	/**
+	 * The multiple of how limit of Users in the sytem
+	 */
+	private static final int USERLIMITMULTIPLE = 1000;
+	
+	/**
+	 * The name of the User
+	 */
 	protected String name;
+	
+	/**
+	 * The User's password
+	 */
 	protected String password;
+	
+	/**
+	 * The User's ID
+	 */
 	protected int userID;
 	
-	protected User()
-	{
+	/**
+	 * Default constructor sets name and password to null and userID to 0
+	 */
+	protected User(){
 		name = null;
 		password = null;
 		userID = 0;
 	}
 	
-	protected User(String nameIn, String passwordIn)
-	{
+	/**
+	 * Overloaded constructor creates a User with a name and password
+	 * 
+	 * @param nameIn The name of the User to be created
+	 * @param passwordIn The password of the User to be created
+	 */
+	protected User(String nameIn, String passwordIn){
 		name = nameIn;
 		password = passwordIn;
 	}
 	
+	/**
+	 * Generates a User ID of the length as the USERLIMITMULTIPLE based on
+	 * the input permission level
+	 * 
+	 * @param permissions The permission level of the User
+	 * @return The ID of the User
+	 */
 	public static int generateUserID(int permissions){
-		Random genID = new Random();
-		int id = permissions*1000 + genID.nextInt(1000);
+		final Random genID = new Random();
+		int id = permissions * USERLIMITMULTIPLE + genID.nextInt(USERLIMITMULTIPLE);
 		
 		//check to see if User ID already exists and generates one until it is unique
 		while(UserController.getUser(id) != null){
-			id = permissions*1000 + genID.nextInt(1000);
+			id = permissions * USERLIMITMULTIPLE + genID.nextInt(USERLIMITMULTIPLE);
 		}//end while
 		return id;
 	}
 
-	public int getUserID()
-	{
+	/**
+	 * Gets the ID of the User
+	 * 
+	 * @return The User's ID
+	 */
+	public int getUserID(){
 		return userID;
 	}
 
-	
 	/**
 	 * Will check the xml file for a record of the User's name and corresponding password.
-	 * If the password does not match the expected password, a counter for max log attempts will
-	 * increment, and the user will have to try to login again. If the counter reaches three, the 
-	 * user will not be able to login and will require an administrator to reset the counter.
+	 * If the password does not match the expected password, a counter for max log
+	 * attempts will increment, and the user will have to try to login again. If the
+	 * counter reaches three, the user will not be able to login and will require an
+	 * administrator to reset the counter.
+	 * 
 	 * @param password Password required for the user to login.
 	 */
-	public void login(String password)
-	{
+	public void login(String password){
 		//retrieve information from the UserController class
-		LoginClass login = new LoginClass(userID);
+		final LoginClass login = new LoginClass(userID);
 		login.validate();
 		
 	}
 
-	
-	
 	/**
 	 * Returns the name of the User
 	 * 
@@ -97,6 +141,4 @@ public abstract class User {
 	public void setUserID(int userID) {
 		this.userID = userID;
 	}
-	
-	
-}
+}//end class User
