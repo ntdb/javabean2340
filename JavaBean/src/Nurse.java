@@ -245,6 +245,10 @@ public class Nurse extends User {
 		return getPatient(patientID).getTreatmentCount();
 	}
 
+	public String generateInvoice(int appointmentID) {
+		return Schedule.generateInvoice(appointmentID);
+	}
+
 	/**
 	 * Returns a String representation of Nurse
 	 *  
