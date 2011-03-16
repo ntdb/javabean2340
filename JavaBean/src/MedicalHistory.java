@@ -2,7 +2,6 @@ import java.util.ArrayList;
 
 /**
  * This class represents the medical history of the patient
- * @author William
  *
  */
 public class MedicalHistory 
