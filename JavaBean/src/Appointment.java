@@ -87,7 +87,7 @@ public class Appointment
 	 */
 	public String toString()
 	{
-		String fullInfo = "\nAppointment ID: " + appointmentID +
+		String fullInfo = "Appointment ID: " + appointmentID +
 						  "\nAppointment Time: " + appTime.toString() +
 						  "\nPatient Name: " + patientName +
 						  "\nDoctor's Name: " + doctorName + "\n";
