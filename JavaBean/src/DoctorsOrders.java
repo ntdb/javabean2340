@@ -25,6 +25,18 @@ public class DoctorsOrders
 		this.other = other;
 	}
 	
+	public void updateContent(String prescription, String labWork, String followUp, String other)
+	{
+		if(prescription != null)
+			this.prescription = prescription;
+		if(labWork != null)
+			this.labWork = labWork;
+		if(followUp != null)
+			this.followUp = followUp;
+		if(other != null)
+			this.other = other;
+	}
+	
 	/**
 	 * This method will export the doctors' orders as a string.
 	 * It will start a new line and end with a new line.
