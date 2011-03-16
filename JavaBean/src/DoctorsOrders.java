@@ -1,6 +1,5 @@
 /**
  * This class represents doctors' orders received by the patient
- * @author William
  *
  */
 public class DoctorsOrders 
