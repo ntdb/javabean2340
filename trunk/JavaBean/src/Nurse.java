@@ -119,6 +119,14 @@ public class Nurse extends User {
 	 * @return The Patient
 	 */
 	public Patient getPatient(int userID) {
+		Patient newPatient = null;
+		if(UserController.getUser(userID) instanceof Patient){
+			newPatient = (Patient) UserController.getUser(userID);
+		}//end if
+		else{
+			Hospital.LOGGER.warning("Nurse getPatient returned a User that " +
+					"is not a patient");
+		}//end else
 		return (Patient) UserController.getUser(userID);
 	}//end getPatient
 	
@@ -174,19 +182,19 @@ public class Nurse extends User {
 	
 	public void createTreatment(int patientID, int doctorID, int  appointmentID, String details)
 	{
-		UserController.getUser(patientID).createTreatment(patientID, doctorID, appointmentID, details);
+		getPatient(patientID).createTreatment(patientID, doctorID, appointmentID, details);
 	}
 	public String viewTreatment(int patientID, int appointmentID)
 	{
-		return UserController.getUser(patientID).viewTreatment(appointmentID);
+		return getPatient(patientID).viewTreatment(appointmentID);
 	}
 	public void updateTreatment(int patientID, int appointmentID, String newDetails)
 	{
-		UserController.getUser(patientID).updateTreatment(appointmentID, newDetails);
+		getPatient(patientID).updateTreatment(appointmentID, newDetails);
 	}
 	public void deleteTreatment(int patientID, int appointmentID)
 	{
-		UserController.getUser(patientID).deleteTreatment(appointmentID);
+		getPatient(patientID).deleteTreatment(appointmentID);
 	}
 	
 	/**
