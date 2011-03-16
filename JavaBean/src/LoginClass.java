@@ -1,4 +1,7 @@
-//imported files
+/**
+ * Login class for Hospital System
+ * Team Java Bean
+ */
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
@@ -9,17 +12,40 @@ import java.io.IOException;
  * @version 1.00
  */
 public class LoginClass {
+	/**
+	 * Counter used to determine how many login attempts are left
+	 */
 	private int maxattempts; 
 	
+	/**
+	 * userId of the user trying to login
+	 */
 	private final int userId;
 	
+	/**
+	 * boolean comparison with validpass if true
+	 */
+	private final boolean passed;
+	
+	/**
+	 * boolean comparison with validpass if false
+	 */
+	private final boolean failed;
+	
+	/**
+	 * Boolean value used to determine if entered password is correct
+	 */
 	private boolean validpass;
 	
-	private UserController uc;
-	
+	/**
+	 * User class trying to login
+	 */
 	private User logger;
 	
-	public final int max = 3;
+	/**
+	 * Max times a user can try to login
+	 */
+	public final int max;
 	
 	/**
 	 * LoginClass constructor. 
@@ -30,6 +56,9 @@ public class LoginClass {
 		maxattempts = 0;
 		this.userId = userID;
 		validpass = false;
+		failed = false;
+		passed = true;
+		max = '3';
 	}
 	
 	/**
@@ -69,9 +98,10 @@ public class LoginClass {
 		
 		//retrieve the user data stored
 		logger = UserController.getUser(userId);
-		final BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		//retrieve user information and verify password matches usercontroller's
 		do{
+			final BufferedReader in =
+				new BufferedReader(new InputStreamReader(System.in));
 			//Have the user input their password
 			System.out.print("Enter your password :");
 			//defaults to blank due to try catch code
@@ -82,6 +112,13 @@ public class LoginClass {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			finally {
+				try{
+					in.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
 			if(logger.getPassword().equals(pw)){
 				validpass = true;
 			}
@@ -89,15 +126,9 @@ public class LoginClass {
 				System.out.println("Incorrect Password.");
 				maxattempts++;
 			}
-		}while(maxattempts < max || validpass != true);
-		if (maxattempts == max && validpass == false){
+		}while(maxattempts < max || validpass != passed);
+		if (maxattempts == max && validpass == failed){
 			System.out.print("Max Attempts reached. Contact an administrator to reset");
-		}
-		try {
-			in.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 	}
 	
