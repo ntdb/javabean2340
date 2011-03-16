@@ -123,6 +123,32 @@ public class Nurse extends User {
 	}//end getPatient
 	
 	/**
+	 * This method is used to create a new appointment
+	 * @param appTime The time of the new appointment
+	 * @param appointmentID The ID number of the new appointment
+	 * @param patientName The name of the patient
+	 * @param patientSSN The SSN number of the patient
+	 * @param doctorName The name of the doctor
+	 * @return The new appointment as a Apointment object
+	 */
+	public Appointment createAppointment(Date appTime, int appointmentID, String patientName, String patientSSN, String doctorName)
+	{
+		Appointment newAppointment = new Appointment(appTime, appointmentID, patientName, patientSSN, doctorName);
+		return newAppointment;
+	}
+	
+	/**
+	 * This method is used to update the time and doctor name in the appointment, others should not be changed
+	 * @param theSchedule The schedule containing all appointment
+	 * @param appointmentID The ID of the appointment need changes
+	 * @param newTime The new time for the appointment
+	 * @param newDoctorName The new doctor name of the appointment
+	 */
+	public void updateAppointment(Schedule theSchedule, int appointmentID, Date newTime, String newDoctorName)
+	{
+		theSchedule.updateAppointment(appointmentID, newTime,newDoctorName);
+	}
+	/**
 	 * Returns a String representation of Nurse
 	 *  
 	 * @return A String representation of Nurse
