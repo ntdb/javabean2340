@@ -1,6 +1,7 @@
 import junit.framework.TestCase;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class HospitalTest extends TestCase {
 
@@ -43,7 +44,6 @@ public class HospitalTest extends TestCase {
 
 		nurse.deleteAppointment(1337);			
 		assertTrue(nurse.getAppointmentCount() == numAppointments);		//Delete
-
 	}
 
 	public void testTreatmentRecordCRUD() {

@@ -110,7 +110,16 @@ public class Nurse extends User {
 	 */
 	public int getUserCount() {
 		return UserController.getUserCount();
-	}
+	}//end getAppointmentCount
+
+	/**
+	 * Returns a count of the Appointments in the Hospital system
+	 *
+	 * @return The number of Appointments in the system
+	 */
+	public int getAppointmentCount() {
+		return Schedule.getAppointmentCount();
+	}//end getAppointmentCount
 
 	/**
 	 * Gets a Patient using the Patient's user ID
@@ -130,9 +139,12 @@ public class Nurse extends User {
 		return (Patient) UserController.getUser(userID);
 	}//end getPatient
 	
+	public Appointment getAppointment(int appointmentID) {
+		return Schedule.getAppointment(appointmentID);
+	}//end getAppointment
+
 	/**
 	 * This method is used to create a new appointment and add it to the schedule
-	 * @param theScedule The schedule contains all the appointments
 	 * @param appTime The time of the new appointment
 	 * @param appointmentID The ID number of the new appointment
 	 * @param patientName The name of the patient
@@ -147,7 +159,6 @@ public class Nurse extends User {
 	
 	/**
 	 * This method is used to update the time and doctor name in the appointment, others should not be changed
-	 * @param theSchedule The schedule containing all appointment
 	 * @param appointmentID The ID of the appointment need changes
 	 * @param newTime The new time for the appointment
 	 * @param newDoctorName The new doctor name of the appointment
@@ -159,20 +170,18 @@ public class Nurse extends User {
 	
 	/**
 	 * This method is used to read the appointment
-	 * @param theSchedule The schedule containing all appointments
 	 * @param appointmentID The ID number of the appointment
 	 * @return The String containing the information of the appointment
 	 */
 	public String viewAppointment(int appointmentID)
 	{
-		Appointment theAppointment = Schedule.findAppointment(appointmentID);
+		Appointment theAppointment = Schedule.getAppointment(appointmentID);
 		String fullinfo = theAppointment.toString();
 		return fullinfo;
 	}
 	
 	/**
 	 * This method is used to delete a chosen appointment from the schedule
-	 * @param theSchedule The schedule containing all appointments
 	 * @param appointmentID The ID number of the appointment
 	 */
 	public void deleteAppointment(int appointmentID)
