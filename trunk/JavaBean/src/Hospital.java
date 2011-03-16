@@ -7,16 +7,13 @@ public class Hospital {
 	private static FileHandler fileTxt;
 	private static SimpleFormatter formatterTxt;
 	
-	public void Hospital() throws IOException
+	public static void main(String[] args) throws IOException
 	{
-		fileTxt = new FileHandler("log.txt");
+		fileTxt = new FileHandler("log.txt", true);
 		formatterTxt = new SimpleFormatter();
 		fileTxt.setFormatter(formatterTxt);
 		LOGGER.addHandler(fileTxt);
-	}
 
-	public static void main(String[] args) throws IOException
-	{
 		UserController.load();
 		Schedule.load();
 
