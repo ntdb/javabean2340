@@ -31,11 +31,12 @@ public class HospitalTest extends TestCase {
 		assertEquals(nurse.getPatient(userID),nurse.patientLookupByName("Bob"));	//Lookup by name
 	}
 
-	public void testAppointmentCRUD() {
+	public void testAppointmentCRUD() throws IOException {
 		Nurse nurse = new Nurse();
 		int numAppointments = nurse.getAppointmentCount();
 		nurse.createAppointment(new Date(), 1337, "Bob", "123456789", "Dr. Waters");
 		assertTrue(nurse.getAppointmentCount() > numAppointments);		//Create
+		Schedule.save();
 
 		Date newerDate = new Date();
 		nurse.updateAppointment(1337, newerDate, "Dr. Rambo");
@@ -52,10 +53,27 @@ public class HospitalTest extends TestCase {
 		nurse.createTreatment(patientID, 1338, 1339, "Treatment for testing");
 		assertTrue(nurse.getTreatmentCount(patientID) > 0);			//Create
 
+		nurse.updateTreatment(patientID, 1339, "Updated treatment for testing");
+		assertTrue(nurse.viewTreatment(patientID, 1339).equals("\nPatient ID: " + patientID + 
+				"\nDoctor ID: 1338\nAppointment ID: 1339\nDetails:\nTreatment for testing\nUpdated treatment for testing\n"));	//Read+Update
 
+		nurse.deleteTreatment(patientID, 1339);
+		assertTrue(nurse.getTreatmentCount(patientID) == 0);			//Delete
 	}
 
 	public void testDoctorsOrdersCRUD() {
+		Doctor doctor = new Doctor();
+		int patientID = doctor.createPatient();
+		doctor.createDoctorsOrders(patientID, "Insulin", "HBA1C", "Three months", "The patient has a big chin");
+		assertTrue(doctor.getDoctorsOrdersCount(patientID) > 0);		//Create
+
+		doctor.updateDoctorsOrders(patientID, "Exercise", "Cholesterol", "None", "Still a big chin");
+		System.out.println(doctor.viewDoctorsOrders(patientID));
+		assertTrue(doctor.viewDoctorsOrders(patientID).equals(			//Read+Update
+					"\nPrescription: Exercise\nLab Work: Cholesterol\nFollow Up: None\nOther: Still a big chin\n"));
+
+		doctor.deleteDoctorsOrders(patientID);
+		assertTrue(doctor.getDoctorsOrdersCount(patientID) == 0);		//Delete
 	}
 
 	public void testLoadSave() throws IOException {
