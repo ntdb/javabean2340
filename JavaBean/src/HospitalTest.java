@@ -27,7 +27,7 @@ public class HospitalTest extends TestCase {
 		Nurse nurse = new Nurse();
 		int userID = nurse.createPatient();
 		nurse.getPatient(userID).setName("Bob");
-		assertEquals(nurse.getPatient(userID),nurse.PatientLookupByName("Bob"));	//Lookup by name
+		assertEquals(nurse.getPatient(userID),nurse.patientLookupByName("Bob"));	//Lookup by name
 	}
 
 	public void testAppointmentCRUD() {
