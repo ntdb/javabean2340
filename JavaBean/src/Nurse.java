@@ -139,6 +139,11 @@ public class Nurse extends User {
 		return (Patient) UserController.getUser(userID);
 	}//end getPatient
 	
+	/**
+	 * This method is used to get an appointment from the database via its ID
+	 * @param appointmentID The ID number of the appointment wanted
+	 * @return The required appointment
+	 */
 	public Appointment getAppointment(int appointmentID) {
 		return Schedule.getAppointment(appointmentID);
 	}//end getAppointment
@@ -202,18 +207,40 @@ public class Nurse extends User {
 		getPatient(patientID).createTreatment(patientID, doctorID, appointmentID, details);
 	}//end createTreatment
 
+	/**
+	 * This method is used to read a treatment record based on patient ID and appointment ID
+	 * @param patientID The ID number of the patient
+	 * @param appointmentID The ID number of the appointment
+	 * @return A string containg all the information in the treatment
+	 */
 	public String viewTreatment(int patientID, int appointmentID) {
 		return getPatient(patientID).viewTreatment(appointmentID);
 	}
 
+	/**
+	 * This method is used to update the information in the treatment, it will add the information into it
+	 * @param patientID The ID number of the patient
+	 * @param appointmentID The ID number of the appointment
+	 * @param newDetails The treatment information needed to add in
+	 */
 	public void updateTreatment(int patientID, int appointmentID, String newDetails) {
 		getPatient(patientID).updateTreatment(appointmentID, newDetails);
 	}
 
+	/**
+	 * This method is used to delete a treatment from the database
+	 * @param patientID The ID number of the patient
+	 * @param appointmentID The ID number of the appointment
+	 */
 	public void deleteTreatment(int patientID, int appointmentID) {
 		getPatient(patientID).deleteTreatment(appointmentID);
 	}
 
+	/**
+	 * This method is used to get the total number of treatments for the patient
+	 * @param patientID The ID number of the patient
+	 * @return The number of patient's treatment records
+	 */
 	public int getTreatmentCount(int patientID) {
 		return getPatient(patientID).getTreatmentCount();
 	}
