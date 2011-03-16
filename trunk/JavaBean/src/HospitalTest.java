@@ -6,7 +6,10 @@ public class HospitalTest extends TestCase {
 
 
 	public void testLogin() {
-		assertTrue(true);
+		Nurse nurse = new Nurse();
+		int userID = nurse.createPatient();
+		nurse.getPatient(userID).setPassword("password");
+		nurse.getPatient(userID).login("");
 	}
 
 	public void testUserCRUD() {
