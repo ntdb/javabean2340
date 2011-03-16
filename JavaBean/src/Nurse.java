@@ -123,18 +123,18 @@ public class Nurse extends User {
 	}//end getPatient
 	
 	/**
-	 * This method is used to create a new appointment
+	 * This method is used to create a new appointment and add it to the schedule
+	 * @param theScedule The schedule contains all the appointments
 	 * @param appTime The time of the new appointment
 	 * @param appointmentID The ID number of the new appointment
 	 * @param patientName The name of the patient
 	 * @param patientSSN The SSN number of the patient
 	 * @param doctorName The name of the doctor
-	 * @return The new appointment as a Apointment object
 	 */
-	public Appointment createAppointment(Date appTime, int appointmentID, String patientName, String patientSSN, String doctorName)
+	public void createAppointment(Schedule theSchedule, Date appTime, int appointmentID, String patientName, String patientSSN, String doctorName)
 	{
 		Appointment newAppointment = new Appointment(appTime, appointmentID, patientName, patientSSN, doctorName);
-		return newAppointment;
+		theSchedule.addAppointment(newAppointment);
 	}
 	
 	/**
@@ -148,6 +148,30 @@ public class Nurse extends User {
 	{
 		theSchedule.updateAppointment(appointmentID, newTime,newDoctorName);
 	}
+	
+	/**
+	 * This method is used to read the appointment
+	 * @param theSchedule The schedule containing all appointments
+	 * @param appointmentID The ID number of the appointment
+	 * @return The String containing the information of the appointment
+	 */
+	public String viewAppointment(Schedule theSchedule, int appointmentID)
+	{
+		Appointment theAppointment = theSchedule.findAppointment(appointmentID);
+		String fullinfo = theAppointment.toString();
+		return fullinfo;
+	}
+	
+	/**
+	 * This method is used to delete a chosen appointment from the schedule
+	 * @param theSchedule The schedule containing all appointments
+	 * @param appointmentID The ID number of the appointment
+	 */
+	public void deleteAppointment(Schedule theSchedule, int appointmentID)
+	{
+		theSchedule.deleteAppointment(appointmentID);
+	}
+	
 	/**
 	 * Returns a String representation of Nurse
 	 *  
