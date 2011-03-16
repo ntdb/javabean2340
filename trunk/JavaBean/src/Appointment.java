@@ -2,7 +2,6 @@ import java.util.Date;
 
 /**
  * This class represents the appointment
- * @author William
  *
  */
 public class Appointment
