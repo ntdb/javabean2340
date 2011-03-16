@@ -39,6 +39,7 @@ public class Patient extends User {
 	public Patient(){
 		ssn = null;
 		birthday = null;
+		medicalHistory = new MedicalHistory();
 	}//end default Patient constructor
 	
 	/**
@@ -49,6 +50,7 @@ public class Patient extends User {
 	public Patient(String name){
 		this.name = name;
 		userID = generateUserID(PERMISSIONS);
+		medicalHistory = new MedicalHistory();
 	}//end Patient constructor		
 /*   *****Opted to only use a partial constructor to create a Patient Object*****
 	/**
@@ -138,8 +140,7 @@ public class Patient extends User {
 	}
 	
 	public void createTreatment(int patientID, int doctorID, int  appointmentID, String details) {
-		Treatment newTreatment = new Treatment(patientID, doctorID, appointmentID, details);
-		medicalHistory.addTreatment(newTreatment);
+		medicalHistory.addTreatment(new Treatment(patientID, doctorID, appointmentID, details));
 	}
 
 	public String viewTreatment(int appointmentID)
@@ -175,6 +176,10 @@ public class Patient extends User {
 	public void deleteDoctorsOrders()
 	{
 		medicalHistory.deleteDoctorsOrders();
+	}
+
+	public int getDoctorsOrdersCount() {
+		return medicalHistory.getDoctorsOrdersCount();
 	}
 
 

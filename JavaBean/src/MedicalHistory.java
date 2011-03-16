@@ -119,6 +119,10 @@ public class MedicalHistory
 		int latestOne = doctorsOrders.size()-1;
 		doctorsOrders.remove(latestOne);
 	}
+
+	public int getDoctorsOrdersCount() {
+		return doctorsOrders.size();
+	}
 	
 	/**
 	 * This method will export the medical history as a string.
