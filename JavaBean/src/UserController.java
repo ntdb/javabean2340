@@ -5,16 +5,9 @@ public class UserController {
 
 	private static ArrayList<User> users = new ArrayList<User>();
 	
-	public UserController()
-	{
-		users = new ArrayList<User>();
-	}
-	
-	public static User getUser(int userID)		//Limit permissions!
-	{
+	public static User getUser(int userID) {
 		
-		for(int i=0; i<users.size(); i++)
-		{
+		for(int i=0; i<users.size(); i++) {
 			User user = (User)users.get(i);
 			if(user.getUserID() == userID)
 				return user;
@@ -35,10 +28,8 @@ public class UserController {
 		return user;
 	}//end overloaded getUser method (look-up by name)
 	
-	public static int getUserIndex(int userID)		//Limit permissions!
-	{
-		for(int i=0; i<users.size(); i++)
-		{
+	public static int getUserIndex(int userID) {
+		for(int i=0; i<users.size(); i++) {
 			User user = (User)users.get(i);
 			if(user.getUserID() == userID)
 				return i;
@@ -53,18 +44,15 @@ public class UserController {
 		return user.getPermissions();
 	}
 */	
-	public static void addUser(User userIn)		//Limit permissions!
-	{
+	public static void addUser(User userIn) {
 		users.add(userIn);
 	}
 	
-	public static void deleteUser(int userID)		//Limit permissions!
-	{
+	public static void deleteUser(int userID) {
 		users.remove(getUserIndex(userID));
 	}
 
-	public static int getUserCount()
-	{
+	public static int getUserCount() {
 		return users.size();
 	}
 

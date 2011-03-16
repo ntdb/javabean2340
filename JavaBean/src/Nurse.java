@@ -156,8 +156,7 @@ public class Nurse extends User {
 	 * @param patientSSN The SSN number of the patient
 	 * @param doctorName The name of the doctor
 	 */
-	public void createAppointment(Date appTime, int appointmentID, String patientName, String patientSSN, String doctorName)
-	{
+	public void createAppointment(Date appTime, int appointmentID, String patientName, String patientSSN, String doctorName) {
 		Appointment newAppointment = new Appointment(appTime, appointmentID, patientName, patientSSN, doctorName);
 		Schedule.addAppointment(newAppointment);
 	}
@@ -168,8 +167,7 @@ public class Nurse extends User {
 	 * @param newTime The new time for the appointment
 	 * @param newDoctorName The new doctor name of the appointment
 	 */
-	public void updateAppointment(int appointmentID, Date newTime, String newDoctorName)
-	{
+	public void updateAppointment(int appointmentID, Date newTime, String newDoctorName) {
 		Schedule.updateAppointment(appointmentID, newTime,newDoctorName);
 	}
 	
@@ -178,8 +176,7 @@ public class Nurse extends User {
 	 * @param appointmentID The ID number of the appointment
 	 * @return The String containing the information of the appointment
 	 */
-	public String viewAppointment(int appointmentID)
-	{
+	public String viewAppointment(int appointmentID) {
 		Appointment theAppointment = Schedule.getAppointment(appointmentID);
 		String fullinfo = theAppointment.toString();
 		return fullinfo;
@@ -189,8 +186,7 @@ public class Nurse extends User {
 	 * This method is used to delete a chosen appointment from the schedule
 	 * @param appointmentID The ID number of the appointment
 	 */
-	public void deleteAppointment(int appointmentID)
-	{
+	public void deleteAppointment(int appointmentID) {
 		Schedule.deleteAppointment(appointmentID);
 	}
 	
@@ -202,8 +198,7 @@ public class Nurse extends User {
 	 * @param appointmentID The appointment to be noted on the treatment record
 	 * @param details Details on the treatment, specified by doctor or nurse
 	 */
-	public void createTreatment(int patientID, int doctorID, int  appointmentID, String details)
-	{
+	public void createTreatment(int patientID, int doctorID, int  appointmentID, String details) {
 		getPatient(patientID).createTreatment(patientID, doctorID, appointmentID, details);
 	}//end createTreatment
 

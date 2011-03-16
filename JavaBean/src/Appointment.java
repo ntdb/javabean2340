@@ -4,13 +4,19 @@ import java.util.Date;
  * This class represents the appointment
  *
  */
-public class Appointment
-{
+public class Appointment {
 	private Date appTime;
+	
 	private int appointmentID;
+	
 	private String patientName, patientSSN, doctorName;
 
 	public Appointment() {
+		this.appTime = null;
+		this.appointmentID = -1;
+		this.patientName = null;
+		this.patientSSN = null;
+		this.doctorName = null;
 	}
 
 	/**
@@ -21,8 +27,7 @@ public class Appointment
 	 * @param patientSSN The SSN od the patient
 	 * @param doctorName The name of the doctor required by patient
 	 */
-	public Appointment(Date appTime, int appointmentID, String patientName, String patientSSN, String doctorName)
-	{
+	public Appointment(Date appTime, int appointmentID, String patientName, String patientSSN, String doctorName) {
 		this.appTime = appTime;
 		this.appointmentID = appointmentID;
 		this.patientName = patientName;
@@ -35,14 +40,11 @@ public class Appointment
 	 * @param newTime The new time for the appointment
 	 * @param newDoctorName The name of the new doctor
 	 */
-	public void updateAppointment(Date newTime, String newDoctorName)
-	{
-		if(newTime != null)
-		{
+	public void updateAppointment(Date newTime, String newDoctorName) {
+		if(newTime != null) {
 			appTime = newTime;
 		}
-		if(newDoctorName != null)
-		{
+		if(newDoctorName != null) {
 			doctorName = newDoctorName;
 		}
 	}
@@ -84,8 +86,7 @@ public class Appointment
 	 * It will start a new line and end with a new line.
 	 * @return A string contains all the information of the appointment.
 	 */
-	public String toString()
-	{
+	public String toString() {
 		String fullInfo = "Appointment ID: " + appointmentID +
 						  "\nAppointment Time: " + appTime.toString() +
 						  "\nPatient Name: " + patientName +

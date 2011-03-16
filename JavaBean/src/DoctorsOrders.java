@@ -2,11 +2,13 @@
  * This class represents doctors' orders received by the patient
  *
  */
-public class DoctorsOrders 
-{
+public class DoctorsOrders {
 	private String prescription;
+	
 	private String labWork;
+	
 	private String followUp;
+	
 	private String other;
 	
 	/**
@@ -16,16 +18,14 @@ public class DoctorsOrders
 	 * @param followUp The things need to be done after the service
 	 * @param other Additional information
 	 */
-	public DoctorsOrders(String prescription, String labWork, String followUp, String other)
-	{
+	public DoctorsOrders(String prescription, String labWork, String followUp, String other) {
 		this.prescription = prescription;
 		this.labWork = labWork;
 		this.followUp = followUp;
 		this.other = other;
 	}
 	
-	public void updateContent(String prescription, String labWork, String followUp, String other)
-	{
+	public void updateContent(String prescription, String labWork, String followUp, String other) {
 		if(prescription != null)
 			this.prescription = prescription;
 		if(labWork != null)
@@ -41,8 +41,7 @@ public class DoctorsOrders
 	 * It will start a new line and end with a new line.
 	 * @return A string contains all the information of the doctors' order.
 	 */
-	public String toString()
-	{
+	public String toString() {
 		String fullInfo = "\nPrescription: " + prescription +
 						  "\nLab Work: " + labWork +
 						  "\nFollow Up: " + followUp + 
