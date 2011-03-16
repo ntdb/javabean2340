@@ -59,7 +59,7 @@ public class IOController {
 			byte[] buffer = new byte[(int) new File(filename).length()];
 			FileInputStream f = new FileInputStream(filename);
 			f.read(buffer);
-			ArrayList fromXML = (ArrayList)xstream.fromXML(new String(buffer));
+			ArrayList fromXML = (ArrayList) xstream.fromXML(new String(buffer));
 			return fromXML;
 		}
 		else {

@@ -8,7 +8,7 @@ public class UserController {
 	public static User getUser(int userID) {
 		
 		for(int i=0; i<users.size(); i++) {
-			User user = (User)users.get(i);
+			User user = (User) users.get(i);
 			if(user.getUserID() == userID)
 				return user;
 		}
@@ -30,7 +30,7 @@ public class UserController {
 	
 	public static int getUserIndex(int userID) {
 		for(int i=0; i<users.size(); i++) {
-			User user = (User)users.get(i);
+			User user = (User) users.get(i);
 			if(user.getUserID() == userID)
 				return i;
 		}

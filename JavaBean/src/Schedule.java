@@ -14,7 +14,7 @@ public class Schedule {
 	 */
 	private static int getAppointmentIndex(int appointmentID) {
 		for(int i=0; i<appointments.size(); i++) {
-			Appointment appointment = (Appointment)appointments.get(i);
+			Appointment appointment = (Appointment) appointments.get(i);
 			if(appointment.getAppointmentID() == appointmentID)
 				return i;
 		}
@@ -77,7 +77,7 @@ public class Schedule {
 		ArrayList<Appointment> oneDaySchedule = new ArrayList<Appointment>();
 		
 		for(int i=0; i<appointments.size(); i++) {
-			Appointment appointment = (Appointment)appointments.get(i);
+			Appointment appointment = (Appointment) appointments.get(i);
 			if(appointment.getAppTime().equals(appTime))
 				oneDaySchedule.add(appointment);
 		}
@@ -87,7 +87,7 @@ public class Schedule {
 		}
 		else {
 			for(int j=0; j<oneDaySchedule.size();j++) {
-				Appointment newEntry = (Appointment)oneDaySchedule.get(j);
+				Appointment newEntry = (Appointment) oneDaySchedule.get(j);
 				System.out.println( newEntry.toString() );
 			}
 		}

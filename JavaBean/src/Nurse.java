@@ -168,7 +168,7 @@ public class Nurse extends User {
 	 * @param newDoctorName The new doctor name of the appointment
 	 */
 	public void updateAppointment(int appointmentID, Date newTime, String newDoctorName) {
-		Schedule.updateAppointment(appointmentID, newTime,newDoctorName);
+		Schedule.updateAppointment(appointmentID, newTime, newDoctorName);
 	}
 	
 	/**
