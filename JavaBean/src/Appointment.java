@@ -22,7 +22,7 @@ public class Appointment
 	 * @param patientSSN The SSN od the patient
 	 * @param doctorName The name of the doctor required by patient
 	 */
-	private Appointment(Date appTime, int appointmentID, String patientName, String patientSSN, String doctorName)
+	public Appointment(Date appTime, int appointmentID, String patientName, String patientSSN, String doctorName)
 	{
 		this.appTime = appTime;
 		this.appointmentID = appointmentID;
