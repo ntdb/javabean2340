@@ -141,4 +141,13 @@ public class User {
 	public void setUserID(int userID) {
 		this.userID = userID;
 	}
+	
+	/**
+	 * Returns a String representation of the User
+	 * 
+	 * @return A String representation of the User
+	 */
+	public String toString() {
+		return null;
+	}
 }//end class User

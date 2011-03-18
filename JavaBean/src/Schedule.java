@@ -132,4 +132,12 @@ public class Schedule {
 		appointments = IOController.getFromXML(new Appointment());
 	}//end load
 
+	/**
+	 * Returns a String representation of the Schedule
+	 * 
+	 * @return A String representation of the Schedule
+	 */
+	public String toString() {
+		return null;
+	}
 }

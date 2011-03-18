@@ -113,4 +113,13 @@ public class UserController {
 	public static void load() throws IOException {
 		users = IOController.getFromXML(new Patient());
 	}
+	
+	/**
+	 * Returns a String representation of the UserController
+	 * 
+	 * @return A String representation of the UserController
+	 */
+	public String toString() {
+		return null;
+	}
 }

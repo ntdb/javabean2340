@@ -66,4 +66,14 @@ public class IOController {
 			return new ArrayList();
 		}
 	}
+	
+	/**
+	 * Returns a String representation of the IOController
+	 * 
+	 * @return A String representation of the IOController
+	 */
+	public String toString() {
+		return null;
+	}
+	
 }
