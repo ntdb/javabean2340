@@ -42,7 +42,7 @@ public class Nurse extends User {
 	 * @return The new patient's userID
 	 */
 	public int createPatient() {
-		Patient newPatient = new Patient();
+		final Patient newPatient = new Patient();
 		UserController.addUser(newPatient);
 		return newPatient.getUserID();
 	}//end createPatient
@@ -156,19 +156,23 @@ public class Nurse extends User {
 	 * @param patientSSN The SSN number of the patient
 	 * @param doctorName The name of the doctor
 	 */
-	public void createAppointment(Date appTime, int appointmentID, String patientName, String patientSSN, String doctorName) {
-		Appointment newAppointment = new Appointment(appTime, appointmentID, patientName, patientSSN, doctorName);
+	public void createAppointment(Date appTime, int appointmentID, String patientName,
+			String patientSSN, String doctorName) {
+		final Appointment newAppointment = new Appointment(appTime, appointmentID,
+				patientName, patientSSN, doctorName);
 		Schedule.addAppointment(newAppointment);
 	}
 	
 	/**
-	 * This method is used to update the time and doctor name in the appointment, others should not be changed
+	 * This method is used to update the time and doctor name in the appointment,
+	 * others should not be changed
+	 * 
 	 * @param appointmentID The ID of the appointment need changes
 	 * @param newTime The new time for the appointment
 	 * @param newDoctorName The new doctor name of the appointment
 	 */
 	public void updateAppointment(int appointmentID, Date newTime, String newDoctorName) {
-		Schedule.updateAppointment(appointmentID, newTime,newDoctorName);
+		Schedule.updateAppointment(appointmentID, newTime, newDoctorName);
 	}
 	
 	/**
@@ -177,9 +181,9 @@ public class Nurse extends User {
 	 * @return The String containing the information of the appointment
 	 */
 	public String viewAppointment(int appointmentID) {
-		Appointment theAppointment = Schedule.getAppointment(appointmentID);
-		String fullinfo = theAppointment.toString();
-		return fullinfo;
+		final Appointment theAppointment = Schedule.getAppointment(appointmentID);
+		final String fullInfo = theAppointment.toString();
+		return fullInfo;
 	}
 	
 	/**
@@ -198,12 +202,16 @@ public class Nurse extends User {
 	 * @param appointmentID The appointment to be noted on the treatment record
 	 * @param details Details on the treatment, specified by doctor or nurse
 	 */
-	public void createTreatment(int patientID, int doctorID, int  appointmentID, String details) {
-		getPatient(patientID).getMedicalHistory().addTreatment(new Treatment(patientID, doctorID, appointmentID, details));
+	public void createTreatment(int patientID, int doctorID, int  appointmentID,
+			String details) {
+		getPatient(patientID).getMedicalHistory().addTreatment(new Treatment(patientID,
+				doctorID, appointmentID, details));
 	}//end createTreatment
 
 	/**
-	 * This method is used to read a treatment record based on patient ID and appointment ID
+	 * This method is used to read a treatment record based on patient ID
+	 * and appointment ID
+	 * 
 	 * @param patientID The ID number of the patient
 	 * @param appointmentID The ID number of the appointment
 	 * @return A string containg all the information in the treatment
@@ -213,13 +221,16 @@ public class Nurse extends User {
 	}
 
 	/**
-	 * This method is used to update the information in the treatment, it will add the information into it
+	 * This method is used to update the information in the treatment,
+	 * it will add the information into it
+	 * 
 	 * @param patientID The ID number of the patient
 	 * @param appointmentID The ID number of the appointment
 	 * @param newDetails The treatment information needed to add in
 	 */
 	public void updateTreatment(int patientID, int appointmentID, String newDetails) {
-		getPatient(patientID).getMedicalHistory().updateTreatment(appointmentID, newDetails);
+		getPatient(patientID).getMedicalHistory().updateTreatment(appointmentID,
+				newDetails);
 	}
 
 	/**
@@ -240,6 +251,12 @@ public class Nurse extends User {
 		return getPatient(patientID).getMedicalHistory().getTreatmentCount();
 	}
 
+	/**
+	 * Generates an invoice of a fulfilled appointment
+	 * 
+	 * @param appointmentID The ID of the appointment
+	 * @return The invoice
+	 */
 	public String generateInvoice(int appointmentID) {
 		return Schedule.generateInvoice(appointmentID);
 	}
