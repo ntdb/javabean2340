@@ -139,47 +139,6 @@ public class Patient extends User {
 		return null;
 	}
 	
-	public void createTreatment(int patientID, int doctorID, int  appointmentID, String details) {
-		medicalHistory.addTreatment(new Treatment(patientID, doctorID, appointmentID, details));
-	}
-
-	public String viewTreatment(int appointmentID) {
-		return medicalHistory.viewTreatment(appointmentID);
-	}
-	
-	public void updateTreatment(int appointmentID, String newDetails) {
-		medicalHistory.updateTreatment(appointmentID, newDetails);
-	}
-	
-	public void deleteTreatment(int appointmentID) {
-		medicalHistory.deleteTreatment(appointmentID);
-	}
-
-	public int getTreatmentCount() {
-		return medicalHistory.getTreatmentCount();
-	}
-	
-	public void createDoctorsOrders(String prescription, String labWork, String followUp, String other) {
-		DoctorsOrders newDoctorsOrders = new DoctorsOrders( prescription, labWork, followUp, other);
-		medicalHistory.addDoctorsOrders(newDoctorsOrders);
-	}
-	
-	public String viewDoctorsOrders() {
-		return medicalHistory.viewDoctorsOrders();
-	}
-	
-	public void updateDoctorsOrders(String prescription, String labWork, String followUp, String other) {
-		medicalHistory.updateDoctorsOrders(prescription, labWork, followUp, other);
-	}
-	
-	public void deleteDoctorsOrders() {
-		medicalHistory.deleteDoctorsOrders();
-	}
-
-	public int getDoctorsOrdersCount() {
-		return medicalHistory.getDoctorsOrdersCount();
-	}
-
 	/**
 	 * Returns a String representation of Patient
 	 *  

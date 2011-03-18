@@ -199,7 +199,7 @@ public class Nurse extends User {
 	 * @param details Details on the treatment, specified by doctor or nurse
 	 */
 	public void createTreatment(int patientID, int doctorID, int  appointmentID, String details) {
-		getPatient(patientID).createTreatment(patientID, doctorID, appointmentID, details);
+		getPatient(patientID).getMedicalHistory().addTreatment(new Treatment(patientID, doctorID, appointmentID, details));
 	}//end createTreatment
 
 	/**
@@ -219,7 +219,7 @@ public class Nurse extends User {
 	 * @param newDetails The treatment information needed to add in
 	 */
 	public void updateTreatment(int patientID, int appointmentID, String newDetails) {
-		getPatient(patientID).updateTreatment(appointmentID, newDetails);
+		getPatient(patientID).getMedicalHistory().updateTreatment(appointmentID, newDetails);
 	}
 
 	/**
@@ -228,7 +228,7 @@ public class Nurse extends User {
 	 * @param appointmentID The ID number of the appointment
 	 */
 	public void deleteTreatment(int patientID, int appointmentID) {
-		getPatient(patientID).deleteTreatment(appointmentID);
+		getPatient(patientID).getMedicalHistory().deleteTreatment(appointmentID);
 	}
 
 	/**
@@ -237,7 +237,7 @@ public class Nurse extends User {
 	 * @return The number of patient's treatment records
 	 */
 	public int getTreatmentCount(int patientID) {
-		return getPatient(patientID).getTreatmentCount();
+		return getPatient(patientID).getMedicalHistory().getTreatmentCount();
 	}
 
 	public String generateInvoice(int appointmentID) {
