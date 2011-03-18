@@ -56,24 +56,62 @@ public class Doctor extends Nurse{
 //				followUp, other);
 //		patient.getMedicalHistory().addDoctorsOrders(newDoctorsOrders); //bad OO?? 
 //	}//end addDoctorsOrders
-
-	public void createDoctorsOrders(int patientID, String prescription, String labWork, String followUp, String other) {
-		DoctorsOrders newDoctorsOrders = new DoctorsOrders( prescription, labWork, followUp, other);
+	/**
+	 * Creates doctor's orders for a given Patient
+	 * 
+	 * @param patientID The ID of the Patient receiving orders
+	 * @param prescription The prescription of the Patient
+	 * @param labWork The lab work of the Patient
+	 * @param followUp Follow up for the Patient
+	 * @param other Additional information or orders for the Patient
+	 */
+	public void createDoctorsOrders(int patientID, String prescription, String labWork,
+			String followUp, String other) {
+		final DoctorsOrders newDoctorsOrders = new DoctorsOrders(prescription, labWork, 
+				followUp, other);
 		getPatient(patientID).getMedicalHistory().addDoctorsOrders(newDoctorsOrders);
 	}
 	
+	/**
+	 * Returns the current doctors' orders of the given patient
+	 * 
+	 * @param patientID The ID of the Patient
+	 * @return The Patient's doctor's orders
+	 */
 	public String viewDoctorsOrders(int patientID) {
 		return getPatient(patientID).getMedicalHistory().viewDoctorsOrders();
 	}
 	
-	public void updateDoctorsOrders(int patientID, String prescription, String labWork, String followUp, String other) {
-		getPatient(patientID).getMedicalHistory().updateDoctorsOrders(prescription, labWork, followUp, other);
+	/**
+	 * Updates the given Patient's doctors' orders
+	 * 
+	 * @param patientID The ID of the Patient
+	 * @param prescription The prescription to be updated
+	 * @param labWork The lab work to be updated
+	 * @param followUp The folowup to be updated
+	 * @param other Other information to be updated
+	 */
+	public void updateDoctorsOrders(int patientID, String prescription, String labWork,
+			String followUp, String other) {
+		getPatient(patientID).getMedicalHistory().updateDoctorsOrders(prescription,
+				labWork, followUp, other);
 	}
 	
+	/**
+	 * Deletes the current doctor's orders of a given Patient
+	 * 
+	 * @param patientID The ID of the Patient
+	 */
 	public void deleteDoctorsOrders(int patientID) {
 		getPatient(patientID).getMedicalHistory().deleteDoctorsOrders();
 	}
 
+	/**
+	 * Returns the count of the given Patient's doctor's orders
+	 * 
+	 * @param patientID The ID of the Patient
+	 * @return A count of the Patien'ts doctor's orders
+	 */
 	public int getDoctorsOrdersCount(int patientID) {
 		return getPatient(patientID).getMedicalHistory().getDoctorsOrdersCount();
 	}
