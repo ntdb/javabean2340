@@ -1,14 +1,28 @@
 /**
  * This class represents doctors' orders received by the patient
- *
+ * @version 1.1 3/14/11
+ * @author Team Java Bean
  */
 public class DoctorsOrders {
+	
+	/**
+	 * String detailing the prescription to be taken
+	 */
 	private String prescription;
 	
+	/**
+	 * String detailing the lab work to be done
+	 */
 	private String labWork;
 	
+	/**
+	 * String detailing the desired followup appointments
+	 */
 	private String followUp;
 	
+	/**
+	 * String detailing other orders from the doctor
+	 */
 	private String other;
 	
 	/**
@@ -18,22 +32,35 @@ public class DoctorsOrders {
 	 * @param followUp The things need to be done after the service
 	 * @param other Additional information
 	 */
-	public DoctorsOrders(String prescription, String labWork, String followUp, String other) {
+	public DoctorsOrders(String prescription, String labWork, String followUp, 
+			String other) {
 		this.prescription = prescription;
 		this.labWork = labWork;
 		this.followUp = followUp;
 		this.other = other;
 	}
 	
-	public void updateContent(String prescription, String labWork, String followUp, String other) {
-		if(prescription != null)
+	/**
+	 * Updates the content of the DoctorsOrders object
+	 * @param prescription The new prescription detail
+	 * @param labWork The new lab work detail
+	 * @param followUp The new followup detail
+	 * @param other The new other detail
+	 */
+	public void updateContent(String prescription, String labWork, 
+			String followUp, String other) {
+		if(prescription != null) {
 			this.prescription = prescription;
-		if(labWork != null)
+		}
+		if(labWork != null) {
 			this.labWork = labWork;
-		if(followUp != null)
+		}
+		if(followUp != null) {
 			this.followUp = followUp;
-		if(other != null)
+		}
+		if(other != null) {
 			this.other = other;
+		}
 	}
 	
 	/**
@@ -42,7 +69,7 @@ public class DoctorsOrders {
 	 * @return A string contains all the information of the doctors' order.
 	 */
 	public String toString() {
-		String fullInfo = "\nPrescription: " + prescription +
+		final String fullInfo = "\nPrescription: " + prescription +
 						  "\nLab Work: " + labWork +
 						  "\nFollow Up: " + followUp + 
 						  "\nOther: " + other + "\n";
