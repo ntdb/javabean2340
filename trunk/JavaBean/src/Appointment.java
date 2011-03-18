@@ -1,16 +1,34 @@
+/* Appointment class
+ * Team Java Bean
+ */
+
 import java.util.Date;
 
 /**
  * This class represents the appointment
- *
+ * @version 1.0
+ * @author Team Java Bean
  */
 public class Appointment {
+	
+	/**
+	 * The date and time (UTC) of the appointment
+	 */
 	private Date appTime;
 	
+	/**
+	 * The key of the appointment
+	 */
 	private int appointmentID;
 	
+	/**
+	 * Strings holding the patient's name / social security number, and the doctor's name
+	 */
 	private String patientName, patientSSN, doctorName;
 
+	/**
+	 * Default constructor for an Appointment object
+	 */
 	public Appointment() {
 		this.appTime = null;
 		this.appointmentID = -1;
@@ -27,7 +45,8 @@ public class Appointment {
 	 * @param patientSSN The SSN od the patient
 	 * @param doctorName The name of the doctor required by patient
 	 */
-	public Appointment(Date appTime, int appointmentID, String patientName, String patientSSN, String doctorName) {
+	public Appointment(Date appTime, int appointmentID, String patientName, 
+			String patientSSN, String doctorName) {
 		this.appTime = appTime;
 		this.appointmentID = appointmentID;
 		this.patientName = patientName;
@@ -87,7 +106,7 @@ public class Appointment {
 	 * @return A string contains all the information of the appointment.
 	 */
 	public String toString() {
-		String fullInfo = "Appointment ID: " + appointmentID +
+		final String fullInfo = "Appointment ID: " + appointmentID +
 						  "\nAppointment Time: " + appTime.toString() +
 						  "\nPatient Name: " + patientName +
 						  "\nDoctor's Name: " + doctorName + "\n";
