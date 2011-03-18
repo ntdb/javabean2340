@@ -58,23 +58,24 @@ public class Doctor extends Nurse{
 //	}//end addDoctorsOrders
 
 	public void createDoctorsOrders(int patientID, String prescription, String labWork, String followUp, String other) {
-		getPatient(patientID).createDoctorsOrders(prescription, labWork, followUp, other);
+		DoctorsOrders newDoctorsOrders = new DoctorsOrders( prescription, labWork, followUp, other);
+		getPatient(patientID).getMedicalHistory().addDoctorsOrders(newDoctorsOrders);
 	}
 	
 	public String viewDoctorsOrders(int patientID) {
-		return getPatient(patientID).viewDoctorsOrders();
+		return getPatient(patientID).getMedicalHistory().viewDoctorsOrders();
 	}
 	
 	public void updateDoctorsOrders(int patientID, String prescription, String labWork, String followUp, String other) {
-		getPatient(patientID).updateDoctorsOrders(prescription, labWork, followUp, other);
+		getPatient(patientID).getMedicalHistory().updateDoctorsOrders(prescription, labWork, followUp, other);
 	}
 	
 	public void deleteDoctorsOrders(int patientID) {
-		getPatient(patientID).deleteDoctorsOrders();
+		getPatient(patientID).getMedicalHistory().deleteDoctorsOrders();
 	}
 
 	public int getDoctorsOrdersCount(int patientID) {
-		return getPatient(patientID).getDoctorsOrdersCount();
+		return getPatient(patientID).getMedicalHistory().getDoctorsOrdersCount();
 	}
 
 	/**
