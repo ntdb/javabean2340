@@ -4,7 +4,6 @@ import java.util.Date;
 
 public class HospitalTest extends TestCase {
 
-
 	public void testLogin() {
 		Nurse nurse = new Nurse();
 		int userID = nurse.createPatient();
@@ -98,6 +97,7 @@ public class HospitalTest extends TestCase {
 	}
 
 	public void testLogging() {
+		Hospital.LOGGER.info("Logging works");
 		assertTrue(true);
 	}
 }
