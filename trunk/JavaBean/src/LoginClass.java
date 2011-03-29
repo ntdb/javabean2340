@@ -130,6 +130,7 @@ public class LoginClass {
 		}while(maxattempts < 3 && !validpass); //!= passed);
 		if (maxattempts == 3 && validpass == failed){
 			System.out.print("Max Attempts reached. Contact an administrator to reset");
+			Hospital.LOGGER.warning("User " + userId + " reached maximum attempts on login.");
 		}
 	}
 	

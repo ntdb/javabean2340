@@ -6,7 +6,7 @@ import java.util.Date;
 
 /**
  * This class represents the appointment
- * @version 1.0
+ * @version 1.1 3/14/11
  * @author Team Java Bean
  */
 public class Appointment {
