@@ -6,7 +6,7 @@
 		<property name="build.dir"	value="build"/>
 		<property name="apidoc.dir"	value="apidoc"/>
 		<property name="lib.dir"	value="lib"/>
-		<property name="main-class"	value="Hospital"/>
+		<property name="main-class"	value="gui.Login"/>
 	</target>
 
 	<!--Define the classpath-->
