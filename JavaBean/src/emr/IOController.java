@@ -61,15 +61,11 @@ public class IOController {
 	 * @return The requested ArrayList
 	 * @throws IOException
 	 */
-	public static ArrayList getFromXML(Object o) {
+	public static ArrayList getFromXML(String filenameIn) {
 		XStream xstream = new XStream();
 		String filename = new String("");
 
-		if (o instanceof User) {
-			filename = new String("users.xml");
-		} else {
-			filename = new String("appointments.xml");
-		}
+		filename = filenameIn;
 
 		if (new File(filename).exists()) {
 			byte[] buffer = new byte[(int) new File(filename).length()];

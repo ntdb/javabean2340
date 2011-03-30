@@ -133,7 +133,7 @@ public class Schedule {
 	 */
 	public static void load() throws IOException {
 		SysLog.initialize();
-		appointments = IOController.getFromXML(new Appointment());
+		appointments = IOController.getFromXML("appointments.xml");
 	}//end load
 
 	/**
