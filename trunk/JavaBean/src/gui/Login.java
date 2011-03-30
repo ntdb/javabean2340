@@ -22,6 +22,7 @@ import java.awt.Color;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.io.IOException;
+import javax.swing.JPasswordField;
 
 public class Login extends JDialog {
 
@@ -29,7 +30,7 @@ public class Login extends JDialog {
 	private int attempts;
 	private final JPanel contentPanel = new JPanel();
 	private JTextField txtUsername;
-	private JTextField txtPassword;
+	private JPasswordField txtPassword;
 	private JLabel labelError;
 
 	/**
@@ -116,7 +117,7 @@ public class Login extends JDialog {
 			contentPanel.add(lblPassword, "2, 4, right, default");
 		}
 		{
-			txtPassword = new JTextField();
+			txtPassword = new JPasswordField();
 			txtPassword.setToolTipText("Enter user password here");
 			contentPanel.add(txtPassword, "4, 4, 13, 1, fill, default");
 			txtPassword.setColumns(10);
@@ -168,9 +169,8 @@ public class Login extends JDialog {
 									}
 								}
 							} catch (NumberFormatException e) {
-								labelError.setText("You must enter a valid username");
-							} catch (IOException e) {
 								Hospital.LOGGER.severe(e.toString() + " thrown.");
+								labelError.setText("You must enter a valid username");
 							}
 						}
 					});
