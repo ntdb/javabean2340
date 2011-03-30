@@ -124,8 +124,9 @@ public class LoginClass {
 	//				e.printStackTrace();
 	//			}
 	//		}
-    */		if(maxattempts == 3)
+    */		if(maxattempts == 3) {
     			return 3;
+    		}
    			else if(!pw.isEmpty() && logger.getPassword().equals(pw)) {
 				validpass = true;
 				maxattempts = 0;
@@ -133,8 +134,9 @@ public class LoginClass {
 			}
 			else{
 				validpass = false;
-				if(maxattempts < 3)
+				if(maxattempts < 3) {
 					maxattempts++;
+				}
 				return maxattempts;
 			}
 //		while(maxattempts < 3 && !validpass); //!= passed);

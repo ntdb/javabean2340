@@ -101,21 +101,17 @@ public class UserController {
 	}
 
 	/**
-	 * @throws IOException
+	 *
 	 */
-	public static void save() throws IOException {
+	public static void save() {
 		IOController.writeToXML(users);
 	}
 
 	/**
-	 * @throws IOException
+	 * 
 	 */
 	public static void load() {
-		try {
-			users = IOController.getFromXML(new User());
-		} catch(IOException e) {
-			System.out.print("blah.....");
-		}
+		users = IOController.getFromXML(new User());
 	}
 	
 	/**

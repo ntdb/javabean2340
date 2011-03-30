@@ -16,8 +16,9 @@ public class Schedule {
 	private static int getAppointmentIndex(int appointmentID) {
 		for(int i=0; i<appointments.size(); i++) {
 			Appointment appointment = (Appointment) appointments.get(i);
-			if(appointment.getAppointmentID() == appointmentID)
+			if(appointment.getAppointmentID() == appointmentID) {
 				return i;
+			}
 		}
 		return -1;
 	}//end getAppointmentIndex
@@ -79,8 +80,9 @@ public class Schedule {
 		
 		for(int i=0; i<appointments.size(); i++) {
 			Appointment appointment = (Appointment) appointments.get(i);
-			if(appointment.getAppTime().equals(appTime))
+			if(appointment.getAppTime().equals(appTime)) {
 				oneDaySchedule.add(appointment);
+			}
 		}
 		
 		if(oneDaySchedule.size() == 0) {

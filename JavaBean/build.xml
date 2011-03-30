@@ -61,7 +61,7 @@
 	</target>
 
 	<!--Run the program-->
-	<target name="run" depends="test">
+	<target name="run" depends="jar">
 		<java fork="true" classname="${main-class}">
 			<classpath>
 				<path refid="classpath"/>

@@ -1,4 +1,5 @@
 package emr;
+
 import java.io.IOException;
 import java.io.Writer;
 import java.io.File;
@@ -9,13 +10,16 @@ import com.thoughtworks.xstream.XStream;
 import java.util.ArrayList;
 
 public class IOController {
-	
+
 	/**
-	 * This method takes in an ArrayList and writes its comments to an appropriately-named xml document
-	 * @param arrIn The ArrayList to be written to xml
+	 * This method takes in an ArrayList and writes its comments to an
+	 * appropriately-named xml document
+	 * 
+	 * @param arrIn
+	 *            The ArrayList to be written to xml
 	 * @throws IOException
 	 */
-	public static void writeToXML(ArrayList arrIn) throws IOException {
+	public static void writeToXML(ArrayList arrIn) {
 		XStream xstream = new XStream();
 		String filename = new String("");
 		String xmlOut = xstream.toXML(arrIn);
@@ -31,43 +35,58 @@ public class IOController {
 
 			File file = new File(filename);			
 			
-			writer = new BufferedWriter(new FileWriter(file));
-			writer.write(xmlOut);
-			writer.close();
+			try {
+				writer = new BufferedWriter(new FileWriter(file));
+				writer.write(xmlOut);
+			} catch(IOException e) {
+				Hospital.LOGGER.severe("IOException thrown");
+			} finally {
+				try {
+					writer.close();
+				} catch (IOException e) {
+					Hospital.LOGGER.severe("IOException thrown");
+				}
+			}
 		}
-		else
+		else {
 			Hospital.LOGGER.warning("writeToXML called on empty ArrayList");
+		}
 	}
-	
+
 	/**
 	 * Deserializes an appropriate xml document and returns it as an ArrayList
-	 * @param o An identifying object for selecting the correct xml document
+	 * 
+	 * @param o
+	 *            An identifying object for selecting the correct xml document
 	 * @return The requested ArrayList
 	 * @throws IOException
 	 */
-	public static ArrayList getFromXML(Object o) throws IOException {
+	public static ArrayList getFromXML(Object o) {
 		XStream xstream = new XStream();
 		String filename = new String("");
-		
-		if(o instanceof User) {
+
+		if (o instanceof User) {
 			filename = new String("users.xml");
-		}
-		else {
+		} else {
 			filename = new String("appointments.xml");
 		}
 
-		if(new File(filename).exists()) {
+		if (new File(filename).exists()) {
 			byte[] buffer = new byte[(int) new File(filename).length()];
-			FileInputStream f = new FileInputStream(filename);
-			f.read(buffer);
+			try {
+				FileInputStream f = new FileInputStream(filename);
+				f.read(buffer);
+				f.close();
+			} catch(IOException e) {
+				Hospital.LOGGER.severe("IOException thrown");
+			}
 			ArrayList fromXML = (ArrayList) xstream.fromXML(new String(buffer));
 			return fromXML;
-		}
-		else {
+		} else {
 			return new ArrayList();
 		}
 	}
-	
+
 	/**
 	 * Returns a String representation of the IOController
 	 * 
@@ -76,5 +95,5 @@ public class IOController {
 	public String toString() {
 		return null;
 	}
-	
+
 }

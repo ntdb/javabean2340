@@ -72,7 +72,7 @@ public class Portal {
 					UserController.load();
 					Schedule.load();
 				} catch(IOException e) {
-					
+					Hospital.LOGGER.severe(e.toString() + " thrown.");
 				}
 			}
 		});
@@ -86,7 +86,7 @@ public class Portal {
 					UserController.save();
 					Schedule.save();
 				} catch(IOException e) {
-					
+					Hospital.LOGGER.severe(e.toString() + " thrown.");
 				}
 			}
 		});
