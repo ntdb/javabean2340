@@ -1,7 +1,9 @@
+package emr;
 /* Nurse class for Hospital System
  * Team Java Bean
  */
 
+import java.io.IOException;
 import java.util.Random;
 
 
@@ -12,7 +14,7 @@ import java.util.Random;
  * @author Team Java Bean
  * @version 1.1 3/14/11
  */
-public abstract class User {
+public class User {
 	
 	/**
 	 * The multiple of how limit of Users in the sytem
@@ -35,12 +37,18 @@ public abstract class User {
 	protected int userID;
 	
 	/**
+	 * The User's LoginClass object
+	 */
+	protected LoginClass login;
+	
+	/**
 	 * Default constructor sets name and password to null and userID to 0
 	 */
 	protected User(){
 		name = null;
 		password = null;
 		userID = 0;
+		login = new LoginClass(userID);
 	}
 	
 	/**
@@ -52,6 +60,8 @@ public abstract class User {
 	protected User(String nameIn, String passwordIn){
 		name = nameIn;
 		password = passwordIn;
+		userID = 0;
+		login = new LoginClass(userID);
 	}
 	
 	/**
@@ -90,11 +100,9 @@ public abstract class User {
 	 * 
 	 * @param password Password required for the user to login.
 	 */
-	public void login(String password){
+	public int loginMe(String password){
 		//retrieve information from the UserController class
-		final LoginClass login = new LoginClass(userID);
-		login.validate();
-		
+		return login.validate(password);
 	}
 
 	/**
@@ -128,9 +136,11 @@ public abstract class User {
 	 * Sets the User's password
 	 * 
 	 * @param password The user's password
+	 * @throws IOException 
 	 */
-	public void setPassword(String password) {
+	public void setPassword(String password) throws IOException {
 		this.password = password;
+		UserController.save();
 	}
 
 	/**
@@ -140,6 +150,7 @@ public abstract class User {
 	 */
 	public void setUserID(int userID) {
 		this.userID = userID;
+		login.setUserID(userID);
 	}
 	
 	/**
