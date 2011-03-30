@@ -99,7 +99,8 @@ public class HospitalTest extends TestCase {
 		assertTrue(nurse.generateInvoice(1337).equals("Patient name: Bob\tDate of Visit: " + date + "\tDoctor: Dr. Waters\nAmount due: $XXX.XX"));
 	}
 
-	public void testLogging() {
+	public void testLogging() throws IOException {
+		Hospital.main(null);
 		Hospital.LOGGER.info("Logging works");
 		assertTrue(true);
 	}

@@ -132,6 +132,7 @@ public class Schedule {
 	 * Retreives the schedule from XML
 	 */
 	public static void load() throws IOException {
+		SysLog.initialize();
 		appointments = IOController.getFromXML(new Appointment());
 	}//end load
 
