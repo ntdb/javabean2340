@@ -100,7 +100,7 @@ public class Portal {
 		});
 		mnFile.add(mntmCloseJavabeanEmr);
 		
-		JTextArea textArea = new JTextArea();
+		JTextPane textArea = new JTextPane();
 		frame.getContentPane().add(textArea, BorderLayout.CENTER);
 	}
 
