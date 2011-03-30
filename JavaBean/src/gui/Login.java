@@ -39,6 +39,7 @@ public class Login extends JDialog {
 	public static void main(String[] args) {
 		try {
 			UserController.load();					//Load records!
+			Schedule.load();
 			Login dialog = new Login();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
@@ -143,7 +144,7 @@ public class Login extends JDialog {
 									labelError.setText("You must enter a valid user ID");
 								}
 								else {
-									if(txtPassword.getText().isEmpty()) {
+									if(txtPassword.getText().length() == 0) {
 										labelError.setText("You must enter a password.");
 									}
 									else {
