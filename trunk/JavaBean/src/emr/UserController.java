@@ -111,6 +111,7 @@ public class UserController {
 	 * 
 	 */
 	public static void load() {
+		SysLog.initialize();
 		users = IOController.getFromXML(new User());
 		if(getUserIndex(-1) == -1) {
 //			addUser(new Nurse())						//Enter ultra admin account here!

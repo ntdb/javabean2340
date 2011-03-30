@@ -127,7 +127,7 @@ public class LoginClass {
     */		if(maxattempts == 3) {
     			return 3;
     		}
-   			else if(!pw.isEmpty() && logger.getPassword().equals(pw)) {
+   			else if(logger.getPassword().equals(pw)) {
 				validpass = true;
 				maxattempts = 0;
 				return -1;

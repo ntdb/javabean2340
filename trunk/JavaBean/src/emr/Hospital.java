@@ -43,16 +43,15 @@ public class Hospital {
 		formatterTxt = new SimpleFormatter();
 		fileTxt.setFormatter(formatterTxt);
 		LOGGER.addHandler(fileTxt);
-
+/*
 		UserController.load();
 		Schedule.load();
 		
 		//Commands?
-//		UserController.getUser(0).setPassword("blah");
-		System.out.println(UserController.getUser(0).getPassword());
 
 		UserController.save();
 		Schedule.save();
+*/
 	}
 	
 	/**
