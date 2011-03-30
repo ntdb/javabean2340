@@ -1,3 +1,4 @@
+package emr;
 /* Appointment class
  * Team Java Bean
  */

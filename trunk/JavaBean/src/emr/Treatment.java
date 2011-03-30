@@ -1,3 +1,4 @@
+package emr;
 /**
  * This class represents a treatment record of patients, on a per appointment basis.
  * 

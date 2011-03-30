@@ -1,3 +1,4 @@
+package emr;
 /**
  * Login class for Hospital System
  * Team Java Bean
@@ -20,7 +21,7 @@ public class LoginClass {
 	/**
 	 * userId of the user trying to login
 	 */
-	private final int userId;
+	private int userId;
 	
 	/**
 	 * boolean comparison with validpass if true
@@ -58,7 +59,7 @@ public class LoginClass {
 		validpass = false;
 		failed = false;
 		passed = true;
-		max = '3';
+		max = 3;
 	}
 	
 	/**
@@ -77,6 +78,10 @@ public class LoginClass {
 		maxattempts = max;
 	}
 	
+	public void setUserID(int userID) {
+		this.userId = userID;
+	}
+	
 	/**
 	 * Returns LoginClass as a String. Fulfilling audit requirements.
 	 * @return String value of class
@@ -90,16 +95,16 @@ public class LoginClass {
 	 * the user is using the correct password.
 	 * Allows the user to try and validate their id up to three times.
 	 */
-	public void validate() {
+	public int validate(String pw) {
 		//first verify that User is in the user controller object
-		if (UserController.getUserIndex(userId) == -1){
-			return;
+		if (UserController.getUserIndex(userId) == -1) {
+			return -2;
 		}
 		
-		//retrieve the user data stored
 		logger = UserController.getUser(userId);
+		
 		//retrieve user information and verify password matches usercontroller's
-		do{
+/*		do{
 			//Have the user input their password
 			System.out.print("Enter your password: ");
 			//defaults to blank due to try catch code
@@ -112,27 +117,34 @@ public class LoginClass {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-/*			finally {
-				try{
-					in.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-*/			if(logger.getPassword().equals(pw)){
+	//			finally {
+	//			try{
+	//				in.close();
+	//			} catch (IOException e) {
+	//				e.printStackTrace();
+	//			}
+	//		}
+    */		if(maxattempts == 3)
+    			return 3;
+   			else if(!pw.isEmpty() && logger.getPassword().equals(pw)) {
 				validpass = true;
-				break;
+				maxattempts = 0;
+				return -1;
 			}
 			else{
-				System.out.println("Incorrect Password.");
-				maxattempts++;
+				validpass = false;
+				if(maxattempts < 3)
+					maxattempts++;
+				return maxattempts;
 			}
-		}while(maxattempts < 3 && !validpass); //!= passed);
-		if (maxattempts == 3 && validpass == failed){
+//		while(maxattempts < 3 && !validpass); //!= passed);
+/*		if (maxattempts == 3 && validpass == failed){
 			System.out.print("Max Attempts reached. Contact an administrator to reset");
 			Hospital.LOGGER.warning("User " + userId + " reached maximum attempts on login.");
+			return maxattempts;
 		}
-	}
+		return -2;
+*/	}
 	
 	
 	

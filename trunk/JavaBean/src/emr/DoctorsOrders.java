@@ -1,3 +1,4 @@
+package emr;
 /**
  * This class represents doctors' orders received by the patient
  * @version 1.1 3/14/11

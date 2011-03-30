@@ -1,3 +1,4 @@
+package emr;
 /* Doctor class for Hospital System
  * Team Java Bean
  */

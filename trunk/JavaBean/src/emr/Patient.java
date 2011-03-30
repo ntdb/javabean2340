@@ -1,3 +1,4 @@
+package emr;
 /* Nurse class for Hospital System
  * Team Java Bean
  */

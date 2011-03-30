@@ -1,28 +1,31 @@
+package emr;
 import junit.framework.TestCase;
 import java.io.IOException;
 import java.util.Date;
 
 public class HospitalTest extends TestCase {
 
-	public void testLogin() {
+	public void testLogin() throws IOException {
 		Nurse nurse = new Nurse();
 		int userID = nurse.createPatient();
 		nurse.getPatient(userID).setPassword("password");
-		nurse.getPatient(userID).login("");
+		nurse.getPatient(userID).loginMe("");
 	}
 
-	public void testUserCRUD() {
+	public void testUserCRUD() throws IOException {
+//		UserController.load();
 		Nurse nurse = new Nurse();
 		int numUsers = nurse.getUserCount();
 		int userID = nurse.createPatient();
 		assertTrue(nurse.getUserCount() > numUsers);				//Create
 
-		nurse.getPatient(userID).setName("Bob");
+		nurse.getPatient(userID).setName("Blob");
 		nurse.getPatient(userID).setPassword("bobspassword");
 		nurse.getPatient(userID).setSsn("123456789");
-		assertTrue(nurse.getPatient(userID).toString().equals("Patient: Bob"));	//Read+Update
+		assertTrue(nurse.getPatient(userID).toString().equals("Patient: Blob"));	//Read+Update
+		UserController.save();
 
-		nurse.deletePatient(userID);			
+	//	nurse.deletePatient(userID);			
 		assertTrue(nurse.getUserCount() == numUsers);				//Delete
 	}
 
@@ -79,7 +82,7 @@ public class HospitalTest extends TestCase {
 	public void testLoadSave() throws IOException {
 		Nurse nurse = new Nurse();
 		int userID = nurse.createPatient();
-		nurse.getPatient(userID).setName("Bob");
+		nurse.getPatient(userID).setName("Blob");
 		UserController.save();						//Save
 		
 		nurse.deletePatient(userID);					//Modify, don't save

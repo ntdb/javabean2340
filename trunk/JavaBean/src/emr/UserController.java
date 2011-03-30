@@ -1,3 +1,4 @@
+package emr;
 /* UserController class for Hospital System
  * Team Java Bean
  */
@@ -25,7 +26,6 @@ public class UserController {
 	 * @return The found User
 	 */
 	public static User getUser(int userID) {
-		
 		for(int i=0; i < users.size(); i++) {
 			User user = users.get(i);
 			if(user.getUserID() == userID){
@@ -110,8 +110,12 @@ public class UserController {
 	/**
 	 * @throws IOException
 	 */
-	public static void load() throws IOException {
-		users = IOController.getFromXML(new Patient());
+	public static void load() {
+		try {
+			users = IOController.getFromXML(new User());
+		} catch(IOException e) {
+			System.out.print("blah.....");
+		}
 	}
 	
 	/**

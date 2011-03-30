@@ -1,3 +1,4 @@
+package emr;
 /* MedicalHistory class for Hospital System
  * Team Java Bean
  */

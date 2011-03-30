@@ -1,3 +1,4 @@
+package emr;
 /* Hospital class, main class for Hospital System
  * Team Java Bean
  */
@@ -45,9 +46,10 @@ public class Hospital {
 
 		UserController.load();
 		Schedule.load();
-
-		Nurse jenny = new Nurse();
-		jenny.createPatient();
+		
+		//Commands?
+//		UserController.getUser(0).setPassword("blah");
+		System.out.println(UserController.getUser(0).getPassword());
 
 		UserController.save();
 		Schedule.save();
