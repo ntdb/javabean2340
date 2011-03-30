@@ -138,33 +138,39 @@ public class Login extends JDialog {
 						@Override
 						public void mouseClicked(MouseEvent arg0) {
 							try {
-								if(user == null)
+								if(user == null) {
 									labelError.setText("You must enter a valid user ID");
+								}
 								else {
-									attempts = user.loginMe(txtPassword.getText());
-									switch(attempts) {
-										case -1:
-											Portal.main(null);
-											dispose();
-											break;
-										case 0:
-										case 1:
-										case 2:
-											labelError.setText("Incorrect password: " + (3-attempts) + " attempts remaining.");
-											break;
-										case 3:
-											UserController.save();
-											labelError.setText("You are locked out. Contact an admin.");
-											okButton.setEnabled(false);
-											break;
-										default:
-											labelError.setText("");
+									if(txtPassword.getText().isEmpty()) {
+										labelError.setText("You must enter a password.");
+									}
+									else {
+										attempts = user.loginMe(txtPassword.getText());
+										switch(attempts) {
+											case -1:
+												Portal.main(null);
+												dispose();
+												break;
+											case 0:
+											case 1:
+											case 2:
+												labelError.setText("Incorrect password: " + (3-attempts) + " attempts remaining.");
+												break;
+											case 3:
+												UserController.save();
+												labelError.setText("You are locked out. Contact an admin.");
+												okButton.setEnabled(false);
+												break;
+											default:
+												labelError.setText("");
+										}
 									}
 								}
 							} catch (NumberFormatException e) {
 								labelError.setText("You must enter a valid username");
 							} catch (IOException e) {
-
+								Hospital.LOGGER.severe(e.toString() + " thrown.");
 							}
 						}
 					});
