@@ -1,12 +1,13 @@
 package emr;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.io.IOException;
 
 //import JavaBean.src.Appointment;
 
 public class Schedule {
-	private static ArrayList<Appointment> appointments = new ArrayList<Appointment>();
+	private static List<Appointment> appointments = new ArrayList<Appointment>();
 
 	/**
 	 * For system use, returns the index of the appointment in the appointments ArrayList
@@ -133,7 +134,7 @@ public class Schedule {
 	 */
 	public static void load() throws IOException {
 		SysLog.initialize();
-		appointments = IOController.getFromXML("appointments.xml");
+		appointments = IOController.getFromXML("appointments.xml", Appointment.class);
 	}//end load
 
 	/**

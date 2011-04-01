@@ -4,6 +4,7 @@ package emr;
  */
 
 import java.util.ArrayList;
+import java.util.List;
 import java.io.IOException;
 
 /**
@@ -17,7 +18,7 @@ public class UserController {
 	/**
 	 * The List of Users currently using the system
 	 */
-	private static ArrayList<User> users = new ArrayList<User>();
+	private static List<User> users = new ArrayList<User>();
 	
 	/**
 	 * Returns a User with the given user ID
@@ -112,7 +113,7 @@ public class UserController {
 	 */
 	public static void load() {
 		SysLog.initialize();
-		users = IOController.getFromXML("users.xml");
+		users = IOController.getFromXML("users.xml", User.class);
 		if(getUserIndex(-1) == -1) {
 //			addUser(new Nurse())						//Enter ultra admin account here!
 		}

@@ -8,6 +8,7 @@ import java.io.FileInputStream;
 import java.io.BufferedWriter;
 import com.thoughtworks.xstream.XStream;
 import java.util.ArrayList;
+import java.util.List;
 
 public class IOController {
 
@@ -19,7 +20,7 @@ public class IOController {
 	 *            The ArrayList to be written to xml
 	 * @throws IOException
 	 */
-	public static void writeToXML(ArrayList arrIn) {
+	public static void writeToXML(List arrIn) {
 		XStream xstream = new XStream();
 		String filename = new String("");
 		String xmlOut = xstream.toXML(arrIn);
@@ -61,7 +62,7 @@ public class IOController {
 	 * @return The requested ArrayList
 	 * @throws IOException
 	 */
-	public static ArrayList getFromXML(String filenameIn) {
+	public static <E> List<E> getFromXML(String filenameIn, Class<E> type) {
 		XStream xstream = new XStream();
 		String filename = new String("");
 
@@ -76,10 +77,11 @@ public class IOController {
 			} catch(IOException e) {
 				Hospital.LOGGER.severe("IOException thrown");
 			}
-			ArrayList fromXML = (ArrayList) xstream.fromXML(new String(buffer));
+			@SuppressWarnings("unchecked")
+			List<E> fromXML = (List<E>) xstream.fromXML(new String(buffer));
 			return fromXML;
 		} else {
-			return new ArrayList();
+			return new ArrayList<E>();
 		}
 	}
 
