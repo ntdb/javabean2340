@@ -29,6 +29,12 @@ public class NurseMenu extends JPanel {
 		add(button);
 		
 		JButton button_1 = new JButton("Appointments");
+		button_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+//				
+			}
+		});
 		button_1.setAlignmentX(Component.CENTER_ALIGNMENT);
 		button_1.setMaximumSize(new Dimension(1000,25));
 		add(button_1);

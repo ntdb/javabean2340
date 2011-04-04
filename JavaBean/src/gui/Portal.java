@@ -33,6 +33,8 @@ import com.jgoodies.forms.layout.RowSpec;
 import com.jgoodies.forms.factories.FormFactory;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import java.awt.FlowLayout;
+import javax.swing.UIManager;
 
 public class Portal {
 
@@ -107,10 +109,12 @@ public class Portal {
 		frame.setBounds(100, 100, 518, 354);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
+		frame.setTitle("EMR: " + user.toString());
+		
 		JMenuBar menuBar = new JMenuBar();
 		frame.setJMenuBar(menuBar);
 		
-		JMenu mnFile = new JMenu("File");
+		JMenu mnFile = new JMenu("Menu");
 		menuBar.add(mnFile);
 		
 		JMenuItem mntmLoadSystem = new JMenuItem("Load System");
@@ -147,8 +151,23 @@ public class Portal {
 				System.exit(0);
 			}
 		});
+		
+		JMenuItem mntmLogOutOf = new JMenuItem("Log Out of System");
+		mntmLogOutOf.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				breadcrumbs.removeAll();
+				user = null;
+				menu = null;
+				content = null;
+				Login.main(null);
+				frame.dispose();
+			}
+		});
+		mnFile.add(mntmLogOutOf);
 		mnFile.add(mntmCloseJavabeanEmr);
-		breadcrumbs.setBackground(Color.WHITE);
+		breadcrumbs.setBackground(UIManager.getColor("Panel.background"));
+		breadcrumbs.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 5));
+		
 		
 		menuBar.add(breadcrumbs);
 		
@@ -165,8 +184,8 @@ public class Portal {
 	public static void update(JPanel menuIn, JPanel contentIn, String title) {
 		if(menuIn == menu && contentIn == content)
 			return;
-		setMenu(menuIn);
-		setContent(contentIn);
+			setMenu(menuIn);
+			setContent(contentIn);
 		setContent(contentIn);
 		Breadcrumb tempCrumb = new Breadcrumb(menuIn, contentIn, title);
 		for(int i=0; i<breadcrumbArray.size(); i++) {

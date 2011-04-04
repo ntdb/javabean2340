@@ -1,5 +1,7 @@
 package gui;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -16,10 +18,17 @@ public class Breadcrumb {
 		menu = menuIn;
 		content = contentIn;
 		label = new JLabel(title);
+		label.setForeground(Color.BLUE);
 		label.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				Portal.update(menu, content, "");
+			}
+			public void mouseEntered(MouseEvent arg1) {
+				label.setForeground(Color.GREEN);
+			}
+			public void mouseExited(MouseEvent arg2) {
+				label.setForeground(Color.BLUE);
 			}
 		});
 	}

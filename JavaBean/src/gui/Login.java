@@ -13,6 +13,9 @@ import com.jgoodies.forms.layout.RowSpec;
 import com.jgoodies.forms.factories.FormFactory;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -142,9 +145,8 @@ public class Login extends JDialog {
 			{
 				{
 					final JButton okButton = new JButton("Log In");
-					okButton.addMouseListener(new MouseAdapter() {
-						@Override
-						public void mouseClicked(MouseEvent arg0) {
+					okButton.addActionListener(new ActionListener() {
+						public void actionPerformed(ActionEvent arg0) {
 							try {
 								if(user == null) {
 									labelError.setText("You must enter a valid user ID");
@@ -188,9 +190,9 @@ public class Login extends JDialog {
 			}
 			{
 				JButton btnExit = new JButton("Exit");
-				btnExit.addMouseListener(new MouseAdapter() {
+				btnExit.addActionListener(new ActionListener() {
 					@Override
-					public void mouseClicked(MouseEvent arg0) {
+					public void actionPerformed(ActionEvent arg0) {
 						System.exit(0);
 					}
 				});
