@@ -34,10 +34,6 @@ public class PatientSearchMenu extends JPanel {
 		comboBox.setEditable(true);
 		add(comboBox, "2, 2, fill, default");
 		
-		
-		
-		
-
 	}
 
 	
