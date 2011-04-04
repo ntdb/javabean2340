@@ -2,12 +2,12 @@ package gui;
 
 import javax.swing.JPanel;
 
-public class PatientWelcomPanel extends JPanel {
+public class PatientWelcomePanel extends JPanel {
 
 	/**
 	 * Create the panel.
 	 */
-	public PatientWelcomPanel() {
+	public PatientWelcomePanel() {
 
 	}
 
