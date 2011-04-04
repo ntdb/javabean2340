@@ -191,7 +191,6 @@ public class Login extends JDialog {
 			{
 				JButton btnExit = new JButton("Exit");
 				btnExit.addActionListener(new ActionListener() {
-					@Override
 					public void actionPerformed(ActionEvent arg0) {
 						System.exit(0);
 					}
