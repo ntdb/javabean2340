@@ -7,6 +7,8 @@ import javax.swing.JPanel;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import java.awt.Dimension;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 /**
  * Panel is used for button inputs with the Invoice_Panels class.
@@ -34,6 +36,12 @@ public class Invoice_Buttons extends JPanel {
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		
 		final JButton button = new JButton("Close Invoice");
+		button.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				Portal.update(new PatientMainMenu(), new PatientWelcomePanel(), "Patient");
+			}
+		});
 		button.setMaximumSize(new Dimension(wth, hgt));
 		add(button);
 
