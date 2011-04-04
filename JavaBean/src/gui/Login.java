@@ -155,7 +155,6 @@ public class Login extends JDialog {
 									}
 									else {
 										attempts = user.loginMe(txtPassword.getText());
-										System.out.println(attempts);
 										switch(attempts) {
 											case -1:
 												Portal.main(user);

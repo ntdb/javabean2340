@@ -18,6 +18,7 @@ import javax.swing.JList;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import emr.*;
 
@@ -38,10 +39,9 @@ public class Portal {
 	private static JFrame frame;
 	
 	private static User user;
+	private static ArrayList<Breadcrumb> breadcrumbArray = new ArrayList<Breadcrumb>();
 	private static JPanel menu = new JPanel();
-	private static JPanel homeMenu;
 	private static JPanel content = new JPanel();
-	private static JPanel homeContent;
 	private static JPanel breadcrumbs = new JPanel();
 
 	/**
@@ -82,36 +82,27 @@ public class Portal {
 	private void initAdmin() {
 		menu = new AdminMenu();
 		content = new DailyAppointmentsPanel();
-		homeMenu = menu;
-		homeContent = content;
 	}
 	
 	private void initDoctor() {
 		menu = new DoctorMenu();
 		content = new DailyAppointmentsPanel();
-		homeMenu = menu;
-		homeContent = content;
 	}
 	
 	private void initNurse() {
 		menu = new NurseMenu();
 		content = new DailyAppointmentsPanel();
-		homeMenu = menu;
-		homeContent = content;
 	}
 	
 	private void initPatient() {
-		menu = new PatientMenu();
-		content = new PatientPanel();
-		homeMenu = menu;
-		homeContent = content;
+		menu = new PatientMainMenu();
+		content = new PatientWelcomePanel();
 	}
 	
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		System.out.println("blang");
 		frame = new JFrame();
 		frame.setBounds(100, 100, 518, 354);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -161,18 +152,8 @@ public class Portal {
 		
 		menuBar.add(breadcrumbs);
 		
-		JLabel lblHome = new JLabel("Home");
-		lblHome.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				setMenu(homeMenu);
-				setContent(homeContent);
-			}
-		});
-		breadcrumbs.add(lblHome);
-		
-		JLabel label = new JLabel(" > ");
-		breadcrumbs.add(label);
+		breadcrumbArray.add(new Breadcrumb(menu,content));
+		breadcrumbs.add(breadcrumbArray.get(breadcrumbArray.size() - 1).getLabel());
 		
 		frame.getContentPane().setLayout(new BorderLayout(0, 0));
 		
@@ -182,23 +163,42 @@ public class Portal {
 	}
 	
 	public static void update(JPanel menuIn, JPanel contentIn) {
+		if(menuIn == menu && contentIn == content)
+			return;
 		setMenu(menuIn);
 		setContent(contentIn);
+		Breadcrumb tempCrumb = new Breadcrumb(menuIn, contentIn);
+		for(int i=0; i<breadcrumbArray.size(); i++) {
+			if(breadcrumbArray.get(i).getMenu() == menuIn) {
+				breadcrumbArray = new ArrayList<Breadcrumb>(breadcrumbArray.subList(0, i+1));
+				breadcrumbs.removeAll();
+				for(int j=0; j<breadcrumbArray.size(); j++) {
+					if(i > 0) {
+						breadcrumbs.add(new JLabel(" > "));
+					}
+					breadcrumbs.add(breadcrumbArray.get(j).getLabel());
+				}
+				frame.validate();
+				frame.repaint();
+				return;
+			}
+		}
+		breadcrumbArray.add(tempCrumb);
+		breadcrumbs.add(new JLabel(" > "));
+		breadcrumbs.add(tempCrumb.getLabel());
+		frame.validate();
+		frame.repaint();
 	}
 	
 	private static void setMenu(JPanel menuIn) {
 		frame.getContentPane().remove(menu);
 		frame.getContentPane().add(menuIn, BorderLayout.WEST);
-		frame.validate();
-		frame.repaint();
 		menu = menuIn;
 	}
 	
 	private static void setContent(JPanel contentIn) {
 		frame.getContentPane().remove(content);
 		frame.getContentPane().add(contentIn, BorderLayout.CENTER);
-		frame.validate();
-		frame.repaint();
 		content = contentIn;
 	}
 
