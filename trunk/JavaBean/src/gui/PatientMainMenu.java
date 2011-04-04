@@ -43,7 +43,7 @@ public class PatientMainMenu extends JPanel {
 		btnMedicalInformation.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				Portal.update(new PatientMainMenu(), new PatientMedicalInformationPanel() , "Medical Information");
+				Portal.setContent(new PatientMedicalInformationPanel());
 			}
 		});
 		btnMedicalInformation.setAlignmentX(Component.CENTER_ALIGNMENT);
