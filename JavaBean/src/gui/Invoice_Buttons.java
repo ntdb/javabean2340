@@ -18,28 +18,32 @@ import java.awt.event.MouseEvent;
 public class Invoice_Buttons extends JPanel {
 	
 	/**
+	 * Because Audit complains.
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
 	 * Width of the Invoice Buttons
 	 */
-	private final int wth;
+	private final int wth = 1000;
 	
 	/**
 	 * Height of the Invoice Buttons
 	 */
-	private final int hgt;
+	private final int hgt = 25;
 
 	/**
 	 * Create the panel.
 	 */
 	public Invoice_Buttons() {
-		wth = (int)1000;
-		hgt = (int)25;
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		
 		final JButton button = new JButton("Close Invoice");
 		button.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				Portal.update(new PatientMainMenu(), new PatientWelcomePanel(), "Patient");
+				Portal.update(new PatientMainMenu(), 
+						new PatientWelcomePanel(), "Patient");
 			}
 		});
 		button.setMaximumSize(new Dimension(wth, hgt));
