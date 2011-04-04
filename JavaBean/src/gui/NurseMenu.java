@@ -21,7 +21,7 @@ public class NurseMenu extends JPanel {
 		button.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				Portal.update(new PatientAdminMenu(), new PatientSearchMenu());
+				Portal.update(new PatientAdminMenu(), new PatientSearchMenu(), "Patients");
 			}
 		});
 		button.setAlignmentX(Component.CENTER_ALIGNMENT);

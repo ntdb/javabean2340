@@ -6,6 +6,8 @@ import java.awt.Dimension;
 import javax.swing.JPanel;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class PatientAdminMenu extends JPanel {
 
@@ -26,6 +28,12 @@ public class PatientAdminMenu extends JPanel {
 		add(btnDeletePatient);
 		
 		JButton btnTreatmentRecord = new JButton("Treatment Record");
+		btnTreatmentRecord.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				Portal.update(new Treatment_Buttons(), new Treatment_Panel(), "Treatment Record");
+			}
+		});
 		btnTreatmentRecord.setAlignmentX(Component.CENTER_ALIGNMENT);
 		btnTreatmentRecord.setMaximumSize(new Dimension(1000,25));
 		add(btnTreatmentRecord);

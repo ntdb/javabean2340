@@ -152,7 +152,7 @@ public class Portal {
 		
 		menuBar.add(breadcrumbs);
 		
-		breadcrumbArray.add(new Breadcrumb(menu,content));
+		breadcrumbArray.add(new Breadcrumb(menu,content, "Home"));
 		breadcrumbs.add(breadcrumbArray.get(breadcrumbArray.size() - 1).getLabel());
 		
 		frame.getContentPane().setLayout(new BorderLayout(0, 0));
@@ -162,18 +162,19 @@ public class Portal {
 		frame.getContentPane().add(content, BorderLayout.CENTER);
 	}
 	
-	public static void update(JPanel menuIn, JPanel contentIn) {
+	public static void update(JPanel menuIn, JPanel contentIn, String title) {
 		if(menuIn == menu && contentIn == content)
 			return;
 		setMenu(menuIn);
 		setContent(contentIn);
-		Breadcrumb tempCrumb = new Breadcrumb(menuIn, contentIn);
+		setContent(contentIn);
+		Breadcrumb tempCrumb = new Breadcrumb(menuIn, contentIn, title);
 		for(int i=0; i<breadcrumbArray.size(); i++) {
 			if(breadcrumbArray.get(i).getMenu() == menuIn) {
 				breadcrumbArray = new ArrayList<Breadcrumb>(breadcrumbArray.subList(0, i+1));
 				breadcrumbs.removeAll();
 				for(int j=0; j<breadcrumbArray.size(); j++) {
-					if(i > 0) {
+					if(j > 0) {
 						breadcrumbs.add(new JLabel(" > "));
 					}
 					breadcrumbs.add(breadcrumbArray.get(j).getLabel());

@@ -12,14 +12,14 @@ public class Breadcrumb {
 	private JPanel content;
 	private JLabel label;
 	
-	public Breadcrumb(JPanel menuIn, JPanel contentIn) {
+	public Breadcrumb(JPanel menuIn, JPanel contentIn, String title) {
 		menu = menuIn;
 		content = contentIn;
-		label = new JLabel("Home");
+		label = new JLabel(title);
 		label.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				Portal.update(menu, content);
+				Portal.update(menu, content, "");
 			}
 		});
 	}
