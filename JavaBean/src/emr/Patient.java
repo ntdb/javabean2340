@@ -40,6 +40,9 @@ public class Patient extends User {
 	public Patient(){
 		ssn = null;
 		birthday = null;
+		userID = generateUserID(PERMISSIONS);
+		login = new LoginClass(userID);
+		password = "password";
 		medicalHistory = new MedicalHistory();
 	}//end default Patient constructor
 	
@@ -51,27 +54,10 @@ public class Patient extends User {
 	public Patient(String name){
 		this.name = name;
 		userID = generateUserID(PERMISSIONS);
+		login = new LoginClass(userID);
+		password = "password";
 		medicalHistory = new MedicalHistory();
 	}//end Patient constructor		
-/*   *****Opted to only use a partial constructor to create a Patient Object*****
-	/**
-	 * Overloaded constructor sets all Patient attributes
-	 * 
-	 * @param nameIn The name of the patient
-	 * @param passwordIn The patient's password
-	 * @param permissionsIn The permissions of the patient
-	 * @param userIDIn The patient's user ID
-	 * @param ssnIn The patient's social security number
-	 * @param birthdayIn The patient's birthday information
-	 */
-/*	public Patient(String nameIn, String passwordIn, int permissionsIn, 
-			int userIDIn, String ssnIn, Date birthdayIn)
-	{
-		super(nameIn, passwordIn, permissionsIn, userIDIn);
-		setSsn(ssnIn);
-		setBirthday(birthdayIn);
-	}
-*/
 	
 	/**
 	 * Sets the patient's social security number

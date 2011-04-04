@@ -24,6 +24,9 @@ public class Nurse extends User {
 	 * 
 	 */
 	public Nurse(){
+		userID = generateUserID(PERMISSIONS);
+		login = new LoginClass(userID);
+		password = "password";
 	}//end default Nurse constructor
 	
 	/**
@@ -35,6 +38,7 @@ public class Nurse extends User {
 	public Nurse(String name, String password){
 		super(name, password);
 		userID = generateUserID(PERMISSIONS);
+		login = new LoginClass(userID);
 	}//end Nurse constructor
 	
 	/**

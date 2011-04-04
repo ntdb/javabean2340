@@ -17,7 +17,7 @@ import java.util.Random;
 public class User {
 	
 	/**
-	 * The multiple of how limit of Users in the sytem
+	 * The multiple of how limit of Users in the system
 	 */
 	private static final int USERLIMITMULTIPLE = 1000;
 	
@@ -47,8 +47,6 @@ public class User {
 	protected User(){
 		name = null;
 		password = null;
-		userID = 0;
-		login = new LoginClass(userID);
 	}
 	
 	/**
@@ -60,8 +58,6 @@ public class User {
 	protected User(String nameIn, String passwordIn){
 		name = nameIn;
 		password = passwordIn;
-		userID = 0;
-		login = new LoginClass(userID);
 	}
 	
 	/**
