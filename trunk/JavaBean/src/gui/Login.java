@@ -40,6 +40,12 @@ public class Login extends JDialog {
 		try {
 			UserController.load();					//Load records!
 			Schedule.load();
+/*			
+			UserController.addUser(new Patient());
+			UserController.addUser(new Nurse());
+			UserController.addUser(new Doctor());
+			UserController.save();
+*/			
 			Login dialog = new Login();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
@@ -149,9 +155,10 @@ public class Login extends JDialog {
 									}
 									else {
 										attempts = user.loginMe(txtPassword.getText());
+										System.out.println(attempts);
 										switch(attempts) {
 											case -1:
-												Portal.main(null);
+												Portal.main(user);
 												dispose();
 												break;
 											case 0:

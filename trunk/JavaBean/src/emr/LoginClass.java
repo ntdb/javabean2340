@@ -98,6 +98,7 @@ public class LoginClass {
 	public int validate(String pw) {
 		//first verify that User is in the user controller object
 		if (UserController.getUserIndex(userId) == -1) {
+			SysLog.LOGGER.warning("Attempt to login nonexistent user.");
 			return -2;
 		}
 		

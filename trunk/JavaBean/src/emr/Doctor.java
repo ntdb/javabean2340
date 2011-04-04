@@ -28,6 +28,9 @@ public class Doctor extends Nurse{
 	 */
 	public Doctor(){
 		appointmentIDs = null;
+		userID = generateUserID(PERMISSIONS);
+		login = new LoginClass(userID);
+		password = "password";
 	}//end default Doctor constructor
 	
 	/**
@@ -40,6 +43,7 @@ public class Doctor extends Nurse{
 		super(name, password);
 		appointmentIDs = null; //removed appointmentID parameter
 		userID = generateUserID(PERMISSIONS);
+		login = new LoginClass(userID);
 	}//end Doctor constructor
 	
 //	/**
