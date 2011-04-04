@@ -18,6 +18,12 @@ public class PatientMainMenu extends JPanel {
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		
 		JButton btnProfile = new JButton("Profile");
+		btnProfile.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				Portal.update(new PatientProfileMenu(), new PatientProfilePanel(), "Profile");
+			}
+		});
 		btnProfile.setAlignmentX(Component.CENTER_ALIGNMENT);
 		btnProfile.setMaximumSize(new Dimension(1000,25));
 		add(btnProfile);
@@ -26,7 +32,7 @@ public class PatientMainMenu extends JPanel {
 		btnAppointments.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-//				Portal.update(new PatientAppointmentsMenu(), NEED PANEL HERE , "Appointments");
+				Portal.update(new PatientAppointmentsMenu(), new PatientAppointmentsPanel() , "Appointments");
 			}
 		});
 		btnAppointments.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -37,7 +43,7 @@ public class PatientMainMenu extends JPanel {
 		btnMedicalInformation.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-//				Portal.update(new PatientMedicalInformationMenu(), NEED PANEL HERE , "Medical Information");
+				Portal.update(new PatientMainMenu(), new PatientMedicalInformationPanel() , "Medical Information");
 			}
 		});
 		btnMedicalInformation.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -48,7 +54,7 @@ public class PatientMainMenu extends JPanel {
 		btnMedicalHistory.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-//				Portal.update(new PatientMedicalHistoryMenu(), NEED PANEL HERE , "Medical History");
+				Portal.update(new PatientMedicalHistoryMenu(), new PatientMedicalHistoryPanel() , "Medical History");
 			}
 		});
 		btnMedicalHistory.setAlignmentX(Component.CENTER_ALIGNMENT);
