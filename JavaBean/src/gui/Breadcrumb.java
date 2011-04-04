@@ -13,9 +13,11 @@ public class Breadcrumb {
 	private JPanel menu;
 	private JPanel content;
 	private JLabel label;
+	private final Color BG = new Color(212,212,232);
 	
 	public Breadcrumb(JPanel menuIn, JPanel contentIn, String title) {
 		menu = menuIn;
+		menu.setBackground(BG);
 		content = contentIn;
 		label = new JLabel(title);
 		label.setForeground(Color.BLUE);
