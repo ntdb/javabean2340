@@ -22,8 +22,8 @@ public class NurseMenu extends JPanel {
 		JButton button = new JButton("Patients");
 		button.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				Portal.update(new NurseMenu(), new PatientSearchMenu(), "Patients");
+			public void mousePressed(MouseEvent arg0) {
+				Portal.setContent(new PatientSearchMenu());
 			}
 		});
 		button.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -33,7 +33,7 @@ public class NurseMenu extends JPanel {
 		JButton button_1 = new JButton("Appointments");
 		button_1.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent arg0) {
+			public void mousePressed(MouseEvent arg0) {
 //				
 			}
 		});
@@ -42,9 +42,9 @@ public class NurseMenu extends JPanel {
 		add(button_1);
 		
 		JButton button_2 = new JButton("New Patient");
-		button_2.addKeyListener(new KeyAdapter() {
+		button_2.addMouseListener(new MouseAdapter() {
 			@Override
-			public void keyPressed(KeyEvent arg0) {
+			public void mousePressed(MouseEvent arg0) {
 				Portal.setContent(new NewPatientContent());
 			}
 		});

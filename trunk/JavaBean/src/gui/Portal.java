@@ -168,10 +168,9 @@ public class Portal {
 		breadcrumbs.setBackground(UIManager.getColor("Panel.background"));
 		breadcrumbs.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 5));
 		
-		
 		menuBar.add(breadcrumbs);
 		
-		breadcrumbArray.add(new Breadcrumb(menu,content, "Home"));
+		breadcrumbArray.add(new Breadcrumb(menu,content, "      Home"));
 		breadcrumbs.add(breadcrumbArray.get(breadcrumbArray.size() - 1).getLabel());
 		
 		frame.getContentPane().setLayout(new BorderLayout(0, 0));
