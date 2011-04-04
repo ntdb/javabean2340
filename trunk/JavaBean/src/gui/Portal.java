@@ -184,8 +184,12 @@ public class Portal {
 	public static void update(JPanel menuIn, JPanel contentIn, String title) {
 		if(menuIn == menu && contentIn == content)
 			return;
-			setMenu(menuIn);
-			setContent(contentIn);
+		frame.getContentPane().remove(menu);
+		frame.getContentPane().add(menuIn, BorderLayout.WEST);
+		menu = menuIn;
+		frame.getContentPane().remove(content);
+		frame.getContentPane().add(contentIn, BorderLayout.CENTER);
+		content = contentIn;
 		setContent(contentIn);
 		Breadcrumb tempCrumb = new Breadcrumb(menuIn, contentIn, title);
 		for(int i=0; i<breadcrumbArray.size(); i++) {
@@ -210,16 +214,41 @@ public class Portal {
 		frame.repaint();
 	}
 	
-	private static void setMenu(JPanel menuIn) {
+/*	private static void setMenu(JPanel menuIn) {
 		frame.getContentPane().remove(menu);
 		frame.getContentPane().add(menuIn, BorderLayout.WEST);
 		menu = menuIn;
 	}
-	
-	private static void setContent(JPanel contentIn) {
+*/	
+	public static void setContent(JPanel contentIn) {
 		frame.getContentPane().remove(content);
 		frame.getContentPane().add(contentIn, BorderLayout.CENTER);
 		content = contentIn;
+		frame.validate();
+		frame.repaint();
+	}
+	
+	public static void back() {
+		frame.getContentPane().remove(content);
+		frame.getContentPane().remove(menu);
+		content = breadcrumbArray.get(breadcrumbArray.size() - 2).getContent();
+		menu = breadcrumbArray.get(breadcrumbArray.size() - 2).getMenu();
+		breadcrumbArray.remove(breadcrumbArray.size()-1);
+		breadcrumbs.removeAll();
+		for(int j=0; j<breadcrumbArray.size(); j++) {
+			if(j > 0) {
+				breadcrumbs.add(new JLabel(" > "));
+			}
+			breadcrumbs.add(breadcrumbArray.get(j).getLabel());
+		}
+		frame.getContentPane().add(content);
+		frame.getContentPane().add(menu, BorderLayout.WEST);
+		frame.validate();
+		frame.repaint();
+	}
+	
+	public static User getUser() {
+		return user;
 	}
 
 }
