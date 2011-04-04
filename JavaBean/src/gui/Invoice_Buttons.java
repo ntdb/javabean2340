@@ -47,7 +47,5 @@ public class Invoice_Buttons extends JPanel {
 		});
 		button.setMaximumSize(new Dimension(wth, hgt));
 		add(button);
-
 	}
-
 }
