@@ -42,8 +42,7 @@ public class Invoice_Buttons extends JPanel {
 		button.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				Portal.update(new PatientMainMenu(), 
-						new PatientWelcomePanel(), "Patient");
+				Portal.back();
 			}
 		});
 		button.setMaximumSize(new Dimension(wth, hgt));

@@ -8,6 +8,8 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class NurseMenu extends JPanel {
 
@@ -21,7 +23,7 @@ public class NurseMenu extends JPanel {
 		button.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				Portal.update(new PatientAdminMenu(), new PatientSearchMenu(), "Patients");
+				Portal.update(new NurseMenu(), new PatientSearchMenu(), "Patients");
 			}
 		});
 		button.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -40,6 +42,12 @@ public class NurseMenu extends JPanel {
 		add(button_1);
 		
 		JButton button_2 = new JButton("New Patient");
+		button_2.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent arg0) {
+				Portal.setContent(new NewPatientContent());
+			}
+		});
 		button_2.setAlignmentX(Component.CENTER_ALIGNMENT);
 		button_2.setMaximumSize(new Dimension(1000,25));
 		add(button_2);
