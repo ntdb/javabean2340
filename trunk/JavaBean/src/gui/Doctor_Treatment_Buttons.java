@@ -21,6 +21,12 @@ public class Doctor_Treatment_Buttons extends JPanel {
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		
 		JButton button = new JButton("Create Doctor's Orders");
+		button.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				Portal.setContent(new Doctors_Orders());
+			}
+		});
 		button.setMaximumSize(new Dimension(1000, 25));
 		add(button);
 		
