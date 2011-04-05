@@ -17,7 +17,7 @@ public class SysLog {
 	/**
 	 * Logger for logging purposes
 	 */
-	public static final Logger LOGGER = Logger.getLogger(Hospital.class.getName());
+	public static final Logger LOGGER = Logger.getLogger(SysLog.class.getName());
 	
 	/**
 	 * File Handler for dealing with file IO
@@ -34,7 +34,7 @@ public class SysLog {
 	 */
 	public static void initialize() {
 		try {
-			fileTxt = new FileHandler("log.txt", true);
+			fileTxt = new FileHandler("log.txt", 0, 1, true);
 			formatterTxt = new SimpleFormatter();
 			fileTxt.setFormatter(formatterTxt);
 			LOGGER.addHandler(fileTxt);

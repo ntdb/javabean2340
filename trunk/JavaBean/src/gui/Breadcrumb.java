@@ -23,11 +23,11 @@ public class Breadcrumb {
 		label.setForeground(Color.BLUE);
 		label.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent arg0) {
+			public void mousePressed(MouseEvent arg0) {
 				Portal.update(menu, content, "");
 			}
 			public void mouseEntered(MouseEvent arg1) {
-				label.setForeground(Color.GREEN);
+				label.setForeground(Color.GRAY);
 			}
 			public void mouseExited(MouseEvent arg2) {
 				label.setForeground(Color.BLUE);

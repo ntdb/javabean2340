@@ -41,6 +41,7 @@ public class Login extends JDialog {
 	 */
 	public static void main(String[] args) {
 		try {
+			SysLog.initialize();
 			UserController.load();					//Load records!
 			Schedule.load();
 /*			

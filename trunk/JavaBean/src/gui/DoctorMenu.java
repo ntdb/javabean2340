@@ -20,8 +20,8 @@ public class DoctorMenu extends JPanel {
 		JButton button = new JButton("Patients");
 		button.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				
+			public void mousePressed(MouseEvent arg0) {
+				Portal.setContent(new PatientSearchMenu());
 			}
 		});
 		button.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -29,14 +29,37 @@ public class DoctorMenu extends JPanel {
 		add(button);
 		
 		JButton button_1 = new JButton("Appointments");
+		button_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+//				
+			}
+		});
 		button_1.setAlignmentX(Component.CENTER_ALIGNMENT);
 		button_1.setMaximumSize(new Dimension(1000,25));
 		add(button_1);
 		
 		JButton button_2 = new JButton("New Patient");
+		button_2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				Portal.setContent(new NewPatientContent());
+			}
+		});
 		button_2.setAlignmentX(Component.CENTER_ALIGNMENT);
 		button_2.setMaximumSize(new Dimension(1000,25));
 		add(button_2);
+		
+		JButton btnStatistics = new JButton("Statistics");
+		btnStatistics.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				Portal.setContent(new StatisticsPanel());
+			}
+		});
+		btnStatistics.setAlignmentX(Component.CENTER_ALIGNMENT);
+		btnStatistics.setMaximumSize(new Dimension(1000,25));
+		add(btnStatistics);
 
 	}
 
