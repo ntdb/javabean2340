@@ -17,8 +17,14 @@ import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
 import com.jgoodies.forms.factories.FormFactory;
 
+import emr.UserController;
+
 public class PatientSearchMenu extends JPanel {
 
+	private String name;
+	private String[] patientNames = {"Doe, Jane", "Jones, John", "Waters, Bob"};
+	private JComboBox comboBox;
+	
 	/**
 	 * Create the panel.
 	 */
@@ -28,13 +34,34 @@ public class PatientSearchMenu extends JPanel {
 				ColumnSpec.decode("default:grow"),},
 			new RowSpec[] {
 				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC,}));
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setEditable(true);
+		//patientNames = UserController.getPatientNames();
+		//patientNames = {"Doe, Jane", "Jones, John", "Waters, Bob"};
+		//String name = "";	
+		comboBox = new JComboBox(patientNames);
 		add(comboBox, "2, 2, fill, default");
+		
+		JButton btnViewPatient = new JButton("View Patient");
+		btnViewPatient.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				name = patientNames[comboBox.getSelectedIndex()];
+				ViewPatientContent vpc = new ViewPatientContent();
+				vpc.getLblName().setText(name);
+				Portal.update(new PatientAdminMenu(), vpc, "View Patient");
+			}
+		});
+		add(btnViewPatient, "2, 4");
 		
 	}
 
+	
 	
 }
