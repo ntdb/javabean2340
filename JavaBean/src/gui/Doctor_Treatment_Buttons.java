@@ -52,6 +52,12 @@ public class Doctor_Treatment_Buttons extends JPanel {
 		
 		JButton button6 = new JButton("Exit Treatment");
 		button6.setMaximumSize(new Dimension(1000, 25));
+		button6.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				Portal.back();
+			}
+		});
 		add(button6);
 
 	}

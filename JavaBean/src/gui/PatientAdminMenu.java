@@ -31,7 +31,7 @@ public class PatientAdminMenu extends JPanel {
 		btnTreatmentRecord.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				Portal.update(new Treatment_Buttons(), new Treatment_Panel(), "Treatment Record");
+				Portal.update(new Doctor_Treatment_Buttons(), new Treatment_Panel(), "Treatment Record");
 			}
 		});
 		btnTreatmentRecord.setAlignmentX(Component.CENTER_ALIGNMENT);
