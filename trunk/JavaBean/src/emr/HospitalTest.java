@@ -3,20 +3,31 @@ import junit.framework.TestCase;
 import java.io.IOException;
 import java.util.Date;
 
+/**
+ * Runs multiple test to ensure that EMR classes are working together
+ * @author Team Java Bean
+ * @version 1.00
+ */
 public class HospitalTest extends TestCase {
 
+	
 	public void testLogin() throws IOException {
-		Nurse nurse = new Nurse();
-		int userID = nurse.createPatient();
+		final Nurse nurse = new Nurse();
+		final int userID = nurse.createPatient();
 		nurse.getPatient(userID).setPassword("password");
 		nurse.getPatient(userID).loginMe("");
 	}
 
+	/**
+	 * Test to verify that the User Class can be created, read,
+	 * updated, and deleted
+	 * @throws IOException
+	 */
 	public void testUserCRUD() throws IOException {
 //		UserController.load();
-		Nurse nurse = new Nurse();
-		int numUsers = nurse.getUserCount();
-		int userID = nurse.createPatient();
+		final Nurse nurse = new Nurse();
+		final int numUsers = nurse.getUserCount();
+		final int userID = nurse.createPatient();
 		assertTrue(nurse.getUserCount() > numUsers);				//Create
 
 		nurse.getPatient(userID).setName("Blob");
@@ -30,20 +41,20 @@ public class HospitalTest extends TestCase {
 	}
 
 	public void testPatientLookup() {
-		Nurse nurse = new Nurse();
-		int userID = nurse.createPatient();
+		final Nurse nurse = new Nurse();
+		final int userID = nurse.createPatient();
 		nurse.getPatient(userID).setName("Bob");
 		assertEquals(nurse.getPatient(userID), nurse.patientLookupByName("Bob"));	//Lookup by name
 	}
 
 	public void testAppointmentCRUD() throws IOException {
-		Nurse nurse = new Nurse();
-		int numAppointments = nurse.getAppointmentCount();
+		final Nurse nurse = new Nurse();
+		final int numAppointments = nurse.getAppointmentCount();
 		nurse.createAppointment(new Date(), 1337, "Bob", "123456789", "Dr. Waters");
 		assertTrue(nurse.getAppointmentCount() > numAppointments);		//Create
 		Schedule.save();
 
-		Date newerDate = new Date();
+		final Date newerDate = new Date();
 		nurse.updateAppointment(1337, newerDate, "Dr. Rambo");
 		assertTrue(nurse.getAppointment(1337).toString().equals("Appointment ID: 1337\nAppointment Time: "
 				       	+ newerDate.toString() + "\nPatient Name: Bob\nDoctor's Name: Dr. Rambo\n"));	//Read+Update
@@ -53,8 +64,8 @@ public class HospitalTest extends TestCase {
 	}
 
 	public void testTreatmentRecordCRUD() {
-		Nurse nurse = new Nurse();
-		int patientID = nurse.createPatient();
+		final Nurse nurse = new Nurse();
+		final int patientID = nurse.createPatient();
 		nurse.createTreatment(patientID, 1338, 1339, "Treatment for testing");
 		assertTrue(nurse.getTreatmentCount(patientID) > 0);			//Create
 
@@ -66,8 +77,8 @@ public class HospitalTest extends TestCase {
 	}
 
 	public void testDoctorsOrdersCRUD() {
-		Doctor doctor = new Doctor();
-		int patientID = doctor.createPatient();
+		final Doctor doctor = new Doctor();
+		final int patientID = doctor.createPatient();
 		doctor.createDoctorsOrders(patientID, "Insulin", "HBA1C", "Three months", "The patient has a big chin");
 		assertTrue(doctor.getDoctorsOrdersCount(patientID) > 0);		//Create
 
@@ -80,8 +91,8 @@ public class HospitalTest extends TestCase {
 	}
 
 	public void testLoadSave() throws IOException {
-		Nurse nurse = new Nurse();
-		int userID = nurse.createPatient();
+		final Nurse nurse = new Nurse();
+		final int userID = nurse.createPatient();
 		nurse.getPatient(userID).setName("Blob");
 		UserController.save();						//Save
 		
@@ -92,8 +103,8 @@ public class HospitalTest extends TestCase {
 	}
 
 	public void testInvoiceCreation() {
-		Nurse nurse = new Nurse();
-		int userID = nurse.createPatient();
+		final Nurse nurse = new Nurse();
+		final int userID = nurse.createPatient();
 		Date date = new Date();
 		nurse.createAppointment(date, 1337, "Bob", "123456789", "Dr. Waters");
 		assertTrue(nurse.generateInvoice(1337).equals("Patient name: Bob\tDate of Visit: " + date + "\tDoctor: Dr. Waters\nAmount due: $XXX.XX"));
