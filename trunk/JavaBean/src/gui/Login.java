@@ -44,12 +44,13 @@ public class Login extends JDialog {
 			SysLog.initialize();
 			UserController.load();					//Load records!
 			Schedule.load();
-/*			
+	/*		
 			UserController.addUser(new Patient());
 			UserController.addUser(new Nurse());
 			UserController.addUser(new Doctor());
+			UserController.addUser(new Admin());
 			UserController.save();
-*/			
+	*/		
 			Login dialog = new Login();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);

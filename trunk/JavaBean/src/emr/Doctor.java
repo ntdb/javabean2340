@@ -131,4 +131,8 @@ public class Doctor extends Nurse{
 		return false;
 	}//end verifyAppointment
 	
+	public String toString(){
+		return new String("Doctor: " + name);
+	}//end toString
+	
 }//end class Doctor

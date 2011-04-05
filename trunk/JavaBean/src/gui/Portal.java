@@ -41,6 +41,7 @@ public class Portal {
 	private static JFrame frame;
 	
 	private static User user;
+	private static int perms;
 	private static ArrayList<Breadcrumb> breadcrumbArray = new ArrayList<Breadcrumb>();
 	private static JPanel menu = new JPanel();
 	private static JPanel content = new JPanel();
@@ -69,9 +70,11 @@ public class Portal {
 	 */
 	public Portal() {
 		int permissions = user.getUserID();
-		while(permissions > 10) {
+		while(permissions > 9) {
 			permissions = (int) Math.floor(permissions / 10);
 		}
+		perms = permissions;
+		System.out.println(permissions);
 		switch(permissions) {
 			case 1:	initAdmin(); break;
 			case 2:	initDoctor(); break;
@@ -173,7 +176,7 @@ public class Portal {
 		
 		menuBar.add(breadcrumbs);
 		
-		breadcrumbArray.add(new Breadcrumb(menu,content, "      Home"));
+		breadcrumbArray.add(new Breadcrumb(menu,content, "   Home"));
 		breadcrumbs.add(breadcrumbArray.get(breadcrumbArray.size() - 1).getLabel());
 		
 		frame.getContentPane().setLayout(new BorderLayout(0, 0));
@@ -251,6 +254,10 @@ public class Portal {
 	
 	public static User getUser() {
 		return user;
+	}
+	
+	public static int getPermissions() {
+		return perms;
 	}
 
 }
