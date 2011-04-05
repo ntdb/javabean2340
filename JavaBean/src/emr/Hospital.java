@@ -39,7 +39,7 @@ public class Hospital {
 	 * @throws IOException
 	 */
 	public static void main(String[] args) throws IOException {
-		fileTxt = new FileHandler("log.txt", true);
+/*		fileTxt = new FileHandler("log.txt", true);
 		formatterTxt = new SimpleFormatter();
 		fileTxt.setFormatter(formatterTxt);
 		LOGGER.addHandler(fileTxt);

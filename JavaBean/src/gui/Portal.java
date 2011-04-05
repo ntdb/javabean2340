@@ -118,12 +118,13 @@ public class Portal {
 		menuBar.add(mnFile);
 		
 		JMenuItem mntmLoadSystem = new JMenuItem("Load System");
-		mntmLoadSystem.addMouseListener(new MouseAdapter() {
+		mntmLoadSystem.addActionListener(new ActionListener() {
 			@Override
-			public void mouseClicked(MouseEvent arg0) {
+			public void actionPerformed(ActionEvent arg0) {
 				try {
 					UserController.load();
 					Schedule.load();
+					SysLog.LOGGER.info("System loaded");
 				} catch(IOException e) {
 					Hospital.LOGGER.severe(e.toString() + " thrown.");
 				}
@@ -132,12 +133,13 @@ public class Portal {
 		mnFile.add(mntmLoadSystem);
 		
 		JMenuItem mntmSaveSystem = new JMenuItem("Save System");
-		mntmSaveSystem.addMouseListener(new MouseAdapter() {
+		mntmSaveSystem.addActionListener(new ActionListener() {
 			@Override
-			public void mouseClicked(MouseEvent arg0) {
+			public void actionPerformed(ActionEvent arg0) {
 				try {
 					UserController.save();
 					Schedule.save();
+					SysLog.LOGGER.info("System saved");
 				} catch(IOException e) {
 					Hospital.LOGGER.severe(e.toString() + " thrown.");
 				}
@@ -156,6 +158,7 @@ public class Portal {
 		mntmLogOutOf.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				breadcrumbs.removeAll();
+				breadcrumbArray.clear();
 				user = null;
 				menu = null;
 				content = null;
