@@ -170,6 +170,14 @@ public class MedicalHistory {
 	}
 	
 	/**
+	 * Returns the count of appointments
+	 * @return appointments count
+	 */
+	public int getAppointmentsCount() {
+		return appointmentIDs.size();
+	}
+	
+	/**
 	 * This method will export the medical history as a string.
 	 * It will start a new line and end with a new line.
 	 *
