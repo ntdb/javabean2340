@@ -42,7 +42,6 @@ public class Invoice_Buttons extends JPanel {
 		button.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
-				System.out.println("Mouse Pressed.");
 				Portal.back();
 			}
 		});
