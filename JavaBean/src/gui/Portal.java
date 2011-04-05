@@ -119,7 +119,7 @@ public class Portal {
 		
 		JMenuItem mntmLoadSystem = new JMenuItem("Load System");
 		mntmLoadSystem.addActionListener(new ActionListener() {
-			@Override
+			
 			public void actionPerformed(ActionEvent arg0) {
 				try {
 					UserController.load();
@@ -134,7 +134,7 @@ public class Portal {
 		
 		JMenuItem mntmSaveSystem = new JMenuItem("Save System");
 		mntmSaveSystem.addActionListener(new ActionListener() {
-			@Override
+			
 			public void actionPerformed(ActionEvent arg0) {
 				try {
 					UserController.save();
