@@ -20,7 +20,7 @@ public class PatientMainMenu extends JPanel {
 		JButton btnProfile = new JButton("Profile");
 		btnProfile.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent arg0) {
+			public void mousePressed(MouseEvent arg0) {
 				Portal.update(new PatientProfileMenu(), new PatientProfilePanel(), "Profile");
 			}
 		});
@@ -31,7 +31,7 @@ public class PatientMainMenu extends JPanel {
 		JButton btnAppointments = new JButton("Appointments");
 		btnAppointments.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent arg0) {
+			public void mousePressed(MouseEvent arg0) {
 				Portal.update(new PatientAppointmentsMenu(), new PatientAppointmentsPanel() , "Appointments");
 			}
 		});
@@ -42,7 +42,7 @@ public class PatientMainMenu extends JPanel {
 		JButton btnMedicalInformation = new JButton("Medical Information");
 		btnMedicalInformation.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent arg0) {
+			public void mousePressed(MouseEvent arg0) {
 				Portal.setContent(new PatientMedicalInformationPanel());
 			}
 		});
@@ -53,7 +53,7 @@ public class PatientMainMenu extends JPanel {
 		JButton btnMedicalHistory = new JButton("Medical History");
 		btnMedicalHistory.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent arg0) {
+			public void mousePressed(MouseEvent arg0) {
 				Portal.update(new PatientMedicalHistoryMenu(), new PatientMedicalHistoryPanel() , "Medical History");
 			}
 		});
@@ -64,7 +64,7 @@ public class PatientMainMenu extends JPanel {
 		JButton btnInvoice = new JButton("Invoice");
 		btnInvoice.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent arg0) {
+			public void mousePressed(MouseEvent arg0) {
 				Portal.update(new Invoice_Buttons(), new Invoice_Panel(), "Invoice");
 			}
 		});
