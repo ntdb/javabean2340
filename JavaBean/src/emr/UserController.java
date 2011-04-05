@@ -70,6 +70,33 @@ public class UserController {
 		return -1;
 	}
 	
+	/**
+	 * Returns a list of the names of all the users
+	 * 
+	 * @return An array of the names of all Users
+	 */
+	public static String[] getUserNames(){
+		String[] userNames = new String[users.size()];
+		for(int i = 0; i < users.size(); i++){
+			userNames[i] = users.get(i).getName();
+		}
+		return userNames;
+	}
+	
+	public static String[] getPatientNames(){
+		ArrayList<String> names = new ArrayList<String>();
+		for(int i = 0; i < users.size(); i++){
+			if(users.get(i) instanceof Patient){
+				names.add(users.get(i).getName());
+			}	
+		}
+		String[] patientNames = new String[names.size()];
+		for(int i = 0; i < names.size(); i++){
+			patientNames[i] = names.get(i);
+		}
+		return patientNames;
+	}
+	
 /*	***** Using User ID to determine permissions *****
 	public int getUserPermissions(int userID)	//Limit permissions!
 	{
