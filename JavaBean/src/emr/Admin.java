@@ -39,4 +39,8 @@ public class Admin extends Nurse{
 		login = new LoginClass(userID);
 	}//end Admin constructor
 	
+	public String toString(){
+		return new String("Admin: " + name);
+	}//end toString
+	
 }//end class Admin

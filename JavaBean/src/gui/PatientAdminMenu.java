@@ -23,6 +23,9 @@ public class PatientAdminMenu extends JPanel {
 		add(button_1);
 		
 		JButton btnDeletePatient = new JButton("Delete Patient");
+		if(Portal.getPermissions() == 1) {
+			btnDeletePatient.setText("Delete User");
+		}
 		btnDeletePatient.setAlignmentX(Component.CENTER_ALIGNMENT);
 		btnDeletePatient.setMaximumSize(new Dimension(1000,25));
 		add(btnDeletePatient);
@@ -38,6 +41,12 @@ public class PatientAdminMenu extends JPanel {
 		btnTreatmentRecord.setMaximumSize(new Dimension(1000,25));
 		add(btnTreatmentRecord);
 
+		JButton btnAddDoctorsOrders = new JButton("Add Doctors Orders");
+		btnAddDoctorsOrders.setAlignmentX(Component.CENTER_ALIGNMENT);
+		btnAddDoctorsOrders.setMaximumSize(new Dimension(1000,25));
+		if(Portal.getPermissions() == 2) {
+			add(btnAddDoctorsOrders);
+		}
 	}
 
 }

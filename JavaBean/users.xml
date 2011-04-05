@@ -1,14 +1,13 @@
 <list>
   <emr.Patient>
     <password>password</password>
-    <userID>4951</userID>
+    <userID>4000</userID>
     <login>
       <maxattempts>0</maxattempts>
-      <userId>4951</userId>
+      <userId>4000</userId>
       <passed>true</passed>
       <failed>false</failed>
-      <validpass>true</validpass>
-      <logger class="emr.Patient" reference="../.."/>
+      <validpass>false</validpass>
       <max>3</max>
     </login>
     <medicalHistory>
@@ -19,27 +18,38 @@
   </emr.Patient>
   <emr.Nurse>
     <password>password</password>
-    <userID>3030</userID>
+    <userID>3000</userID>
     <login>
       <maxattempts>0</maxattempts>
-      <userId>3030</userId>
+      <userId>3000</userId>
       <passed>true</passed>
       <failed>false</failed>
-      <validpass>true</validpass>
-      <logger class="emr.Nurse" reference="../.."/>
+      <validpass>false</validpass>
       <max>3</max>
     </login>
   </emr.Nurse>
   <emr.Doctor>
     <password>password</password>
-    <userID>2129</userID>
+    <userID>2000</userID>
     <login>
       <maxattempts>0</maxattempts>
-      <userId>2129</userId>
+      <userId>2000</userId>
       <passed>true</passed>
       <failed>false</failed>
       <validpass>false</validpass>
       <max>3</max>
     </login>
   </emr.Doctor>
+  <emr.Admin>
+    <password>password</password>
+    <userID>1000</userID>
+    <login>
+      <maxattempts>0</maxattempts>
+      <userId>1000</userId>
+      <passed>true</passed>
+      <failed>false</failed>
+      <validpass>false</validpass>
+      <max>3</max>
+    </login>
+  </emr.Admin>
 </list>
