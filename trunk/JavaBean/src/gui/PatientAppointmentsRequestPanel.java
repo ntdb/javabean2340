@@ -5,6 +5,9 @@ import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
 import com.jgoodies.forms.factories.FormFactory;
+
+import emr.Appointment;
+
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.JTextField;
@@ -13,6 +16,8 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class PatientAppointmentsRequestPanel extends JPanel {
 	private JTextField textField;
@@ -90,6 +95,12 @@ public class PatientAppointmentsRequestPanel extends JPanel {
 		add(lblChange, "4, 18, 15, 1");
 
 		JButton btnSend = new JButton("Send");
+		btnSend.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent arg0) {
+				new Appointment();
+			}
+		});
 		btnSend.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
