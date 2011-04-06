@@ -8,6 +8,8 @@ import com.jgoodies.forms.factories.FormFactory;
 import javax.swing.JLabel;
 import javax.swing.JCheckBox;
 import javax.swing.JTextField;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 public class Doctors_Orders extends JPanel {
 	private JTextField textField;
@@ -79,16 +81,30 @@ public class Doctors_Orders extends JPanel {
 		JLabel lblFollowupInstructions = new JLabel("Follow-up Instructions");
 		add(lblFollowupInstructions, "2, 12");
 		
-		textField = new JTextField();
-		add(textField, "4, 14, 9, 2, fill, default");
-		textField.setColumns(10);
+		final JTextField followup = new JTextField();
+		followup.getDocument().addDocumentListener(new DocumentListener() {
+			public void changedUpdate(DocumentEvent e) {
+			// text was changed, implement a way to save this
+				System.out.println(followup.getText());
+			}
+			public void removeUpdate(DocumentEvent e) {
+			// text was deleted
+				System.out.println(followup.getText());
+			}
+			public void insertUpdate(DocumentEvent e) {
+			// text was inserted
+				System.out.println(followup.getText());
+			}
+			});
+		add(followup, "4, 14, 9, 2, fill, default");
+		followup.setColumns(10);
 		
 		JLabel lblOtherInstructions = new JLabel("Other Instructions: ");
 		add(lblOtherInstructions, "2, 18");
 		
-		textField_1 = new JTextField();
-		add(textField_1, "4, 19, 9, 2, fill, default");
-		textField_1.setColumns(10);
+		JTextField instruction = new JTextField();
+		add(instruction, "4, 19, 9, 2, fill, default");
+		instruction.setColumns(10);
 
 	}
 
