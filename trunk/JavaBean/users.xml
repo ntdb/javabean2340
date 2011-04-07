@@ -11,11 +11,19 @@
       <max>3</max>
     </login>
     <medicalHistory>
-      <appointmentIDs/>
-      <treatments/>
-      <doctorsOrders/>
+      <appointmentIDs></appointmentIDs>
+      <treatments></treatments>
+      <doctorsOrders></doctorsOrders>
     </medicalHistory>
-  </emr.Patient>
+    <ssn>1234567</ssn>
+    <address>Street 1, room 2</address>
+    <phone>4041001234</phone>
+    <email>Jay@emr.com</email>
+    <name>Jay</name>
+    <gender>M</gender>
+    <pharmacy>this Jay's pharmacy</pharmacy>
+    <insuranceCarrier>Jay's college!</insuranceCarrier>
+    <allergies>Not at all</allergies></emr.Patient>
   <emr.Nurse>
     <password>password</password>
     <userID>3000</userID>
