@@ -131,6 +131,86 @@ public class Patient extends User {
 	}
 	
 	/**
+	 * Return the patient's address
+	 * @return
+	 */
+	public String getAddress() {
+		return address;
+	}
+	
+	/**
+	 * Set the new address
+	 * @param newAddress The new address of the patient
+	 */
+	public void setAddress( String newAddress ) {
+		address = newAddress;
+	}
+	
+	/**
+	 * Returns the phone number of the patient
+	 * @return The phone number of the patient
+	 */
+	public String getPhone() {
+		return phone;
+	}
+	
+	/**
+	 * Set the new phone number
+	 * @param newPhone The new phone number of the patient
+	 */
+	public void setPhone( String newPhone ) {
+		phone = newPhone;
+	}
+	
+	/**
+	 * Returns the email of the patient
+	 * @return The email of the patient
+	 */
+	public String getEmail() {
+		return email;
+	}
+	
+	/**
+	 * Set the new email for patient
+	 * @param newEmail The new email address of the patient
+	 */
+	public void setEmail( String newEmail ) {
+		email = newEmail;
+	}
+	
+	/**
+	 * Return the gender of the patient
+	 * @return The gender of the patient
+	 */
+	public char getGender() {
+		return gender;
+	}
+	
+	/**
+	 * Return the pharmacy information
+	 * @return The pharmacy information
+	 */
+	public String getPharmacy() {
+		return pharmacy;
+	}
+	
+	/**
+	 * Return insurance carrier information
+	 * @return The insurance carrier information
+	 */
+	public String getInsuranceCarrier() {
+		return insuranceCarrier;
+	}
+	
+	/**
+	 * Return allergies information of the patient
+	 * @return The allergies information
+	 */
+	public String getAllergies() {
+		return allergies;
+	}
+	
+	/**
 	 * this is to use the birthday to calculate the age of the patient
 	 * @return the age of the patient
 	 */
