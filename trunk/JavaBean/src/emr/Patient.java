@@ -29,6 +29,41 @@ public class Patient extends User {
 	private Date birthday;
 	
 	/**
+	 * The address of the patient.
+	 */
+	private String address;
+	
+	/**
+	 * The phone number of the patient.
+	 */
+	private String phone;
+	
+	/**
+	 * The email address of the email.
+	 */
+	private String email;
+	
+	/**
+	 * the gender represented by either 'M' or 'F'
+	 */
+	private char gender;
+	
+	/**
+	 * The pharmacy information of the patient.
+	 */
+	private String pharmacy;
+	
+	/**
+	 * The insurance carrier information of the patient.
+	 */
+	private String insuranceCarrier;
+	
+	/**
+	 * The allergies of the patient.
+	 */
+	private String allergies;
+	
+	/**
 	 * The Patient's medical history
 	 */
 	private MedicalHistory medicalHistory;
@@ -93,6 +128,14 @@ public class Patient extends User {
 	 */
 	public Date getBirthday() {				//Limit permissions!
 		return birthday;
+	}
+	
+	/**
+	 * this is to use the birthday to calculate the age of the patient
+	 * @return the age of the patient
+	 */
+	public int getAge() {
+		return 0;//need implementation
 	}
 	
 	/**
