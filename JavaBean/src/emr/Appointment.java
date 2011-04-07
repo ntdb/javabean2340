@@ -26,6 +26,11 @@ public class Appointment {
 	 * Strings holding the patient's name / social security number, and the doctor's name
 	 */
 	private String patientName, patientSSN, doctorName;
+	
+	/**
+	 * The reason of the appontment.
+	 */
+	private Sreing reason;
 
 	/**
 	 * Default constructor for an Appointment object
