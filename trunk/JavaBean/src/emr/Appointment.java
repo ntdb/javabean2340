@@ -30,7 +30,7 @@ public class Appointment {
 	/**
 	 * The reason of the appontment.
 	 */
-	private Sreing reason;
+	private String reason;
 
 	/**
 	 * Default constructor for an Appointment object
