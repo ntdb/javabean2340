@@ -1,3 +1,7 @@
+/**
+ * Doctors Orders GUI class of Hospital System
+ * @author Team Java Bean
+ */
 package gui;
 
 import javax.swing.JPanel;
@@ -11,23 +15,38 @@ import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
+/**
+ * Doctors Orders Class Constructor
+ * @author Team Java Bean
+ *
+ */
 public class Doctors_Orders extends JPanel {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	/**
+	 * Text field for follow up instructions
+	 */
 	private final JTextField followup;
 	
+	/**
+	 * Text field for other instructions
+	 */
 	private final JTextField other;
-	
-	private final int colsize;
 
 	/**
 	 * Create the panel.
 	 */
 	public Doctors_Orders() {
 		setLayout(new FormLayout(new ColumnSpec[] {
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
 				FormFactory.RELATED_GAP_COLSPEC,
 				FormFactory.DEFAULT_COLSPEC,
 				FormFactory.RELATED_GAP_COLSPEC,
@@ -60,9 +79,11 @@ public class Doctors_Orders extends JPanel {
 				FormFactory.RELATED_GAP_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC,}));
-		
-		colsize = 10;
 		
 		final JLabel lblPrescriptions = new JLabel("Prescriptions:");
 		add(lblPrescriptions, "2, 2");
@@ -95,26 +116,38 @@ public class Doctors_Orders extends JPanel {
 		followup.getDocument().addDocumentListener(new DocumentListener() {
 			public void changedUpdate(DocumentEvent e) {
 			// text was changed, implement a way to save this
-				System.out.println(followup.getText());
+				System.out.println(getFollowup());
 			}
 			public void removeUpdate(DocumentEvent e) {
 			// text was deleted
-				System.out.println(followup.getText());
+				System.out.println(getFollowup());
 			}
 			public void insertUpdate(DocumentEvent e) {
 			// text was inserted
-				System.out.println(followup.getText());
+				System.out.println(getFollowup());
 			}
 			});
-		add(followup, "4, 14, 9, 2, fill, default");
-		followup.setColumns(colsize);
+		add(followup, "4, 14, 15, 4, fill, default");
 		
 		final JLabel lblOtherInstructions = new JLabel("Other Instructions: ");
 		add(lblOtherInstructions, "2, 18");
 		
 		other = new JTextField();
-		add(other, "4, 19, 9, 2, fill, default");
-		other.setColumns(colsize);
+		other.getDocument().addDocumentListener(new DocumentListener() {
+			public void changedUpdate(DocumentEvent e) {
+			// text was changed, implement a way to save this
+				System.out.println(getOther());
+			}
+			public void removeUpdate(DocumentEvent e) {
+			// text was deleted
+				System.out.println(getOther());
+			}
+			public void insertUpdate(DocumentEvent e) {
+			// text was inserted
+				System.out.println(getOther());
+			}
+			});
+		add(other, "4, 19, 15, 4, fill, default");
 
 	}
 	

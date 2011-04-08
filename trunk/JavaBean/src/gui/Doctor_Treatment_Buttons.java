@@ -1,3 +1,6 @@
+/**
+ * GUI Package of the EMR Project
+ */
 package gui;
 
 import javax.swing.JPanel;
@@ -42,7 +45,7 @@ public class Doctor_Treatment_Buttons extends JPanel {
 		
 		bheight = 25;
 		
-		JButton button = new JButton("Create Doctor's Orders");
+		final JButton button = new JButton("Create Doctor's Orders");
 		button.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
@@ -52,7 +55,7 @@ public class Doctor_Treatment_Buttons extends JPanel {
 		button.setMaximumSize(new Dimension(bwidth, bheight));
 		add(button);
 		
-		JButton button1 = new JButton("View Doctor's Orders");
+		final JButton button1 = new JButton("View Doctor's Orders");
 		button1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
@@ -62,7 +65,7 @@ public class Doctor_Treatment_Buttons extends JPanel {
 		button1.setMaximumSize(new Dimension(bwidth, bheight));
 		add(button1);
 		
-		JButton button2 = new JButton("Update Doctor's Orders");
+		final JButton button2 = new JButton("Update Doctor's Orders");
 		button2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
@@ -72,15 +75,15 @@ public class Doctor_Treatment_Buttons extends JPanel {
 		button2.setMaximumSize(new Dimension(bwidth, bheight));
 		add(button2);
 		
-		JButton button3 = new JButton("Delete Doctor's Orders");
+		final JButton button3 = new JButton("Delete Doctor's Orders");
 		button3.setMaximumSize(new Dimension(bwidth, bheight));
 		add(button3);
 		
-		JButton button4 = new JButton("Create Invoice");
+		final JButton button4 = new JButton("Create Invoice");
 		button4.setMaximumSize(new Dimension(bwidth, bheight));
 		add(button4);
 		
-		JButton button5 = new JButton("View Invoice");
+		final JButton button5 = new JButton("View Invoice");
 		button5.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
@@ -90,23 +93,47 @@ public class Doctor_Treatment_Buttons extends JPanel {
 		button5.setMaximumSize(new Dimension(bwidth, bheight));
 		add(button5);
 		
-		JButton button6 = new JButton("Update Invoice");
+		final JButton button6 = new JButton("Update Invoice");
 		button6.setMaximumSize(new Dimension(bwidth, bheight));
 		add(button6);
 		
-		JButton button7 = new JButton("Delete Invoice");
+		final JButton button7 = new JButton("Delete Invoice");
 		button7.setMaximumSize(new Dimension(bwidth, bheight));
 		add(button7);
 		
-		JButton button8 = new JButton("Exit Treatment");
+		final JButton button8 = new JButton("Create Treatment");
 		button8.setMaximumSize(new Dimension(bwidth, bheight));
 		button8.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				Portal.setContent(new Create_Treatment_Panel());
+			}
+		});
+		add(button8);
+		
+		final JButton button9 = new JButton("Update Treatment");
+		button9.setMaximumSize(new Dimension(bwidth, bheight));
+		button9.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				Portal.setContent(new Create_Treatment_Panel());
+			}
+		});
+		add(button9);
+		
+		final JButton button10 = new JButton("Delete Treatment");
+		button10.setMaximumSize(new Dimension(bwidth, bheight));
+		add(button10);
+		
+		final JButton button11 = new JButton("Exit Treatment");
+		button11.setMaximumSize(new Dimension(bwidth, bheight));
+		button11.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
 				Portal.back();
 			}
 		});
-		add(button8);
+		add(button11);
 
 	}
 
