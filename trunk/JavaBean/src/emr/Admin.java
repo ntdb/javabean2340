@@ -1,7 +1,8 @@
-package emr;
 /* Doctor class for Hospital System
  * Team Java Bean
  */
+package emr;
+
 
 /**
  * This class represents an Admin in the Hospital System that extends from
@@ -39,6 +40,11 @@ public class Admin extends Nurse{
 		login = new LoginClass(userID);
 	}//end Admin constructor
 	
+	/**
+	 * Returns String Representation of the admin
+	 * 
+	 * @return Admin Name
+	 */
 	public String toString(){
 		return new String("Admin: " + name);
 	}//end toString

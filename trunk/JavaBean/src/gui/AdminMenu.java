@@ -1,3 +1,7 @@
+/**
+ * Admin Menu Buttons for Hospital System
+ * @author Team Java Bean
+ */
 package gui;
 
 import javax.swing.JPanel;
@@ -8,7 +12,27 @@ import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+/**
+ * Admin Menu Buttons for Hospital System
+ * @author Team Java Bean
+ * @version 1.00
+ */
 public class AdminMenu extends JPanel {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	/**
+	 * sets width of buttons. Lowers Audit calls of literals
+	 */
+	private final int bwidth;
+	
+	/**
+	 * sets height of buttons. Lowers Audit calls of literals
+	 */
+	private final int bheight;
 
 	/**
 	 * Create the panel.
@@ -16,7 +40,11 @@ public class AdminMenu extends JPanel {
 	public AdminMenu() {
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		
-		JButton button = new JButton("Users");
+		bwidth = 1000;
+		
+		bheight = 25;
+		
+		final JButton button = new JButton("Users");
 		button.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
@@ -24,10 +52,10 @@ public class AdminMenu extends JPanel {
 			}
 		});
 		button.setAlignmentX(Component.CENTER_ALIGNMENT);
-		button.setMaximumSize(new Dimension(1000,25));
+		button.setMaximumSize(new Dimension(bwidth, bheight));
 		add(button);
 		
-		JButton button_2 = new JButton("New User");
+		final JButton button_2 = new JButton("New User");
 		button_2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
@@ -35,7 +63,7 @@ public class AdminMenu extends JPanel {
 			}
 		});
 		button_2.setAlignmentX(Component.CENTER_ALIGNMENT);
-		button_2.setMaximumSize(new Dimension(1000,25));
+		button_2.setMaximumSize(new Dimension(bwidth, bheight));
 		add(button_2);
 
 	}
