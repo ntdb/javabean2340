@@ -59,7 +59,7 @@ public class AdminMenu extends JPanel {
 		button_2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
-				Portal.setContent(new NewPatientContent());
+				Portal.setContent(new NewPatientContent(Portal.getUser()));
 			}
 		});
 		button_2.setAlignmentX(Component.CENTER_ALIGNMENT);

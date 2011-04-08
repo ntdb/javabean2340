@@ -41,6 +41,58 @@ public class Admin extends Nurse{
 	}//end Admin constructor
 	
 	/**
+	 * Creates a new Nurse in the Hospital system
+	 * 
+	 * @return The new Nurse's userID
+	 */
+	public int createNurse(){
+		final Nurse newNurse = new Nurse();
+		UserController.addUser(newNurse);
+		return newNurse.getUserID();
+	}//end createNurse
+	
+	/**
+	 * Creates a new Doctor in the Hospital system
+	 * 
+	 * @return The new Doctor's userID
+	 */
+	public int createDoctor(){
+		final Doctor newDoctor = new Doctor();
+		UserController.addUser(newDoctor);
+		return newDoctor.getUserID();
+	}//end createDoctor
+	
+	/**
+	 * Creates a new Admin in the Hospital system
+	 * 
+	 * @return The new Admin's userID
+	 */
+	public int createAdmin(){
+		final Admin newAdmin = new Admin();
+		UserController.addUser(newAdmin);
+		return newAdmin.getUserID();
+	}//end createAdmin
+	
+	/**
+	 * Deletes a User from the Hospital system
+	 * 
+	 * @param userID The user ID of the User to be deleted
+	 */
+	public void deletePatient(int userID){
+		UserController.deleteUser(userID);
+	}//end deleteUser
+	
+	/**
+	 * Gets a User using the User's ID
+	 * 
+	 * @param userID The ID of the User to get
+	 * @return The User
+	 */
+	public User getUser(int userID){
+		return UserController.getUser(userID);
+	}//end getUser
+	
+	/**
 	 * Returns String Representation of the admin
 	 * 
 	 * @return Admin Name
