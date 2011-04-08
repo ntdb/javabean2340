@@ -17,19 +17,49 @@ import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
 import com.jgoodies.forms.factories.FormFactory;
 
+import emr.Nurse;
 import emr.UserController;
+import javax.swing.JLabel;
+import java.awt.Font;
 
 public class PatientSearchMenu extends JPanel {
 
 	private String name;
 	private String[] patientNames = {"Doe, Jane", "Jones, John", "Waters, Bob"};
 	private JComboBox comboBox;
+	private JTextField txtFirstLast;
 	
 	/**
 	 * Create the panel.
 	 */
 	public PatientSearchMenu() {
 		setLayout(new FormLayout(new ColumnSpec[] {
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
 				FormFactory.RELATED_GAP_COLSPEC,
 				ColumnSpec.decode("default:grow"),},
 			new RowSpec[] {
@@ -40,8 +70,32 @@ public class PatientSearchMenu extends JPanel {
 				FormFactory.RELATED_GAP_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC,}));
 		
+		JLabel lblPatientSearch = new JLabel("Patient Search");
+		lblPatientSearch.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
+		add(lblPatientSearch, "16, 6, center, default");
+		
+		txtFirstLast = new JTextField();
+		txtFirstLast.setText("First Last");
+		add(txtFirstLast, "16, 8, fill, default");
+		txtFirstLast.setColumns(10);
+		
+		JButton btnSubmit = new JButton("Submit");
+		btnSubmit.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				Nurse nurse = (Nurse) Portal.getUser();
+				nurse.patientLookupByName(txtFirstLast.getSelectedText());
+			}
+		});
+		add(btnSubmit, "16, 10");
+		
+		
+/*
+  
 		//patientNames = UserController.getPatientNames();
 		//patientNames = {"Doe, Jane", "Jones, John", "Waters, Bob"};
 		//String name = "";	
@@ -59,6 +113,13 @@ public class PatientSearchMenu extends JPanel {
 			}
 		});
 		add(btnViewPatient, "2, 4");
+
+
+
+  		
+ */
+		
+		
 		
 	}
 
