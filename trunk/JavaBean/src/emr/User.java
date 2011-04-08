@@ -77,6 +77,42 @@ public class User {
 		}//end while
 		return id;
 	}
+	
+	/**
+	 * Generates a password of the randomized characters of "passwordxxxx' where 
+	 * the x's are the digits of the User's ID
+	 * 
+	 * @param userID The User's ID
+	 * @return The password of the User
+	 */
+	public static String generatePassword(int userID){
+		String passwordID = "password" + userID;
+		String password = "";
+		Random r = new Random();
+		boolean add;
+		int[] chose = new int[passwordID.length()];
+		for (int i=0; i < passwordID.length(); i++)
+		{
+			add = true;
+			int pick = r.nextInt(passwordID.length());
+			for (int j = 0; j == i; j++)
+			{
+				if (chose[j] == pick)
+					add = false;
+			}
+			if (add = true)
+			{
+				char letter = passwordID.charAt(pick);
+				password +=letter;
+				chose[i] = pick;
+			}
+			else
+			{
+				i--;
+			}
+		}
+	  return password;
+	}//end generatePassword
 
 	/**
 	 * Gets the ID of the User
