@@ -7,10 +7,16 @@ import com.jgoodies.forms.factories.FormFactory;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
+
+import emr.Admin;
+import emr.Patient;
+
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class UserSearchMenu extends JPanel {
 	private JTextField txtFirstLast_1;
@@ -93,9 +99,25 @@ public class UserSearchMenu extends JPanel {
 		txtFirstLast_1.setColumns(10);
 		
 		btnSubmit = new JButton("Submit");
+		btnSubmit.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {	
+				Admin admin = (Admin) Portal.getUser();
+				Patient patient = (Patient)(admin.patientLookupByName(txtFirstLast.getText()));
+				Portal.update(new PatientAdminMenu(patient), new PatientProfilePanel(patient), "View Patient");
+			}
+		});
 		add(btnSubmit, "8, 10");
 		
 		btnSubmit_1 = new JButton("Submit");
+		btnSubmit_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				Admin admin = (Admin) Portal.getUser();
+				Patient patient = (Patient)(admin.patientLookupByName(txtFirstLast_1.getText()));
+				Portal.update(new PatientAdminMenu(patient), new PatientProfilePanel(patient), "View Patient");
+			}
+		});
 		add(btnSubmit_1, "20, 10");
 		
 		comboBox = new JComboBox();

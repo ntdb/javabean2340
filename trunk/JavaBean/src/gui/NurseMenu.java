@@ -4,6 +4,10 @@ import javax.swing.JPanel;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.UIManager;
+
+import emr.Nurse;
+import emr.Patient;
+
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
@@ -45,7 +49,9 @@ public class NurseMenu extends JPanel {
 		button_2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
-				Portal.setContent(new NewPatientContent(Portal.getUser()));
+				Nurse nurse = (Nurse)(Portal.getUser());
+				Patient newPatient = nurse.getPatient(nurse.createPatient());
+				Portal.setContent(new NewPatientContent(newPatient));
 			}
 		});
 		button_2.setAlignmentX(Component.CENTER_ALIGNMENT);
