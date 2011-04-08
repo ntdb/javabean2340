@@ -80,6 +80,12 @@ public class Doctor_Treatment_Buttons extends JPanel {
 		add(button3);
 		
 		final JButton button4 = new JButton("Create Invoice");
+		button4.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				Portal.setContent(new Create_Invoice_Panel());
+			}
+		});
 		button4.setMaximumSize(new Dimension(bwidth, bheight));
 		add(button4);
 		
@@ -94,6 +100,12 @@ public class Doctor_Treatment_Buttons extends JPanel {
 		add(button5);
 		
 		final JButton button6 = new JButton("Update Invoice");
+		button6.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				Portal.setContent(new Create_Invoice_Panel());
+			}
+		});
 		button6.setMaximumSize(new Dimension(bwidth, bheight));
 		add(button6);
 		
