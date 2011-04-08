@@ -18,6 +18,7 @@ import com.jgoodies.forms.layout.RowSpec;
 import com.jgoodies.forms.factories.FormFactory;
 
 import emr.Nurse;
+import emr.Patient;
 import emr.UserController;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -88,7 +89,8 @@ public class PatientSearchMenu extends JPanel {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				Nurse nurse = (Nurse) Portal.getUser();
-				nurse.patientLookupByName(txtFirstLast.getSelectedText());
+				Patient patient = (Patient)(nurse.patientLookupByName(txtFirstLast.getSelectedText()));
+				Portal.update(new PatientAdminMenu(), new PatientProfilePanel(patient), "View Patient");
 			}
 		});
 		add(btnSubmit, "16, 10");

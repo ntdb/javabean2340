@@ -9,6 +9,8 @@ import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import emr.Patient;
+
 public class PatientMainMenu extends JPanel {
 
 	/**
@@ -21,7 +23,7 @@ public class PatientMainMenu extends JPanel {
 		btnProfile.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
-				Portal.update(new PatientProfileMenu(), new PatientProfilePanel(), "Profile");
+				Portal.update(new PatientProfileMenu(), new PatientProfilePanel((Patient)(Portal.getUser())), "Profile");
 			}
 		});
 		btnProfile.setAlignmentX(Component.CENTER_ALIGNMENT);
