@@ -6,6 +6,10 @@ import java.awt.Dimension;
 import javax.swing.JPanel;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+
+import emr.Nurse;
+import emr.Patient;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -14,10 +18,17 @@ public class PatientAdminMenu extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public PatientAdminMenu() {
+	public PatientAdminMenu(Patient patient) {
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		
 		JButton button_1 = new JButton("Edit Info");
+		button_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				Nurse nurse = (Nurse) Portal.getUser();
+				Portal.update(new PatientAdminMenu(), new PatientProfilePanel(patient), "View Patient");
+			}
+		});
 		button_1.setAlignmentX(Component.CENTER_ALIGNMENT);
 		button_1.setMaximumSize(new Dimension(1000,25));
 		add(button_1);
