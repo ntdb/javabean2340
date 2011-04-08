@@ -173,7 +173,7 @@ public class PatientProfileChangePanel extends JPanel {
 		btnCancel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
-				Portal.setContent(new PatientProfilePanel() );
+				Portal.setContent(new PatientProfilePanel((Patient)Portal.getUser()) );
 			}
 		});
 		add(btnCancel, "6, 18, left, top");
