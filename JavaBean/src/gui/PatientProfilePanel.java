@@ -17,44 +17,58 @@ public class PatientProfilePanel extends JPanel {
 	 */
 	public PatientProfilePanel() {
 		setLayout(new FormLayout(new ColumnSpec[] {
-				FormFactory.RELATED_GAP_COLSPEC,
-				FormFactory.DEFAULT_COLSPEC,
-				FormFactory.RELATED_GAP_COLSPEC,
-				FormFactory.DEFAULT_COLSPEC,},
+				ColumnSpec.decode("37px"),
+				ColumnSpec.decode("308px"),},
 			new RowSpec[] {
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,}));
+				RowSpec.decode("33px"),
+				RowSpec.decode("15px"),
+				RowSpec.decode("33px"),
+				RowSpec.decode("15px"),
+				RowSpec.decode("33px"),
+				RowSpec.decode("15px"),
+				RowSpec.decode("33px"),
+				RowSpec.decode("15px"),
+				RowSpec.decode("33px"),
+				RowSpec.decode("15px"),
+				RowSpec.decode("33px"),
+				RowSpec.decode("15px"),
+				RowSpec.decode("33px"),
+				RowSpec.decode("15px"),
+				RowSpec.decode("33px"),
+				RowSpec.decode("15px"),}));
 		
 		JLabel lblName = new JLabel();
 		lblName.setText("Name: " + Portal.getUser().getName());
-		add(lblName, "4, 4");
+		add(lblName, "2, 2, fill, top");
 		
 		JLabel lblUserID = new JLabel();
 		lblUserID.setText("User ID: " + Portal.getUser().getUserID());
-		add(lblUserID, "4, 8");
+		add(lblUserID, "2, 4, fill, top");
 		
 		JLabel lblSsn = new JLabel();
 		lblSsn.setText("SSN: " + ( (Patient)Portal.getUser() ).getSsn());
-		add(lblSsn, "4, 12");
+		add(lblSsn, "2, 6, fill, top");
 		
 		JLabel lblBday = new JLabel();
 		lblBday.setText("Birthday: (need data input in the test case)");
 //		lblBday.setText("Birthday: " + ( (Patient)Portal.getUser() ).getBirthday().toString());
-		add(lblBday, "4, 16");
+		add(lblBday, "2, 8, left, top");
+		
+		JLabel lblGender = new JLabel();
+		lblGender.setText("Gender: " + ((Patient)Portal.getUser()).getGender());
+		add(lblGender, "2, 10, fill, top");
+		
+		JLabel lblAddress = new JLabel();
+		lblAddress.setText("Address: " + ((Patient)Portal.getUser()).getAddress());
+		add(lblAddress, "2, 12, fill, top");
+		
+		JLabel lblPhone = new JLabel();
+		lblPhone.setText("Phone: " + ((Patient)Portal.getUser()).getPhone());
+		add(lblPhone, "2, 14, fill, top");
+		
+		JLabel lblEmail = new JLabel();
+		lblEmail.setText("E-mail: " + ((Patient)Portal.getUser()).getEmail());
+		add(lblEmail, "2, 16, fill, top");
 
 
 	}
