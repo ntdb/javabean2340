@@ -1,5 +1,6 @@
 <list>
   <emr.Patient>
+    <name>Jay</name>
     <password>password</password>
     <userID>4000</userID>
     <login>
@@ -10,20 +11,20 @@
       <validpass>false</validpass>
       <max>3</max>
     </login>
-    <medicalHistory>
-      <appointmentIDs></appointmentIDs>
-      <treatments></treatments>
-      <doctorsOrders></doctorsOrders>
-    </medicalHistory>
     <ssn>1234567</ssn>
     <address>Street 1, room 2</address>
     <phone>4041001234</phone>
     <email>Jay@emr.com</email>
-    <name>Jay</name>
     <gender>M</gender>
-    <pharmacy>this Jay's pharmacy</pharmacy>
-    <insuranceCarrier>Jay's college!</insuranceCarrier>
-    <allergies>Not at all</allergies></emr.Patient>
+    <pharmacy>this Jay&apos;s pharmacy</pharmacy>
+    <insuranceCarrier>Jay&apos;s college!</insuranceCarrier>
+    <allergies>Not at all</allergies>
+    <medicalHistory>
+      <appointmentIDs/>
+      <treatments/>
+      <doctorsOrders/>
+    </medicalHistory>
+  </emr.Patient>
   <emr.Nurse>
     <password>password</password>
     <userID>3000</userID>
@@ -56,8 +57,32 @@
       <userId>1000</userId>
       <passed>true</passed>
       <failed>false</failed>
-      <validpass>false</validpass>
+      <validpass>true</validpass>
+      <logger class="emr.Admin" reference="../.."/>
       <max>3</max>
     </login>
   </emr.Admin>
+  <emr.Patient>
+    <name>Joe</name>
+    <password>password1</password>
+    <userID>4090</userID>
+    <login>
+      <maxattempts>0</maxattempts>
+      <userId>4090</userId>
+      <passed>true</passed>
+      <failed>false</failed>
+      <validpass>true</validpass>
+      <logger class="emr.Patient" reference="../.."/>
+      <max>3</max>
+    </login>
+    <address>1 Street</address>
+    <phone>5555555</phone>
+    <email>joe@emr</email>
+    <gender></gender>
+    <medicalHistory>
+      <appointmentIDs/>
+      <treatments/>
+      <doctorsOrders/>
+    </medicalHistory>
+  </emr.Patient>
 </list>

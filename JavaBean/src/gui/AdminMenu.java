@@ -48,7 +48,7 @@ public class AdminMenu extends JPanel {
 		button.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
-				Portal.setContent(new PatientSearchMenu());
+				Portal.setContent(new UserSearchMenu());
 			}
 		});
 		button.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -59,7 +59,8 @@ public class AdminMenu extends JPanel {
 		button_2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
-				Portal.setContent(new NewPatientContent(Portal.getUser()));
+				//Portal.setContent(new NewPatientContent(Portal.getUser()));
+				Portal.update(new CreateUserMenu(), new DailyAppointmentsPanel(), "New User");
 			}
 		});
 		button_2.setAlignmentX(Component.CENTER_ALIGNMENT);

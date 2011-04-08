@@ -105,38 +105,32 @@ public class NewPatientContent extends JPanel {
 			Admin admin = (Admin)(Portal.getUser());
 		
 			if(user instanceof Patient){
-				Patient newPatient = admin.getPatient(admin.createPatient());
 				lblNewUser.setText("New Patient");
-				lblId.setText("" + newPatient.getUserID());
-				lblPassword.setText(newPatient.generatePassword(newPatient.getUserID()));
+				lblId.setText("" + user.getUserID());
+				lblPassword.setText(user.generatePassword(user.getUserID()));
 			}//end if
 			else if(user instanceof Admin){
-				Admin newAdmin = (Admin)(admin.getUser(admin.createAdmin()));
 				lblNewUser.setText("New Admin");
-				lblId.setText("" + newAdmin.getUserID());
-				lblPassword.setText(newAdmin.generatePassword(newAdmin.getUserID()));
+				lblId.setText("" + user.getUserID());
+				lblPassword.setText(user.generatePassword(user.getUserID()));
 			}//end else if
 		
 			else if(user instanceof Doctor){
-				Doctor newDoctor = (Doctor)(admin.getUser(admin.createDoctor()));
 				lblNewUser.setText("New Doctor");
-				lblId.setText("" + newDoctor.getUserID());
-				lblPassword.setText(newDoctor.generatePassword(newDoctor.getUserID()));
+				lblId.setText("" + user.getUserID());
+				lblPassword.setText(user.generatePassword(user.getUserID()));
 			}//end else if
 			else if(user instanceof Nurse){
-				Nurse newNurse = (Nurse)(admin.getUser(admin.createNurse()));
 				lblNewUser.setText("New Nurse");
-				lblId.setText("" + newNurse.getUserID());
-				lblPassword.setText(newNurse.generatePassword(newNurse.getUserID()));
+				lblId.setText("" + user.getUserID());
+				lblPassword.setText(user.generatePassword(user.getUserID()));
 			}//end else if
 		}//end if
 		else{
 			Nurse nurse = (Nurse)(Portal.getUser());
-			
-			Patient newPatient = nurse.getPatient(nurse.createPatient());
 			lblNewUser.setText("New Patient");
-			lblId.setText("" + newPatient.getUserID());
-			lblPassword.setText(newPatient.generatePassword(newPatient.getUserID()));
+			lblId.setText("" + user.getUserID());
+			lblPassword.setText(user.generatePassword(user.getUserID()));
 		}//end else
 		
 	}
