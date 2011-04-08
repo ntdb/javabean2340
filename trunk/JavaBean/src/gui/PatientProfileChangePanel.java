@@ -31,7 +31,7 @@ public class PatientProfileChangePanel extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public PatientProfileChangePanel() {
+	public PatientProfileChangePanel(final Patient patient) {
 		setLayout(new FormLayout(new ColumnSpec[] {
 				ColumnSpec.decode("37px"),
 				ColumnSpec.decode("133px"),
@@ -124,7 +124,7 @@ public class PatientProfileChangePanel extends JPanel {
 				//new name
 				String newName = textField.getText();
 				if(newName.length() != 0) {
-					((Patient)Portal.getUser()).setName(newName);
+					patient.setName(newName);
 				}
 				
 				//new password
@@ -135,7 +135,7 @@ public class PatientProfileChangePanel extends JPanel {
 				}
 				else if(newPass.length() != 0) {
 					try {
-						((Patient)Portal.getUser()).setPassword(newPass);
+						patient.setPassword(newPass);
 					} catch (IOException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
@@ -145,19 +145,19 @@ public class PatientProfileChangePanel extends JPanel {
 				//new address
 				String newAdd = textField_3.getText();
 				if(newAdd.length() != 0) {
-					((Patient)Portal.getUser()).setAddress(newAdd);
+					patient.setAddress(newAdd);
 				}
 
 				//new phone
 				String newPhone = textField_4.getText();
 				if(newPhone.length() != 0) {
-					((Patient)Portal.getUser()).setPhone(newPhone);
+					patient.setPhone(newPhone);
 				}
 				
 				//new email
 				String newEmail = textField_5.getText();
 				if(newEmail.length() != 0) {
-					((Patient)Portal.getUser()).setEmail(newEmail);
+					patient.setEmail(newEmail);
 				}
 				
 				//decide message output
@@ -175,7 +175,7 @@ public class PatientProfileChangePanel extends JPanel {
 		btnCancel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
-				Portal.setContent(new PatientProfilePanel( (Patient)Portal.getUser()) );
+				Portal.setContent(new PatientProfilePanel(patient));
 			}
 		});
 		add(btnCancel, "8, 18, left, top");
