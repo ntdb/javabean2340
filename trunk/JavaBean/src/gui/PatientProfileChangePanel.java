@@ -38,6 +38,8 @@ public class PatientProfileChangePanel extends JPanel {
 				ColumnSpec.decode("37px"),
 				ColumnSpec.decode("125px:grow"),
 				FormFactory.RELATED_GAP_COLSPEC,
+				ColumnSpec.decode("max(72dlu;default)"),
+				FormFactory.RELATED_GAP_COLSPEC,
 				ColumnSpec.decode("165px"),},
 			new RowSpec[] {
 				RowSpec.decode("33px"),
@@ -60,7 +62,7 @@ public class PatientProfileChangePanel extends JPanel {
 				RowSpec.decode("25px"),}));
 		
 		JLabel lblNewLabel = new JLabel("Please leave the space to blank if no changes on it.");
-		add(lblNewLabel, "2, 2, 5, 1, fill, top");
+		add(lblNewLabel, "2, 2, 7, 1, fill, top");
 		
 		JLabel lblNewName = new JLabel("New Name:");
 		add(lblNewName, "2, 4, fill, center");
@@ -111,7 +113,7 @@ public class PatientProfileChangePanel extends JPanel {
 		final JLabel lblChange = new JLabel("");
 		lblChange.setForeground(Color.RED);
 		lblChange.setFont(new Font("Lucida Grande", Font.ITALIC, 13));
-		add(lblChange, "2, 16, 5, 1, fill, top");
+		add(lblChange, "2, 16, 7, 1, fill, top");
 		
 		JButton btnOk = new JButton("Accept");
 		btnOk.addMouseListener(new MouseAdapter() {
@@ -173,10 +175,10 @@ public class PatientProfileChangePanel extends JPanel {
 		btnCancel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
-				Portal.setContent(new PatientProfilePanel((Patient)Portal.getUser()) );
+				Portal.setContent(new PatientProfilePanel() );
 			}
 		});
-		add(btnCancel, "6, 18, left, top");
+		add(btnCancel, "8, 18, left, top");
 
 	}
 
