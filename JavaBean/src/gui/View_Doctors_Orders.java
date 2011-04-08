@@ -13,6 +13,12 @@ import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
 
+/**
+ * Allows user view Doctor's Orders
+ * @author Team Java Bean
+ * @version 1.00
+ *
+ */
 public class View_Doctors_Orders extends JPanel {
 
 	/**
@@ -79,31 +85,32 @@ public class View_Doctors_Orders extends JPanel {
 				FormFactory.RELATED_GAP_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC,}));
 		
-		JLabel lblPrescriptions = new JLabel("Prescriptions: ");
+		final JLabel lblPrescriptions = new JLabel("Prescriptions: ");
 		add(lblPrescriptions, "2, 2");
 		
-		JLabel Prescriptions = new JLabel("Prescriptions will be shown here");
+		final JLabel Prescriptions = new JLabel("Prescriptions will be shown here");
 		add(Prescriptions, "4, 4, 25, 1");
 		
-		JLabel lblLabWorkPerformed = new JLabel("Lab Work Performed: ");
+		final JLabel lblLabWorkPerformed = new JLabel("Lab Work Performed: ");
 		add(lblLabWorkPerformed, "2, 6");
-		Doctors_Orders doc = new Doctors_Orders();
-		String result = doc.getFollowup();
+		final Doctors_Orders doc = new Doctors_Orders();
+		final String result = doc.getFollowup();
 		System.out.println("follow up = " + result);
 		
-		JLabel Lab = new JLabel("lab work will be displayed here");
+		final JLabel Lab = new JLabel("lab work will be displayed here");
 		add(Lab, "4, 8, 25, 1");
 		
-		JLabel lblFollowupInstructions = new JLabel("Follow-up Instructions:");
+		final JLabel lblFollowupInstructions = new JLabel("Follow-up Instructions:");
 		add(lblFollowupInstructions, "2, 10");
 		
-		JLabel follow = new JLabel("Follow up instructions will be displayed here.");
+		final JLabel follow = new JLabel
+		("Follow up instructions will be displayed here.");
 		add(follow, "4, 12, 25, 3");
 		
 		final JLabel lblOtherInstructions = new JLabel("Other Instructions: ");
 		add(lblOtherInstructions, "2, 18");
 		
-		JLabel other = new JLabel("Other Instructions will be displayed here");
+		final JLabel other = new JLabel("Other Instructions will be displayed here");
 		add(other, "4, 20, 25, 3");
 
 	}
