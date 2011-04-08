@@ -4,6 +4,9 @@ import javax.swing.JPanel;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.UIManager;
+
+import emr.Patient;
+
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
@@ -32,7 +35,7 @@ public class PatientProfileMenu extends JPanel {
 		btnRefresh.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				Portal.setContent(new PatientProfilePanel());
+				Portal.setContent(new PatientProfilePanel((Patient)(Portal.getUser())));
 			}
 		});
 		btnRefresh.setAlignmentX(Component.CENTER_ALIGNMENT);

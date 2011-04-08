@@ -15,7 +15,7 @@ public class PatientProfilePanel extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public PatientProfilePanel() {
+	public PatientProfilePanel(Patient patient) {
 		setLayout(new FormLayout(new ColumnSpec[] {
 				ColumnSpec.decode("37px"),
 				ColumnSpec.decode("308px"),},
@@ -38,15 +38,15 @@ public class PatientProfilePanel extends JPanel {
 				RowSpec.decode("15px"),}));
 		
 		JLabel lblName = new JLabel();
-		lblName.setText("Name: " + Portal.getUser().getName());
+		lblName.setText("Name: " + patient.getName());
 		add(lblName, "2, 2, fill, top");
 		
 		JLabel lblUserID = new JLabel();
-		lblUserID.setText("User ID: " + Portal.getUser().getUserID());
+		lblUserID.setText("User ID: " + patient.getUserID());
 		add(lblUserID, "2, 4, fill, top");
 		
 		JLabel lblSsn = new JLabel();
-		lblSsn.setText("SSN: " + ( (Patient)Portal.getUser() ).getSsn());
+		lblSsn.setText("SSN: " + patient.getSsn());
 		add(lblSsn, "2, 6, fill, top");
 		
 		JLabel lblBday = new JLabel();
@@ -55,19 +55,19 @@ public class PatientProfilePanel extends JPanel {
 		add(lblBday, "2, 8, left, top");
 		
 		JLabel lblGender = new JLabel();
-		lblGender.setText("Gender: " + ((Patient)Portal.getUser()).getGender());
+		lblGender.setText("Gender: " + patient.getGender());
 		add(lblGender, "2, 10, fill, top");
 		
 		JLabel lblAddress = new JLabel();
-		lblAddress.setText("Address: " + ((Patient)Portal.getUser()).getAddress());
+		lblAddress.setText("Address: " + patient.getAddress());
 		add(lblAddress, "2, 12, fill, top");
 		
 		JLabel lblPhone = new JLabel();
-		lblPhone.setText("Phone: " + ((Patient)Portal.getUser()).getPhone());
+		lblPhone.setText("Phone: " + patient.getPhone());
 		add(lblPhone, "2, 14, fill, top");
 		
 		JLabel lblEmail = new JLabel();
-		lblEmail.setText("E-mail: " + ((Patient)Portal.getUser()).getEmail());
+		lblEmail.setText("E-mail: " + patient.getEmail());
 		add(lblEmail, "2, 16, fill, top");
 
 
