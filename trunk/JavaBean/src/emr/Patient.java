@@ -95,6 +95,13 @@ public class Patient extends User {
 	}//end Patient constructor		
 	
 	/**
+	 * This changes the patient's name
+	 */
+	public void setName(String newName) {
+		this.name = newName;
+	}
+	
+	/**
 	 * Sets the patient's social security number
 	 * 
 	 * @param ssn The social security number of the patient
