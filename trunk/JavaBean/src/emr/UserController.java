@@ -42,15 +42,18 @@ public class UserController {
 	 * @param name The Name of the User to find
 	 * @return The found User
 	 */
-	public static User getUser(String name){
+	public static User getUser(String name) {
 		User user = null;
-		
-		for(int i = 0; i < users.size(); i++){
-			if(users.get(i).getName().equalsIgnoreCase(name)){
-				user = users.get(i);
-				break;
-			}//end if statement
-		}//end for loop
+		try {
+			for(int i = 0; i < users.size(); i++){
+				if(users.get(i).getName().equalsIgnoreCase(name)){
+					user = users.get(i);
+					break;
+				}//end if statement
+			}//end for loop
+		} catch(NullPointerException e) {
+			SysLog.LOGGER.warning("User " + name + " does not exist.");
+		}
 		
 		return user;
 	}//end overloaded getUser method (look-up by name)
@@ -63,7 +66,8 @@ public class UserController {
 	 */
 	public static int getUserIndex(int userID) {
 		for(int i=0; i < users.size(); i++) {
-			if(users.get(i).getUserID() == userID){
+			User user = users.get(i);
+			if(user.getUserID() == userID){
 				return i;
 			}
 		}
@@ -140,6 +144,7 @@ public class UserController {
 	public static void load() {
 		SysLog.initialize();
 		users = IOController.getFromXML("users.xml", User.class);
+		System.out.println(users.toString());
 		if(getUserIndex(-1) == -1) {
 //			addUser(new Nurse())						//Enter ultra admin account here!
 		}
