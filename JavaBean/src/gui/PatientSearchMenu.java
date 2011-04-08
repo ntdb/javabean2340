@@ -89,8 +89,8 @@ public class PatientSearchMenu extends JPanel {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				Nurse nurse = (Nurse) Portal.getUser();
-				Patient patient = (Patient)(nurse.patientLookupByName(txtFirstLast.getSelectedText()));
-				Portal.update(new PatientAdminMenu(), new PatientProfilePanel(patient), "View Patient");
+				Patient patient = (Patient)(nurse.patientLookupByName(txtFirstLast.getText()));
+				Portal.update(new PatientAdminMenu(patient), new PatientProfilePanel(patient), "View Patient");
 			}
 		});
 		add(btnSubmit, "16, 10");

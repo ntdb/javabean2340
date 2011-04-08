@@ -24,7 +24,7 @@ public class PatientProfileMenu extends JPanel {
 		btnChange.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
-				Portal.setContent(new PatientProfileChangePanel());
+				Portal.setContent(new PatientProfileChangePanel((Patient)(Portal.getUser())));
 			}
 		});
 		btnChange.setAlignmentX(Component.CENTER_ALIGNMENT);
