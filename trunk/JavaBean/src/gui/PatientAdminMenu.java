@@ -18,7 +18,7 @@ public class PatientAdminMenu extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public PatientAdminMenu(Patient patient) {
+	public PatientAdminMenu(final Patient patient) {
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		
 		JButton button_1 = new JButton("Edit Info");
@@ -26,7 +26,7 @@ public class PatientAdminMenu extends JPanel {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				Nurse nurse = (Nurse) Portal.getUser();
-				Portal.update(new PatientAdminMenu(), new PatientProfilePanel(patient), "View Patient");
+				Portal.update(new PatientAdminMenu(patient), new PatientProfileChangePanel(patient), "Edit Patient");
 			}
 		});
 		button_1.setAlignmentX(Component.CENTER_ALIGNMENT);
