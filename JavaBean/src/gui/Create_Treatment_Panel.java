@@ -1,3 +1,7 @@
+/**
+ * Treatment Creation Panel
+ * @author Team Java Bean
+ */
 package gui;
 
 import javax.swing.JLabel;
@@ -11,18 +15,53 @@ import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
+/**
+ * Allows the user to create treatment records.
+ * @author Team Java Bean
+ * @version 1.00
+ *
+ */
 public class Create_Treatment_Panel extends JPanel {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private JTextField docName;
-	private JTextField nurseName;
-	private JTextField Symptoms;
-	private JTextField Vitals;
-	private JTextField Diagnosis;
-	private JTextField Date;
+	
+	/**
+	 * Doctor Name Value
+	 */
+	private final JTextField docName;
+	
+	/**
+	 * Nurse Name Value
+	 */
+	private final JTextField nurseName;
+	
+	/**
+	 * Symptom Value
+	 */
+	private final JTextField symptoms;
+	
+	/**
+	 * Vitals Value
+	 */
+	private final JTextField vitals;
+	
+	/**
+	 * Diagnosis Value
+	 */
+	private final JTextField diagnosis;
+	
+	/**
+	 * Date Value
+	 */
+	private final JTextField date;
+	
+	/**
+	 * Column Size Value
+	 */
+	private final int colsize;
 
 	/**
 	 * Create the panel.
@@ -67,7 +106,9 @@ public class Create_Treatment_Panel extends JPanel {
 				FormFactory.RELATED_GAP_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC,}));
 		
-		JLabel lblTreatingDocotr = new JLabel("Treating Doctor:");
+		colsize = 10;
+		
+		final JLabel lblTreatingDocotr = new JLabel("Treating Doctor:");
 		add(lblTreatingDocotr, "2, 2, right, default");
 		
 		docName = new JTextField();
@@ -86,30 +127,30 @@ public class Create_Treatment_Panel extends JPanel {
 			}
 			});
 		add(docName, "4, 2, fill, default");
-		docName.setColumns(10);
+		docName.setColumns(colsize);
 		
-		JLabel label = new JLabel("Date:");
+		final JLabel label = new JLabel("Date:");
 		add(label, "10, 2, right, default");
 		
-		Date = new JTextField();
-		Date.getDocument().addDocumentListener(new DocumentListener() {
+		date = new JTextField();
+		date.getDocument().addDocumentListener(new DocumentListener() {
 			public void changedUpdate(DocumentEvent e) {
 			// text was changed, implement a way to save this
-				System.out.println(Date.getText());
+				System.out.println(date.getText());
 			}
 			public void removeUpdate(DocumentEvent e) {
 			// text was deleted
-				System.out.println(Date.getText());
+				System.out.println(date.getText());
 			}
 			public void insertUpdate(DocumentEvent e) {
 			// text was inserted
-				System.out.println(Date.getText());
+				System.out.println(date.getText());
 			}
 			});
-		add(Date, "12, 2");
-		Date.setColumns(10);
+		add(date, "12, 2");
+		date.setColumns(colsize);
 		
-		JLabel lblAttendingNurse = new JLabel("Attending Nurse: ");
+		final JLabel lblAttendingNurse = new JLabel("Attending Nurse: ");
 		add(lblAttendingNurse, "2, 6, right, default");
 		
 		nurseName = new JTextField();
@@ -128,70 +169,70 @@ public class Create_Treatment_Panel extends JPanel {
 			}
 			});
 		add(nurseName, "4, 6, fill, default");
-		nurseName.setColumns(10);
+		nurseName.setColumns(colsize);
 		
-		JLabel lblSymptoms = new JLabel("Symptoms:");
+		final JLabel lblSymptoms = new JLabel("Symptoms:");
 		add(lblSymptoms, "2, 10, right, default");
 		
-		Symptoms = new JTextField();
-		Symptoms.getDocument().addDocumentListener(new DocumentListener() {
+		symptoms = new JTextField();
+		symptoms.getDocument().addDocumentListener(new DocumentListener() {
 			public void changedUpdate(DocumentEvent e) {
 			// text was changed, implement a way to save this
-				System.out.println(Symptoms.getText());
+				System.out.println(symptoms.getText());
 			}
 			public void removeUpdate(DocumentEvent e) {
 			// text was deleted
-				System.out.println(Symptoms.getText());
+				System.out.println(symptoms.getText());
 			}
 			public void insertUpdate(DocumentEvent e) {
 			// text was inserted
-				System.out.println(Symptoms.getText());
+				System.out.println(symptoms.getText());
 			}
 			});
-		add(Symptoms, "4, 10, fill, center");
-		Symptoms.setColumns(10);
+		add(symptoms, "4, 10, fill, center");
+		symptoms.setColumns(colsize);
 		
-		JLabel lblVitalSigns = new JLabel("Vital Signs:");
+		final JLabel lblVitalSigns = new JLabel("Vital Signs:");
 		add(lblVitalSigns, "2, 14, right, default");
 		
-		Vitals = new JTextField();
-		Vitals.getDocument().addDocumentListener(new DocumentListener() {
+		vitals = new JTextField();
+		vitals.getDocument().addDocumentListener(new DocumentListener() {
 			public void changedUpdate(DocumentEvent e) {
 			// text was changed, implement a way to save this
-				System.out.println(Vitals.getText());
+				System.out.println(vitals.getText());
 			}
 			public void removeUpdate(DocumentEvent e) {
 			// text was deleted
-				System.out.println(Vitals.getText());
+				System.out.println(vitals.getText());
 			}
 			public void insertUpdate(DocumentEvent e) {
 			// text was inserted
-				System.out.println(Vitals.getText());
+				System.out.println(vitals.getText());
 			}
 			});
-		add(Vitals, "4, 14, fill, default");
-		Vitals.setColumns(10);
+		add(vitals, "4, 14, fill, default");
+		vitals.setColumns(colsize);
 		
-		JLabel lblDiagnosis = new JLabel("Diagnosis: ");
+		final JLabel lblDiagnosis = new JLabel("Diagnosis: ");
 		add(lblDiagnosis, "2, 18, right, default");
 		
-		Diagnosis = new JTextField();
-		Diagnosis.getDocument().addDocumentListener(new DocumentListener() {
+		diagnosis = new JTextField();
+		diagnosis.getDocument().addDocumentListener(new DocumentListener() {
 			public void changedUpdate(DocumentEvent e) {
 			// text was changed, implement a way to save this
-				System.out.println(Diagnosis.getText());
+				System.out.println(diagnosis.getText());
 			}
 			public void removeUpdate(DocumentEvent e) {
 			// text was deleted
-				System.out.println(Diagnosis.getText());
+				System.out.println(diagnosis.getText());
 			}
 			public void insertUpdate(DocumentEvent e) {
 			// text was inserted
-				System.out.println(Diagnosis.getText());
+				System.out.println(diagnosis.getText());
 			}
 			});
-		add(Diagnosis, "4, 18, fill, default");
-		Diagnosis.setColumns(10);
+		add(diagnosis, "4, 18, fill, default");
+		diagnosis.setColumns(colsize);
 
 	}
 

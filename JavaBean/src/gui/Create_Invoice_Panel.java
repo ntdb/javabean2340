@@ -26,10 +26,31 @@ public class Create_Invoice_Panel extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private final JTextField Name;
-	private final JTextField Doctor;
-	private final JTextField Bill;
-	private final JTextField Date;
+	
+	/**
+	 * Name value
+	 */
+	private final JTextField name;
+	
+	/**
+	 * Doctor Value
+	 */
+	private final JTextField doctor;
+	
+	/**
+	 * Bill Value
+	 */
+	private final JTextField bill;
+	
+	/**
+	 * Date Value
+	 */
+	private final JTextField date;
+	
+	/**
+	 * Column value
+	 */
+	private final int colsize;
 
 	/**
 	 * Create the panel.
@@ -64,89 +85,91 @@ public class Create_Invoice_Panel extends JPanel {
 				FormFactory.RELATED_GAP_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC,}));
 		
+		colsize = 10;
+		
 		final JLabel lblName = new JLabel("Name: ");
 		add(lblName, "2, 2, right, default");
 		
-		Name = new JTextField();
-		Name.getDocument().addDocumentListener(new DocumentListener() {
+		name = new JTextField();
+		name.getDocument().addDocumentListener(new DocumentListener() {
 			public void changedUpdate(DocumentEvent e) {
 			// text was changed, implement a way to save this
-				System.out.println(Name.getText());
+				System.out.println(name.getText());
 			}
 			public void removeUpdate(DocumentEvent e) {
 			// text was deleted
-				System.out.println(Name.getText());
+				System.out.println(name.getText());
 			}
 			public void insertUpdate(DocumentEvent e) {
 			// text was inserted
-				System.out.println(Name.getText());
+				System.out.println(name.getText());
 			}
 			});
-		add(Name, "4, 2, fill, default");
-		Name.setColumns(10);
+		add(name, "4, 2, fill, default");
+		name.setColumns(colsize);
 		
 		JLabel label = new JLabel("Date: ");
 		add(label, "8, 2, right, default");
 		
-		Date = new JTextField();
-		Date.getDocument().addDocumentListener(new DocumentListener() {
+		date = new JTextField();
+		date.getDocument().addDocumentListener(new DocumentListener() {
 			public void changedUpdate(DocumentEvent e) {
 			// text was changed, implement a way to save this
-				System.out.println(Date.getText());
+				System.out.println(date.getText());
 			}
 			public void removeUpdate(DocumentEvent e) {
 			// text was deleted
-				System.out.println(Date.getText());
+				System.out.println(date.getText());
 			}
 			public void insertUpdate(DocumentEvent e) {
 			// text was inserted
-				System.out.println(Date.getText());
+				System.out.println(date.getText());
 			}
 			});
-		add(Date, "10, 2, fill, top");
-		Date.setColumns(10);
+		add(date, "10, 2, fill, top");
+		date.setColumns(colsize);
 		
 		final JLabel lblDoctor = new JLabel("Doctor: ");
 		add(lblDoctor, "2, 6, right, default");
 		
-		Doctor = new JTextField();
-		Doctor.getDocument().addDocumentListener(new DocumentListener() {
+		doctor = new JTextField();
+		doctor.getDocument().addDocumentListener(new DocumentListener() {
 			public void changedUpdate(DocumentEvent e) {
 			// text was changed, implement a way to save this
-				System.out.println(Doctor.getText());
+				System.out.println(doctor.getText());
 			}
 			public void removeUpdate(DocumentEvent e) {
 			// text was deleted
-				System.out.println(Doctor.getText());
+				System.out.println(doctor.getText());
 			}
 			public void insertUpdate(DocumentEvent e) {
 			// text was inserted
-				System.out.println(Doctor.getText());
+				System.out.println(doctor.getText());
 			}
 			});
-		add(Doctor, "4, 6, fill, default");
-		Doctor.setColumns(10);
+		add(doctor, "4, 6, fill, default");
+		doctor.setColumns(colsize);
 		
 		final JLabel lblBill = new JLabel("Bill: ");
 		add(lblBill, "2, 10, right, default");
 		
-		Bill = new JTextField();
-		Bill.getDocument().addDocumentListener(new DocumentListener() {
+		bill = new JTextField();
+		bill.getDocument().addDocumentListener(new DocumentListener() {
 			public void changedUpdate(DocumentEvent e) {
 			// text was changed, implement a way to save this
-				System.out.println(Bill.getText());
+				System.out.println(bill.getText());
 			}
 			public void removeUpdate(DocumentEvent e) {
 			// text was deleted
-				System.out.println(Bill.getText());
+				System.out.println(bill.getText());
 			}
 			public void insertUpdate(DocumentEvent e) {
 			// text was inserted
-				System.out.println(Bill.getText());
+				System.out.println(bill.getText());
 			}
 			});
-		add(Bill, "4, 10, fill, default");
-		Bill.setColumns(10);
+		add(bill, "4, 10, fill, default");
+		bill.setColumns(colsize);
 
 	}
 
