@@ -19,14 +19,19 @@ public class ValidateTest extends TestCase {
 	
 	/**
 	 * Test if the password is blank. Test should fail and return
-	 * max attemtps(3)
+	 * max attempts(3)
 	 * @throws IOException
 	 */
-	public void blankStringtest() throws IOException
+	public void blankStringtest()
 	{
 		final Nurse nurse = new Nurse();
 		final int userID = nurse.createPatient();
-		nurse.getPatient(userID).setPassword("password");
+		try {
+			nurse.getPatient(userID).setPassword("password");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		LoginClass log = new LoginClass(userID);
 		assertTrue(log.validate("") == 3);
 		
@@ -37,11 +42,16 @@ public class ValidateTest extends TestCase {
 	 * have a password. Test should fail and return -2
 	 * @throws IOException
 	 */
-	public void fakeUser() throws IOException
+	public void fakeUser()
 	{
 		final Nurse nurse = new Nurse();
 		final int userID = nurse.createPatient();
-		nurse.getPatient(userID).setPassword("password");
+		try {
+			nurse.getPatient(userID).setPassword("password");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		LoginClass log = new LoginClass(9876);
 		assertTrue(log.validate("password") == -2);
 	} 
@@ -51,13 +61,37 @@ public class ValidateTest extends TestCase {
 	 * Should fail and return 3
 	 * @throws IOException
 	 */
-	public void wrongPass() throws IOException
+	public void wrongPass() 
 	{
 		final Nurse nurse = new Nurse();
 		final int userID = nurse.createPatient();
-		nurse.getPatient(userID).setPassword("password");
+		try {
+			nurse.getPatient(userID).setPassword("password");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		LoginClass log = new LoginClass(userID);
 		assertTrue(log.validate("3") == 3);
+	}
+	
+	/**
+	 * Test validate with an null password. 
+	 * Should fail and return 3
+	 * @throws IOException
+	 */
+	public void nullPass() 
+	{
+		final Nurse nurse = new Nurse();
+		final int userID = nurse.createPatient();
+		try {
+			nurse.getPatient(userID).setPassword("password");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		LoginClass log = new LoginClass(userID);
+		assertTrue(log.validate(null) == 3);
 	}
 	
 	/**
@@ -65,11 +99,16 @@ public class ValidateTest extends TestCase {
 	 * Test should pass and return -1
 	 * @throws IOException
 	 */
-	public void rightPass() throws IOException
+	public void rightPass()
 	{
 		final Nurse nurse = new Nurse();
 		final int userID = nurse.createPatient();
-		nurse.getPatient(userID).setPassword("password");
+		try {
+			nurse.getPatient(userID).setPassword("password");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		LoginClass log = new LoginClass(userID);
 		assertTrue(log.validate("password") == -1);
 	}
