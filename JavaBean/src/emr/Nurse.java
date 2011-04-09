@@ -134,14 +134,18 @@ public class Nurse extends User {
 	 */
 	public Patient getPatient(int userID) {
 		Patient newPatient = null;
-		if(UserController.getUser(userID) instanceof Patient){
+		if(UserController.getUser(userID) == null){
+			Hospital.setTestMsg("No patient with this patient ID.\n");
+			Hospital.LOGGER.warning("No patient with this patient ID.\n");
+		}
+		else if(UserController.getUser(userID) instanceof Patient){
 			newPatient = (Patient) UserController.getUser(userID);
 		}//end if
 		else{
-			Hospital.LOGGER.warning("Nurse getPatient returned a User that " +
-					"is not a patient");
+			Hospital.setTestMsg("This ID belongs to a non-patient user.\n");
+			Hospital.LOGGER.warning("This ID belongs to a non-patient user.\n");
 		}//end else
-		return (Patient) UserController.getUser(userID);
+		return newPatient;
 	}//end getPatient
 	
 	/**

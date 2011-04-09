@@ -72,9 +72,26 @@ public class Doctor extends Nurse{
 	 */
 	public void createDoctorsOrders(int patientID, String prescription, String labWork,
 			String followUp, String other) {
-		final DoctorsOrders newDoctorsOrders = new DoctorsOrders(prescription, labWork, 
+		if(prescription == null){
+			Hospital.setTestMsg("Empty prescription.\n");
+			Hospital.LOGGER.warning("Empty prescription.\n");
+		}
+		else if(labWork == null){
+			Hospital.setTestMsg("Empty lab work.\n");
+			Hospital.LOGGER.warning("Empty lab work.\n");
+		}
+		else if(followUp == null){
+			Hospital.setTestMsg("Empty follow up.\n");
+			Hospital.LOGGER.warning("Empty follow up.\n");
+		}
+		else{
+			final DoctorsOrders newDoctorsOrders = new DoctorsOrders(prescription, labWork, 
 				followUp, other);
-		getPatient(patientID).getMedicalHistory().addDoctorsOrders(newDoctorsOrders);
+			Patient thePatient = getPatient(patientID);
+			if(thePatient != null){
+			thePatient.getMedicalHistory().addDoctorsOrders(newDoctorsOrders);
+			}
+		}
 	}
 	
 	/**

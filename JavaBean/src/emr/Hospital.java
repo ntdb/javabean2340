@@ -32,6 +32,16 @@ public class Hospital {
 	 */
 	private static SimpleFormatter formatterTxt;
 	
+	//test only
+	private static String testMsg = new String();
+	public static void setTestMsg( String newOne){
+		testMsg =newOne;
+	}
+	public static String getTestMsg(){
+		return testMsg;
+	}
+	
+	
 	/**
 	 * Main method for execution
 	 * 
