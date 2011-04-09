@@ -17,7 +17,11 @@ import junit.framework.TestCase;
  */
 public class ValidateTest extends TestCase {
 	
-
+	/**
+	 * Test if the password is blank. Test should fail and return
+	 * max attemtps(3)
+	 * @throws IOException
+	 */
 	public void blankStringtest() throws IOException
 	{
 		final Nurse nurse = new Nurse();
@@ -28,6 +32,11 @@ public class ValidateTest extends TestCase {
 		
 	}
 	
+	/**
+	 * Test if the user is in the user database to even 
+	 * have a password. Test should fail and return -2
+	 * @throws IOException
+	 */
 	public void fakeUser() throws IOException
 	{
 		final Nurse nurse = new Nurse();
@@ -37,6 +46,11 @@ public class ValidateTest extends TestCase {
 		assertTrue(log.validate("password") == -2);
 	} 
 	
+	/**
+	 * Test validate with an incorrect password. 
+	 * Should fail and return 3
+	 * @throws IOException
+	 */
 	public void wrongPass() throws IOException
 	{
 		final Nurse nurse = new Nurse();
@@ -46,6 +60,11 @@ public class ValidateTest extends TestCase {
 		assertTrue(log.validate("3") == 3);
 	}
 	
+	/**
+	 * Test validate with the correct password.
+	 * Test should pass and return -1
+	 * @throws IOException
+	 */
 	public void rightPass() throws IOException
 	{
 		final Nurse nurse = new Nurse();
