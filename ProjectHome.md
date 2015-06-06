@@ -1,0 +1,1 @@
+A medical platform for patient/nurse/doctor communication.
